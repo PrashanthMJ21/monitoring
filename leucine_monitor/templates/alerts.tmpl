@@ -1,0 +1,16 @@
+{{ define "alerts" }}
+{{ if eq .Status "firing" }}
+{{ range .Alerts }}
+-> Summary: {{ .Annotations.summary }}
+-> Threshold: {{ .Annotations.threshold }}%
+🖥️ Server-ip: {{ .Annotations.server }}
+🌐 URL: {{ .Annotations.url }}
+{{ end }}
+{{ else if eq .Status "resolved" }}
+{{ range .Alerts }}
+🖥️ Server-ip: {{ .Annotations.server }}
+🌐 URL: {{ .Annotations.url }}
+{{ end }}
+{{ end }}
+{{ end }}
+
