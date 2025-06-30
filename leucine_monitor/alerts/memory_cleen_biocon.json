@@ -1,0 +1,95 @@
+{
+  "apiVersion": 1,
+  "groups": [
+    {
+      "orgId": 1,
+      "name": "Memory",
+      "folder": "memory-usage",
+      "interval": "1m",
+      "rules": [
+        {
+          "uid": "eeob3e04d1f5sf",
+          "title": "cleen-biocon Memory",
+          "condition": "C",
+          "data": [
+            {
+              "refId": "A",
+              "relativeTimeRange": {
+                "from": 600,
+                "to": 0
+              },
+              "datasourceUid": "een8kd4v17awwa",
+              "model": {
+                "editorMode": "code",
+                "expr": "100 - (\n  avg by(instance) (\n    node_memory_MemAvailable_bytes{job=\"cleen-biocon-server\"} \n    / \n    node_memory_MemTotal_bytes{job=\"cleen-biocon-server\"}\n  ) * 100\n)\nand \non(instance) up{job=\"cleen-biocon-server\"} == 1",
+                "instant": true,
+                "intervalMs": 1000,
+                "legendFormat": "__auto",
+                "maxDataPoints": 43200,
+                "range": false,
+                "refId": "A"
+              }
+            },
+            {
+              "refId": "C",
+              "relativeTimeRange": {
+                "from": 0,
+                "to": 0
+              },
+              "datasourceUid": "__expr__",
+              "model": {
+                "conditions": [
+                  {
+                    "evaluator": {
+                      "params": [85],
+                      "type": "gt"
+                    },
+                    "operator": {
+                      "type": "and"
+                    },
+                    "query": {
+                      "params": ["C"]
+                    },
+                    "reducer": {
+                      "params": [],
+                      "type": "last"
+                    },
+                    "type": "query",
+                    "unloadEvaluator": {
+                      "params": [84],
+                      "type": "lt"
+                    }
+                  }
+                ],
+                "datasource": {
+                  "type": "__expr__",
+                  "uid": "__expr__"
+                },
+                "expression": "A",
+                "intervalMs": 1000,
+                "maxDataPoints": 43200,
+                "refId": "C",
+                "type": "threshold"
+              }
+            }
+          ],
+          "noDataState": "NoData",
+          "execErrState": "Error",
+          "for": "1m",
+          "annotations": {
+            "server": "20.244.95.3",
+            "summary": "The Memory usage is above the threshold value",
+            "threshold": "85",
+            "title": "cleen-biocon Memory-Usage",
+            "url": "biocon.cleen.leucine.tech"
+          },
+          "isPaused": false,
+          "notification_settings": {
+            "receiver": "Alerts"
+          }
+        }
+      ]
+    }
+  ]
+}
+{}

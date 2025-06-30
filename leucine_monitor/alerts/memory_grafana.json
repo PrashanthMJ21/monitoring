@@ -1,0 +1,95 @@
+{
+  "apiVersion": 1,
+  "groups": [
+    {
+      "orgId": 1,
+      "name": "Memory",
+      "folder": "memory-usage",
+      "interval": "1m",
+      "rules": [
+        {
+          "uid": "feoiwvx00622oa",
+          "title": "Grafana-memory",
+          "condition": "C",
+          "data": [
+            {
+              "refId": "A",
+              "relativeTimeRange": {
+                "from": 600,
+                "to": 0
+              },
+              "datasourceUid": "een8kd4v17awwa",
+              "model": {
+                "editorMode": "code",
+                "expr": "100 - (\n  avg by(instance) (\n    node_memory_MemAvailable_bytes{job=\"Grafana-Server\"}\n    /\n    node_memory_MemTotal_bytes{job=\"Grafana-Server\"}\n  ) * 100\n)\nand\non(instance) up{job=\"Grafana-Server\"} == 1",
+                "instant": true,
+                "intervalMs": 1000,
+                "legendFormat": "__auto",
+                "maxDataPoints": 43200,
+                "range": false,
+                "refId": "A"
+              }
+            },
+            {
+              "refId": "C",
+              "relativeTimeRange": {
+                "from": 0,
+                "to": 0
+              },
+              "datasourceUid": "__expr__",
+              "model": {
+                "conditions": [
+                  {
+                    "evaluator": {
+                      "params": [85],
+                      "type": "gt"
+                    },
+                    "operator": {
+                      "type": "and"
+                    },
+                    "query": {
+                      "params": ["C"]
+                    },
+                    "reducer": {
+                      "params": [],
+                      "type": "last"
+                    },
+                    "type": "query",
+                    "unloadEvaluator": {
+                      "params": [84],
+                      "type": "lt"
+                    }
+                  }
+                ],
+                "datasource": {
+                  "type": "__expr__",
+                  "uid": "__expr__"
+                },
+                "expression": "A",
+                "intervalMs": 1000,
+                "maxDataPoints": 43200,
+                "refId": "C",
+                "type": "threshold"
+              }
+            }
+          ],
+          "noDataState": "NoData",
+          "execErrState": "Error",
+          "for": "1m",
+          "annotations": {
+            "server": "65.0.99.97",
+            "summary": "The Memory usage is above the threshold value.",
+            "threshold": "40",
+            "title": "Grafana Memory-usage",
+            "url": "msn.stage.cleen.leucinetech.com"
+          },
+          "isPaused": false,
+          "notification_settings": {
+            "receiver": "Alerts"
+          }
+        }
+      ]
+    }
+  ]
+}
+{}
