@@ -1,0 +1,26 @@
+alerts:
+  - name: cleen_biocon_cpu
+    title: "cleen-biocon CPU"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="cleen-biocon-server", mode="idle"}[1m])
+        ) * 100
+      ) and on(instance) up{job="cleen-biocon-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    summary: "The CPU usage is above the threshold value."
+    server: "20.244.95.3"
+    url: "biocon.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    keep_firing_for: "0s"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
