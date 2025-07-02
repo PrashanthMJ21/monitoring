@@ -40,7 +40,7 @@
               "type": "and"
             },
             "query": {
-              "params": ["C"]
+              "params": ["A"]
             },
             "reducer": {
               "type": "last",
