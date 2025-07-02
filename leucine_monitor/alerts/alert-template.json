@@ -1,73 +1,83 @@
 {
-  "apiVersion": 1,
-  "groups": [
+  "orgId": 1,
+  "folderUID": "",
+  "title": "",
+  "condition": "",
+  "data": [
     {
-      "orgId": 1,
-      "name": "{{.group}}",
-      "folder": "{{.folder}}",
-      "interval": "1m",
-      "rules": [
-        {
-          "uid": "{{.name}}",
-          "title": "{{.title}}",
-          "condition": "{{.condition}}",
-          "data": [
-            {
-              "refId": "A",
-              "relativeTimeRange": { "from": 600, "to": 0 },
-              "datasourceUid": "{{.datasource_uid}}",
-              "model": {
-                "editorMode": "code",
-                "expr": "{{.expr}}",
-                "instant": true,
-                "intervalMs": 1000,
-                "legendFormat": "__auto",
-                "maxDataPoints": 43200,
-                "range": false,
-                "refId": "A"
-              }
+      "refId": "A",
+      "relativeTimeRange": {
+        "from": 600,
+        "to": 0
+      },
+      "datasourceUid": "",
+      "model": {
+        "editorMode": "code",
+        "expr": "",
+        "instant": true,
+        "intervalMs": 1000,
+        "legendFormat": "__auto",
+        "maxDataPoints": 43200,
+        "range": false,
+        "refId": "A"
+      }
+    },
+    {
+      "refId": "C",
+      "relativeTimeRange": {
+        "from": 0,
+        "to": 0
+      },
+      "datasourceUid": "__expr__",
+      "model": {
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [0],
+              "type": "gt"
             },
-            {
-              "refId": "C",
-              "relativeTimeRange": { "from": 0, "to": 0 },
-              "datasourceUid": "__expr__",
-              "model": {
-                "conditions": [
-                  {
-                    "evaluator": { "params": [{{.threshold}}], "type": "gt" },
-                    "operator": { "type": "and" },
-                    "query": { "params": ["C"] },
-                    "reducer": { "type": "last", "params": [] },
-                    "type": "query",
-                    "unloadEvaluator": { "params": [{{.recovery_threshold}}], "type": "lt" }
-                  }
-                ],
-                "datasource": { "type": "__expr__", "uid": "__expr__" },
-                "expression": "A",
-                "intervalMs": 1000,
-                "maxDataPoints": 43200,
-                "refId": "C",
-                "type": "threshold"
-              }
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": ["C"]
+            },
+            "reducer": {
+              "type": "last",
+              "params": []
+            },
+            "type": "query",
+            "unloadEvaluator": {
+              "params": [0],
+              "type": "lt"
             }
-          ],
-          "noDataState": "{{.no_data_state}}",
-          "execErrState": "{{.exec_err_state}}",
-          "for": "{{.pending}}",
-          "annotations": {
-            "summary": "{{.summary}}",
-            "server": "{{.server}}",
-            "threshold": "{{.threshold}}",
-            "title": "{{.title}}",
-            "url": "{{.url}}"
-          },
-          "isPaused": false,
-          "notification_settings": {
-            "receiver": "{{.contact_point}}"
           }
-        }
-      ]
+        ],
+        "datasource": {
+          "type": "__expr__",
+          "uid": "__expr__"
+        },
+        "expression": "A",
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "refId": "C",
+        "type": "threshold"
+      }
     }
-  ]
+  ],
+  "noDataState": "",
+  "execErrState": "",
+  "for": "",
+  "annotations": {
+    "summary": "",
+    "server": "",
+    "threshold": "",
+    "title": "",
+    "url": ""
+  },
+  "isPaused": false,
+  "notification_settings": {
+    "receiver": ""
+  },
+  "labels": {}
 }
-
