@@ -1,8 +1,8 @@
 {
   "orgId": 1,
-  "folderUID": "",
-  "title": "",
-  "condition": "C",
+  "folderUID": "${folderUID}",
+  "title": "${title}",
+  "condition": "${condition}",
   "data": [
     {
       "refId": "A",
@@ -10,10 +10,10 @@
         "from": 600,
         "to": 0
       },
-      "datasourceUid": "",
+      "datasourceUid": "${datasource_uid}",
       "model": {
         "editorMode": "code",
-        "expr": "",
+        "expr": "${expr}",
         "instant": true,
         "intervalMs": 1000,
         "legendFormat": "__auto",
@@ -33,8 +33,12 @@
         "conditions": [
           {
             "evaluator": {
-              "params": [0],
+              "params": [${threshold}],
               "type": "gt"
+            },
+            "unloadEvaluator": {
+              "params": [${recovery_threshold}],
+              "type": "lt"
             },
             "operator": {
               "type": "and"
@@ -46,11 +50,7 @@
               "type": "last",
               "params": []
             },
-            "type": "query",
-            "unloadEvaluator": {
-              "params": [0],
-              "type": "lt"
-            }
+            "type": "query"
           }
         ],
         "datasource": {
@@ -65,20 +65,13 @@
       }
     }
   ],
-  "noDataState": "NoData",
-  "execErrState": "Error",
-  "for": "1m",
-  "annotations": {
-    "summary": "",
-    "server": "",
-    "threshold": "",
-    "title": "",
-    "url": ""
-  },
+  "noDataState": "${no_data_state}",
+  "execErrState": "${exec_err_state}",
+  "for": "${pending}",
+  "annotations": ${annotations},
   "isPaused": false,
-  "labels": {},
-
-  "_notification_settings_commented": {
-    "receiver": ""
-  }
+  "notification_settings": {
+    "receiver": "${contact_point}"
+  },
+  "labels": ${labels}
 }
