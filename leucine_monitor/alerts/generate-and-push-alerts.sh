@@ -24,43 +24,52 @@ alerts=$(yq e '.alerts | length' "$YAML_FILE")
 
 for i in $(seq 0 $((alerts - 1))); do
   alert_json=$(yq e ".alerts[$i]" "$YAML_FILE" | yq -o=json)
-
   folder=$(echo "$alert_json" | jq -r '.folder')
-  folder_uid=$(echo "$folder" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
-  echo "📁 Creating folder '$folder'..."
-  curl -s -X POST "$GRAFANA_URL/api/folders" \
-    -H "Authorization: $API_KEY" \
-    -H "Content-Type: application/json" \
-    -d "{\"title\": \"$folder\", \"uid\": \"$folder_uid\"}" > /dev/null
+  # ✅ Step 2.1: Resolve or create folder UID
+  existing_folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" | \
+    jq -r --arg title "$folder" '.[] | select(.title == $title) | .uid')
+
+  if [ -n "$existing_folder_uid" ]; then
+    folder_uid="$existing_folder_uid"
+  else
+    folder_uid=$(echo "$folder" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+    echo "📁 Creating folder '$folder'..."
+    curl -s -X POST "$GRAFANA_URL/api/folders" \
+      -H "Authorization: $API_KEY" \
+      -H "Content-Type: application/json" \
+      -d "{\"title\": \"$folder\", \"uid\": \"$folder_uid\"}" > /dev/null
+  fi
 
   annotations=$(echo "$alert_json" | jq '.annotations // {}')
   labels=$(echo "$alert_json" | jq '.labels // {}')
 
+  # ✅ Step 2.2: Build dynamic payload
   payload=$(jq -n \
     --argjson alert "$alert_json" \
     --argjson annotations "$annotations" \
     --argjson labels "$labels" \
     --slurpfile template "$TEMPLATE_FILE" \
     --arg prometheus_uid "$PROMETHEUS_UID" \
-    --arg folder_uid "$folder_uid" \
-    '$template[0] |
-     .folderUID = $folder_uid |
-     .title = $alert.title |
-     .group = $alert.group |
-     .condition = $alert.condition |
-     .noDataState = $alert.no_data_state |
-     .execErrState = $alert.exec_err_state |
-     .for = $alert.pending |
-     .keepState = $alert.keep_firing_for |
-     .data[0].datasourceUid = $prometheus_uid |
-     .data[0].model.expr = $alert.expr |
-     .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold |
-     .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold |
-     .data[1].model.conditions[0].query.params[0] = "A" |
-     .annotations = $annotations |
-     .labels = $labels |
-     .notification_settings.receiver = $alert.contact_point')
+    --arg folder_uid "$folder_uid" '
+    $template[0]
+    | .folderUID = $folder_uid
+    | .title = $alert.title
+    | .group = $alert.group
+    | .condition = $alert.condition
+    | .noDataState = $alert.no_data_state
+    | .execErrState = $alert.exec_err_state
+    | .for = $alert.pending
+    | (if $alert.keep_firing_for then .keepState = $alert.keep_firing_for else . end)
+    | .data[0].datasourceUid = $prometheus_uid
+    | .data[0].model.expr = $alert.expr
+    | .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold
+    | .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold
+    | .data[1].model.conditions[0].query.params[0] = "A"
+    | .annotations = $annotations
+    | .labels = $labels
+    | .notification_settings.receiver = $alert.contact_point
+  ')
 
   echo "$payload" > "./alerts/payload_debug_$i.json"
 
