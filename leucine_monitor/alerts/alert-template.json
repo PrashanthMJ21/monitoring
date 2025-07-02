@@ -33,11 +33,11 @@
         "conditions": [
           {
             "evaluator": {
-              "params": [${threshold}],
+              "params": [0],
               "type": "gt"
             },
             "unloadEvaluator": {
-              "params": [${recovery_threshold}],
+              "params": [0],
               "type": "lt"
             },
             "operator": {
@@ -68,10 +68,10 @@
   "noDataState": "${no_data_state}",
   "execErrState": "${exec_err_state}",
   "for": "${pending}",
-  "annotations": ${annotations},
+  "annotations": {},
   "isPaused": false,
   "notification_settings": {
     "receiver": "${contact_point}"
   },
-  "labels": ${labels}
+  "labels": {}
 }
