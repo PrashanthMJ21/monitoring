@@ -70,8 +70,5 @@
   "for": "${pending}",
   "annotations": {},
   "isPaused": false,
-  "notification_settings": {
-    "receiver": "${contact_point}"
-  },
   "labels": {}
 }
