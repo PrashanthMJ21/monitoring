@@ -24,3 +24,26 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+  - name: cleen_biocon_memory
+    title: "cleen-biocon Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 * (
+        (node_memory_MemTotal_bytes{job="cleen-biocon-server"} - node_memory_MemAvailable_bytes{job="cleen-biocon-server"})
+        / node_memory_MemTotal_bytes{job="cleen-biocon-server"}
+      ) and on(instance) up{job="cleen-biocon-server"} == 1
+    threshold: 75
+    recovery_threshold: 70
+    summary: "The memory usage is above the threshold value."
+    server: "20.244.95.3"
+    url: "biocon.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    keep_firing_for: "0s"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
