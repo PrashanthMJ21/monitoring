@@ -34,7 +34,13 @@ for i in $(seq 0 $((alerts - 1))); do
     -H "Content-Type: application/json" \
     -d "{\"title\": \"$folder\", \"uid\": \"$folder_uid\"}" > /dev/null
 
-  payload=$(jq -n --argjson alert "$alert_json" \
+  annotations=$(echo "$alert_json" | jq '.annotations // {}')
+  labels=$(echo "$alert_json" | jq '.labels // {}')
+
+  payload=$(jq -n \
+    --argjson alert "$alert_json" \
+    --argjson annotations "$annotations" \
+    --argjson labels "$labels" \
     --slurpfile template "$TEMPLATE_FILE" \
     --arg prometheus_uid "$PROMETHEUS_UID" \
     --arg folder_uid "$folder_uid" \
@@ -52,12 +58,8 @@ for i in $(seq 0 $((alerts - 1))); do
      .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold |
      .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold |
      .data[1].model.conditions[0].query.params[0] = "A" |
-     .annotations.server = $alert.server |
-     .annotations.summary = $alert.summary |
-     .annotations.threshold = ($alert.threshold | tostring) |
-     .annotations.url = $alert.url |
-     .annotations.title = $alert.title |
-     .labels = $alert.labels |
+     .annotations = $annotations |
+     .labels = $labels |
      .notification_settings.receiver = $alert.contact_point')
 
   echo "$payload" > "./alerts/payload_debug_$i.json"
