@@ -51,6 +51,7 @@ for i in $(seq 0 $((alerts - 1))); do
      .data[0].model.expr = $alert.expr |
      .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold |
      .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold |
+     .data[1].model.conditions[0].query.params[0] = "A" |
      .annotations.server = $alert.server |
      .annotations.summary = $alert.summary |
      .annotations.threshold = ($alert.threshold | tostring) |
