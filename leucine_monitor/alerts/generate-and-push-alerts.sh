@@ -68,7 +68,7 @@ for i in $(seq 0 $((alerts - 1))); do
     | .data[1].model.conditions[0].query.params[0] = "A"
     | .annotations = $annotations
     | .labels = $labels
-    | .notification_settings.receiver = $alert.contact_point
+    | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
   ')
 
   echo "$payload" > "./alerts/payload_debug_$i.json"
