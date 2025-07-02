@@ -7,7 +7,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./provisioning:/etc/grafana/provisioning    # For datasources & dashboards
+      - ./provisioning:/etc/grafana/provisioning          # Datasources and alerts provisioning
+      - ./config/grafana.ini:/etc/grafana/grafana.ini     # ✅ Custom grafana.ini with debug log level
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
@@ -28,4 +29,3 @@ services:
     ports:
       - "9100:9100"
     restart: always
-
