@@ -2,7 +2,6 @@ alerts:
   - name: cleen_biocon_cpu
     title: "cleen-biocon CPU"
     folder: "CPU-Usage"
-    group: "CPU"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
@@ -13,21 +12,21 @@ alerts:
       ) and on(instance) up{job="cleen-biocon-server"} == 1
     threshold: 85
     recovery_threshold: 84
-    summary: "The CPU usage is above the threshold value."
-    server: "20.244.95.3"
-    url: "biocon.cleen.leucine.tech"
+    annotations:
+      summary: "High CPU usage"
+      server: "20.244.95.3"
+      link: "https://grafana/cleen-biocon"
+      title: "cleen-biocon CPU Alert"
     labels:
       env: "production"
     contact_point: "Alerts"
     pending: "1m"
-    keep_firing_for: "0s"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
   - name: cleen_biocon_memory
     title: "cleen-biocon Memory"
     folder: "Memory-Usage"
-    group: "Memory"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
@@ -37,13 +36,14 @@ alerts:
       ) and on(instance) up{job="cleen-biocon-server"} == 1
     threshold: 75
     recovery_threshold: 70
-    summary: "The memory usage is above the threshold value."
-    server: "20.244.95.3"
-    url: "biocon.cleen.leucine.tech"
+    annotations:
+      description: "Memory usage has exceeded 75%."
+      owner: "infra-team@leucine.tech"
+      impact: "May affect app performance"
+      url: "biocon.cleen.leucine.tech"
     labels:
       env: "production"
     contact_point: "Alerts"
     pending: "1m"
-    keep_firing_for: "0s"
     no_data_state: "NoData"
     exec_err_state: "Error"
