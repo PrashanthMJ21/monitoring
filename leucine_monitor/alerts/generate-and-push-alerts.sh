@@ -55,7 +55,7 @@ for i in $(seq 0 $((alerts - 1))); do
     $template[0]
     | .folderUID = $folder_uid
     | .title = $alert.title
-    | .group = $alert.group
+    | (if $alert.group then .group = $alert.group else del(.group) end)
     | .condition = $alert.condition
     | .noDataState = $alert.no_data_state
     | .execErrState = $alert.exec_err_state
