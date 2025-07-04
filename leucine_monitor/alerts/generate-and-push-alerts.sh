@@ -3,18 +3,22 @@
 # ----------- CONFIGURABLE VARIABLES -------------
 YAML_FILE="./alerts/alert-details.yml"
 TEMPLATE_FILE="./alerts/alert-template.json"
-GRAFANA_URL="${GRAFANA_URL}"
-API_KEY="${API_KEY}"
+ENV_FILE="./alerts/.env"
 PROMETHEUS_DS_NAME="Prometheus"
 # -----------------------------------------------
 
-# Step 1: Validate required environment variables
+# Load environment variables
+if [ -f "$ENV_FILE" ]; then
+  source "$ENV_FILE"
+fi
+
+# Validate
 if [[ -z "$GRAFANA_URL" || -z "$API_KEY" ]]; then
-  echo "❌ GRAFANA_URL or API_KEY is not set. Export them and rerun."
+  echo "❌ GRAFANA_URL or API_KEY is not set. Export them or check $ENV_FILE"
   exit 1
 fi
 
-# Step 2: Get Prometheus UID with retry
+# Step 1: Get Prometheus UID
 echo "🔎 Checking Prometheus UID..."
 for attempt in {1..10}; do
   PROMETHEUS_UID=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/datasources" | \
@@ -34,14 +38,14 @@ if [[ -z "$PROMETHEUS_UID" || "$PROMETHEUS_UID" == "null" ]]; then
   exit 1
 fi
 
-# Step 3: Loop through alerts
+# Step 2: Loop through alerts
 alerts=$(yq e '.alerts | length' "$YAML_FILE")
 
 for i in $(seq 0 $((alerts - 1))); do
   alert_json=$(yq e ".alerts[$i]" "$YAML_FILE" | yq -o=json)
   folder=$(echo "$alert_json" | jq -r '.folder')
 
-  # Step 3.1: Resolve or create folder
+  # Folder creation
   existing_folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" | \
     jq -r --arg title "$folder" '.[] | select(.title == $title) | .uid')
 
@@ -56,11 +60,10 @@ for i in $(seq 0 $((alerts - 1))); do
       -d "{\"title\": \"$folder\", \"uid\": \"$folder_uid\"}" > /dev/null
   fi
 
-  # Step 3.2: Prepare annotations and labels
   annotations=$(echo "$alert_json" | jq '.annotations // {}')
   labels=$(echo "$alert_json" | jq '.labels // {}')
 
-  # Step 3.3: Generate payload from template
+  # Prepare payload
   payload=$(jq -n \
     --argjson alert "$alert_json" \
     --argjson annotations "$annotations" \
@@ -89,7 +92,7 @@ for i in $(seq 0 $((alerts - 1))); do
 
   echo "$payload" > "./alerts/payload_debug_$i.json"
 
-  # Step 3.4: POST to Grafana
+  # Push alert rule
   response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
     -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
     -H "Authorization: $API_KEY" \
@@ -100,9 +103,8 @@ for i in $(seq 0 $((alerts - 1))); do
 
   echo "📤 Pushing alert: $(echo "$alert_json" | jq -r '.name')"
   echo "📥 HTTP Status: $http_status"
-  echo "📥 Response Body:"
   cat "./alerts/response_body_$i.txt"
   echo
 done
 
-echo "✅ All alerts pushed dynamically."
+echo "✅ All alerts pushed dynamically"
