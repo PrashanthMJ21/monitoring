@@ -24,7 +24,6 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
     group: "CPU"
-    pending: "1m"
     keep_firing_for: "0s"
 
   - name: cleen_biocon_memory
@@ -51,6 +50,5 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
     group: "Memory"
-    pending: "1m"
     keep_firing_for: "0s"
 
