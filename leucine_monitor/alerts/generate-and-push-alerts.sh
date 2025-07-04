@@ -94,7 +94,7 @@ for i in $(seq 0 $((alerts - 1))); do
 
   # POST to Grafana
   response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
-    -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
+    -X POST "$GRAFANA_URL/api/v1/rules" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -d "$payload")
