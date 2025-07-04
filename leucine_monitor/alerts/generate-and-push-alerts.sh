@@ -12,7 +12,7 @@ if [ -f "$ENV_FILE" ]; then
   source "$ENV_FILE"
 fi
 
-# Validate
+# Validate required ENV vars
 if [[ -z "$GRAFANA_URL" || -z "$API_KEY" ]]; then
   echo "❌ GRAFANA_URL or API_KEY is not set. Export them or check $ENV_FILE"
   exit 1
@@ -45,7 +45,7 @@ for i in $(seq 0 $((alerts - 1))); do
   alert_json=$(yq e ".alerts[$i]" "$YAML_FILE" | yq -o=json)
   folder=$(echo "$alert_json" | jq -r '.folder')
 
-  # Folder creation
+  # Folder check or create
   existing_folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" | \
     jq -r --arg title "$folder" '.[] | select(.title == $title) | .uid')
 
@@ -63,7 +63,7 @@ for i in $(seq 0 $((alerts - 1))); do
   annotations=$(echo "$alert_json" | jq '.annotations // {}')
   labels=$(echo "$alert_json" | jq '.labels // {}')
 
-  # Prepare payload
+  # Build dynamic payload
   payload=$(jq -n \
     --argjson alert "$alert_json" \
     --argjson annotations "$annotations" \
@@ -92,7 +92,7 @@ for i in $(seq 0 $((alerts - 1))); do
 
   echo "$payload" > "./alerts/payload_debug_$i.json"
 
-  # Push alert rule
+  # POST to Grafana
   response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
     -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
     -H "Authorization: $API_KEY" \
