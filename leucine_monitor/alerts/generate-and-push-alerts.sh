@@ -95,7 +95,7 @@ payload=$(jq -n \
 
   # POST to Grafana
   response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
-    -X POST "$GRAFANA_URL/api/v1/rules" \
+    -X POST "$GRAFANA_URL/api/ruler/grafana/api/v1/rules/$folder_uid"
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -d "$payload")
