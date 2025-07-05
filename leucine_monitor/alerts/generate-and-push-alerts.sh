@@ -64,40 +64,41 @@ for i in $(seq 0 $((alerts - 1))); do
   labels=$(echo "$alert_json" | jq '.labels // {}')
 
   # Build dynamic payload
-payload=$(jq -n \
-  --argjson alert "$alert_json" \
-  --argjson annotations "$annotations" \
-  --argjson labels "$labels" \
-  --slurpfile template "$TEMPLATE_FILE" \
-  --arg prometheus_uid "$PROMETHEUS_UID" \
-  --arg folder_uid "$folder_uid" '
-  $template[0]
-  | .folderUID = $folder_uid
-  | .title = ($alert.title // $alert.name)
-  | .group = $alert.group
-  | .ruleGroup = $alert.group
-  | .condition = $alert.condition
-  | .noDataState = $alert.no_data_state
-  | .execErrState = $alert.exec_err_state
-  | .for = $alert.pending
-  | (if $alert.keep_firing_for then .keepState = $alert.keep_firing_for else del(.keepState) end)
-  | .data[0].datasourceUid = $prometheus_uid
-  | .data[0].model.expr = $alert.expr
-  | .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold
-  | .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold
-  | .data[1].model.conditions[0].query.params[0] = "A"
-  | .annotations = $annotations
-  | .labels = $labels
-  | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
-')
+  payload=$(jq -n \
+    --argjson alert "$alert_json" \
+    --argjson annotations "$annotations" \
+    --argjson labels "$labels" \
+    --slurpfile template "$TEMPLATE_FILE" \
+    --arg prometheus_uid "$PROMETHEUS_UID" \
+    --arg folder_uid "$folder_uid" '
+    $template[0]
+    | .folderUID = $folder_uid
+    | .title = ($alert.title // $alert.name)
+    | .group = $alert.group
+    | .ruleGroup = $alert.group
+    | .condition = $alert.condition
+    | .noDataState = $alert.no_data_state
+    | .execErrState = $alert.exec_err_state
+    | .for = $alert.pending
+    | (if $alert.keep_firing_for then .keepState = $alert.keep_firing_for else del(.keepState) end)
+    | .data[0].datasourceUid = $prometheus_uid
+    | .data[0].model.expr = $alert.expr
+    | .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold
+    | .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold
+    | .data[1].model.conditions[0].query.params[0] = "A"
+    | .annotations = $annotations
+    | .labels = $labels
+    | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
+  ')
 
   echo "$payload" > "./alerts/payload_debug_$i.json"
 
-  # POST to Grafana
+  # POST to Grafana - editable alerts
   response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
-    -X POST "$GRAFANA_URL/api/ruler/grafana/api/v1/rules/$folder_uid"
+    -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
+    -H "X-Disable-Provenance: true" \
     -d "$payload")
 
   http_status=$(tail -n1 <<< "$response")
@@ -108,4 +109,4 @@ payload=$(jq -n \
   echo
 done
 
-echo "✅ All alerts pushed dynamically"
+echo "✅ All alerts pushed dynamically and are editable in Grafana UI."
