@@ -23,8 +23,6 @@ alerts:
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
-    group: "CPU"
-    keep_firing_for: "0s"
 
   - name: cleen_biocon_memory
     title: "cleen-biocon Memory"
@@ -49,6 +47,3 @@ alerts:
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
-    group: "Memory"
-    keep_firing_for: "0s"
-
