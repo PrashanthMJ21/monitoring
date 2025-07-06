@@ -9,7 +9,10 @@
       "data": [
         {
           "refId": "A",
-          "relativeTimeRange": { "from": 600, "to": 0 },
+          "relativeTimeRange": {
+            "from": 600,
+            "to": 0
+          },
           "datasourceUid": "${datasource_uid}",
           "model": {
             "editorMode": "code",
@@ -24,20 +27,39 @@
         },
         {
           "refId": "C",
-          "relativeTimeRange": { "from": 0, "to": 0 },
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          },
           "datasourceUid": "__expr__",
           "model": {
             "conditions": [
               {
-                "evaluator": { "params": [0], "type": "gt" },
-                "unloadEvaluator": { "params": [0], "type": "lt" },
-                "operator": { "type": "and" },
-                "query": { "params": ["A"] },
-                "reducer": { "type": "last", "params": [] },
+                "evaluator": {
+                  "params": [0],
+                  "type": "gt"
+                },
+                "unloadEvaluator": {
+                  "params": [0],
+                  "type": "lt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": ["A"]
+                },
+                "reducer": {
+                  "type": "last",
+                  "params": []
+                },
                 "type": "query"
               }
             ],
-            "datasource": { "type": "__expr__", "uid": "__expr__" },
+            "datasource": {
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
             "expression": "A",
             "intervalMs": 1000,
             "maxDataPoints": 43200,
@@ -50,8 +72,8 @@
       "execErrState": "${exec_err_state}",
       "for": "${pending}",
       "keepState": "${keep_firing_for}",
-      "annotations": {},  
-      "labels": {},       
+      "annotations": {},
+      "labels": {},
       "isPaused": false
     }
   ]
