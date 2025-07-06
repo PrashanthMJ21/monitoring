@@ -3,53 +3,34 @@
 # ----------- CONFIGURABLE VARIABLES -------------
 YAML_FILE="./alerts/alert-details.yml"
 TEMPLATE_FILE="./alerts/alert-template.json"
-ENV_FILE="./alerts/.env"
+GRAFANA_URL="${GRAFANA_URL}"
+API_KEY="${API_KEY}"
 PROMETHEUS_DS_NAME="Prometheus"
 # -----------------------------------------------
 
-# Load environment variables
-if [ -f "$ENV_FILE" ]; then
-  source "$ENV_FILE"
-fi
+# Step 1: Get Prometheus UID dynamically
+PROMETHEUS_UID=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/datasources" | \
+  jq -r --arg name "$PROMETHEUS_DS_NAME" '.[] | select(.name == $name) | .uid')
 
-# Validate required ENV vars
-if [[ -z "$GRAFANA_URL" || -z "$API_KEY" ]]; then
-  echo "❌ GRAFANA_URL or API_KEY is not set. Export them or check $ENV_FILE"
-  exit 1
-fi
-
-# Step 1: Get Prometheus UID
-echo "🔎 Checking Prometheus UID..."
-for attempt in {1..10}; do
-  PROMETHEUS_UID=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/datasources" | \
-    jq -r --arg name "$PROMETHEUS_DS_NAME" '.[] | select(.name == $name) | .uid')
-
-  if [[ -n "$PROMETHEUS_UID" && "$PROMETHEUS_UID" != "null" ]]; then
-    echo "✅ Found Prometheus UID: $PROMETHEUS_UID"
-    break
-  fi
-
-  echo "⏳ Waiting for Prometheus UID... attempt $attempt"
-  sleep 2
-done
-
-if [[ -z "$PROMETHEUS_UID" || "$PROMETHEUS_UID" == "null" ]]; then
+if [ -z "$PROMETHEUS_UID" ] || [ "$PROMETHEUS_UID" == "null" ]; then
   echo "❌ Prometheus UID not found. Exiting..."
   exit 1
+else
+  echo "✅ Found Prometheus UID: $PROMETHEUS_UID"
 fi
 
-# Step 2: Loop through alerts
+# Step 2: Loop through alerts and push
 alerts=$(yq e '.alerts | length' "$YAML_FILE")
 
 for i in $(seq 0 $((alerts - 1))); do
   alert_json=$(yq e ".alerts[$i]" "$YAML_FILE" | yq -o=json)
   folder=$(echo "$alert_json" | jq -r '.folder')
 
-  # Folder check or create
+  # ✅ Step 2.1: Resolve or create folder UID
   existing_folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" | \
     jq -r --arg title "$folder" '.[] | select(.title == $title) | .uid')
 
-  if [[ -n "$existing_folder_uid" ]]; then
+  if [ -n "$existing_folder_uid" ]; then
     folder_uid="$existing_folder_uid"
   else
     folder_uid=$(echo "$folder" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
@@ -63,7 +44,7 @@ for i in $(seq 0 $((alerts - 1))); do
   annotations=$(echo "$alert_json" | jq '.annotations // {}')
   labels=$(echo "$alert_json" | jq '.labels // {}')
 
-  # Build dynamic payload
+  # ✅ Step 2.2: Build dynamic payload
   payload=$(jq -n \
     --argjson alert "$alert_json" \
     --argjson annotations "$annotations" \
@@ -73,14 +54,13 @@ for i in $(seq 0 $((alerts - 1))); do
     --arg folder_uid "$folder_uid" '
     $template[0]
     | .folderUID = $folder_uid
-    | .title = ($alert.title // $alert.name)
-    | .group = $alert.group
-    | .ruleGroup = $alert.group
+    | .title = $alert.title
+    | (if $alert.group then .group = $alert.group else del(.group) end)
     | .condition = $alert.condition
     | .noDataState = $alert.no_data_state
     | .execErrState = $alert.exec_err_state
     | .for = $alert.pending
-    | (if $alert.keep_firing_for then .keepState = $alert.keep_firing_for else del(.keepState) end)
+    | (if $alert.keep_firing_for then .keepState = $alert.keep_firing_for else . end)
     | .data[0].datasourceUid = $prometheus_uid
     | .data[0].model.expr = $alert.expr
     | .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold
@@ -93,7 +73,6 @@ for i in $(seq 0 $((alerts - 1))); do
 
   echo "$payload" > "./alerts/payload_debug_$i.json"
 
-  # POST to Grafana - editable alerts
   response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
     -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
     -H "Authorization: $API_KEY" \
@@ -105,8 +84,9 @@ for i in $(seq 0 $((alerts - 1))); do
 
   echo "📤 Pushing alert: $(echo "$alert_json" | jq -r '.name')"
   echo "📥 HTTP Status: $http_status"
+  echo "📥 Response Body:"
   cat "./alerts/response_body_$i.txt"
   echo
 done
 
-echo "✅ All alerts pushed dynamically and are editable in Grafana UI."
+echo "✅ All alerts pushed dynamically."
