@@ -1,5 +1,6 @@
 {
   "orgId": 1,
+  "ruleGroup": "${group}",
   "folderUID": "${folderUID}",
   "title": "${title}",
   "condition": "${condition}",
