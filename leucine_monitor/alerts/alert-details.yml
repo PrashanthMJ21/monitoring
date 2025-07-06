@@ -2,6 +2,7 @@ alerts:
   - name: cleen_biocon_cpu
     title: "cleen-biocon CPU"
     folder: "CPU-Usage"
+    group: "cpu-alerts"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
@@ -27,6 +28,7 @@ alerts:
   - name: cleen_biocon_memory
     title: "cleen-biocon Memory"
     folder: "Memory-Usage"
+    group: "memory-alerts"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
