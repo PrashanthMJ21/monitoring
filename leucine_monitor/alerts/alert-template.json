@@ -1,80 +1,74 @@
 {
-  "name": "${group}",
+  "orgId": 1,
   "folderUID": "${folderUID}",
-  "interval": "1m",
-  "rules": [
+  "title": "${title}",
+  "condition": "${condition}",
+  "data": [
     {
-      "title": "${title}",
-      "condition": "${condition}",
-      "data": [
-        {
-          "refId": "A",
-          "relativeTimeRange": {
-            "from": 600,
-            "to": 0
-          },
-          "datasourceUid": "${datasource_uid}",
-          "model": {
-            "editorMode": "code",
-            "expr": "${expr}",
-            "instant": true,
-            "intervalMs": 1000,
-            "legendFormat": "__auto",
-            "maxDataPoints": 43200,
-            "range": false,
-            "refId": "A"
-          }
-        },
-        {
-          "refId": "C",
-          "relativeTimeRange": {
-            "from": 60,
-            "to": 0
-          },
-          "datasourceUid": "__expr__",
-          "model": {
-            "conditions": [
-              {
-                "evaluator": {
-                  "params": [0],
-                  "type": "gt"
-                },
-                "unloadEvaluator": {
-                  "params": [0],
-                  "type": "lt"
-                },
-                "operator": {
-                  "type": "and"
-                },
-                "query": {
-                  "params": ["A"]
-                },
-                "reducer": {
-                  "type": "last",
-                  "params": []
-                },
-                "type": "query"
-              }
-            ],
-            "datasource": {
-              "type": "__expr__",
-              "uid": "__expr__"
+      "refId": "A",
+      "relativeTimeRange": {
+        "from": 600,
+        "to": 0
+      },
+      "datasourceUid": "${datasource_uid}",
+      "model": {
+        "editorMode": "code",
+        "expr": "${expr}",
+        "instant": true,
+        "intervalMs": 1000,
+        "legendFormat": "__auto",
+        "maxDataPoints": 43200,
+        "range": false,
+        "refId": "A"
+      }
+    },
+    {
+      "refId": "C",
+      "relativeTimeRange": {
+        "from": 0,
+        "to": 0
+      },
+      "datasourceUid": "__expr__",
+      "model": {
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [0],
+              "type": "gt"
             },
-            "expression": "A",
-            "intervalMs": 1000,
-            "maxDataPoints": 43200,
-            "refId": "C",
-            "type": "threshold"
+            "unloadEvaluator": {
+              "params": [0],
+              "type": "lt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": ["A"]
+            },
+            "reducer": {
+              "type": "last",
+              "params": []
+            },
+            "type": "query"
           }
-        }
-      ],
-      "noDataState": "${no_data_state}",
-      "execErrState": "${exec_err_state}",
-      "for": "${pending}",
-      "keepState": "${keep_firing_for}",
-      "annotations": {},
-      "labels": {},
-      "isPaused": false
+        ],
+        "datasource": {
+          "type": "__expr__",
+          "uid": "__expr__"
+        },
+        "expression": "A",
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "refId": "C",
+        "type": "threshold"
+      }
     }
-  ]
+  ],
+  "noDataState": "${no_data_state}",
+  "execErrState": "${exec_err_state}",
+  "for": "${pending}",
+  "annotations": {},
+  "isPaused": false,
+  "labels": {}
 }
