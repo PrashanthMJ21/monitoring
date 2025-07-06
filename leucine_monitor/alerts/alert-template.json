@@ -28,7 +28,7 @@
         {
           "refId": "C",
           "relativeTimeRange": {
-            "from": 0,
+            "from": 60,
             "to": 0
           },
           "datasourceUid": "__expr__",
