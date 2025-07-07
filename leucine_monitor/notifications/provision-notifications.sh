@@ -22,7 +22,7 @@ yq e -o=json "$TEMPLATE_FILE" | jq -c '.templates[]' | while read -r tpl; do
     -H "X-Disable-Provenance: true" \
     -d "$json_payload")
 
-  echo "📨 [$name] => $response"
+  echo "📨 [$name] => Done"
 done
 
 echo "📤 Creating contact points (UI editable)..."
@@ -32,7 +32,7 @@ yq e -o=json "$CONTACT_FILE" | jq -c '.contactPoints[]' | while read -r cp; do
     -H "Content-Type: application/json" \
     -H "X-Disable-Provenance: true" \
     -d "$cp")
-  echo "📨 [Contact Point] => $response"
+  echo "📨 [Contact Point] => Added"
 done
 
 echo "✅ Contact point and templates provisioned successfully."
