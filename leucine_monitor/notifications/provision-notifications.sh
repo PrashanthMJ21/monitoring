@@ -16,7 +16,7 @@ yq e -o=json "$TEMPLATE_FILE" | jq -c '.templates[]' | while read -r tpl; do
     --arg template "$template" \
     '{name: $name, template: $template}')
 
-  response=$(curl -s -X POST "$GRAFANA_URL/api/alerting/notification-template" \
+  response=$(curl -s -X PUT "$GRAFANA_URL/api/v1/provisioning/templates/$name" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -H "X-Disable-Provenance: true" \
