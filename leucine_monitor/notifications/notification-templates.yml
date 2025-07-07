@@ -1,7 +1,6 @@
 templates:
   - name: alerts
     template: |
-      {{ define "alerts" }}
       {{ if eq .Status "firing" }}
       {{ range .Alerts }}
       -> Summary: {{ .Annotations.summary }}
@@ -15,16 +14,13 @@ templates:
       🌐 URL: {{ .Annotations.url }}
       {{ end }}
       {{ end }}
-      {{ end }}
 
   - name: blackbox
     template: |
-      {{ define "blackbox" }}
       {{ if eq .Status "firing" }}
       📊 PingFailure: Endpoint is in Down state
       🔍 Endpoint: {{ .CommonAnnotations.url }}
       {{ else }}
       📊 PingSuccess: Endpoint is back to up state
       🔍 Endpoint: {{ .CommonAnnotations.url }}
-      {{ end }}
       {{ end }}
