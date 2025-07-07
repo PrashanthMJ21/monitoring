@@ -4,7 +4,7 @@
 source ./alerts/.env
 
 # 👇 Make sure this points to correct path
-DASHBOARD_FILE="./multi-server-dashboard.json"
+DASHBOARD_FILE="dashboards/multi-server-dashboard.json"
 
 # Read dashboard JSON and wrap it for API
 dashboard_json=$(cat "$DASHBOARD_FILE")
