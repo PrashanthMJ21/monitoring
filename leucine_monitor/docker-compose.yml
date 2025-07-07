@@ -9,6 +9,7 @@ services:
     volumes:
       - ./provisioning:/etc/grafana/provisioning          # Datasources and alerts provisioning
       - ./config/grafana.ini:/etc/grafana/grafana.ini     # ✅ Custom grafana.ini with debug log level
+      - ./notifications/notification-templates.yml:/etc/grafana/provisioning/notification_templates/notification-templates.yml
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
