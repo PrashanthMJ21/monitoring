@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# 🔐 Inject before running: GRAFANA_URL and API_KEY
+# 🔐 Load environment variables
+source ./alerts/.env
 
 TEMPLATE_FILE="./notifications/notification-templates.yml"
 CONTACT_FILE="./notifications/contact-points.yml"
