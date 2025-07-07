@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 👇 Load env from correct relative path
-source ../alerts/.env
+source ./alerts/.env
 
 # 👇 Make sure this points to correct path
 DASHBOARD_FILE="./multi-server-dashboard.json"
