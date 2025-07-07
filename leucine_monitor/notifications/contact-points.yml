@@ -7,5 +7,4 @@ contactPoints:
       url: "https://hooks.slack.com/services/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"
       recipient: "#devops-alerts"
       title: '{{ if eq .Status "firing" }}🚨 {{ .CommonAnnotations.title }} Alert{{ else }}✅ {{ .CommonAnnotations.title }} Resolved{{ end }}'
-    templates:
-      - "alerts"
+      text: '{{ template "alerts" . }}'
