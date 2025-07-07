@@ -21,5 +21,5 @@ response=$(curl -s -X POST "$GRAFANA_URL/api/dashboards/db" \
   -H "Content-Type: application/json" \
   -d "$payload")
 
-echo "📊 Dashboard response:"
-echo "$response"
+echo "📊 Dashboard Done"
+# echo "$response"
