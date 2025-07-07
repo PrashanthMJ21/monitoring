@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Load environment vars (go up one directory)
+# 👇 Load env from correct relative path
 source ../alerts/.env
 
+# 👇 Make sure this points to correct path
 DASHBOARD_FILE="./multi-server-dashboard.json"
 
 # Read dashboard JSON and wrap it for API
