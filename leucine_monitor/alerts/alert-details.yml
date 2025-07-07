@@ -20,7 +20,7 @@ alerts:
       title: "cleen-biocon CPU Alert"
     labels:
       env: "production"
-    # contact_point: "Alerts"
+    contact_point: "Alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -45,7 +45,7 @@ alerts:
       url: "biocon.cleen.leucine.tech"
     labels:
       env: "production"
-    # contact_point: "Alerts"
+    contact_point: "Alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
