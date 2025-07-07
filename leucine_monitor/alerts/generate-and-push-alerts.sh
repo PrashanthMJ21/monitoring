@@ -84,9 +84,7 @@ for i in $(seq 0 $((alerts - 1))); do
 
   echo "📤 Pushing alert: $(echo "$alert_json" | jq -r '.name')"
   echo "📥 HTTP Status: $http_status"
-  echo "📥 Response Body:"
-  cat "./alerts/response_body_$i.txt"
-  echo
+  echo "Alert Created"
 done
 
 echo "✅ All alerts pushed dynamically."
