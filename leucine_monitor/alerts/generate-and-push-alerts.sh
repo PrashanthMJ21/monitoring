@@ -69,6 +69,7 @@ for i in $(seq 0 $((alerts - 1))); do
     | .annotations = $annotations
     | .labels = $labels
     | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
+    | if $alert.uid then .uid = $alert.uid else . end
   ')
 
   title=$(echo "$alert_json" | jq -r '.title')
