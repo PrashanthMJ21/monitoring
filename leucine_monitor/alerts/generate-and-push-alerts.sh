@@ -8,7 +8,6 @@ API_KEY="${API_KEY}"
 PROMETHEUS_DS_NAME="Prometheus"
 # -----------------------------------------------
 
-# Step 1: Get Prometheus UID dynamically
 PROMETHEUS_UID=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/datasources" | \
   jq -r --arg name "$PROMETHEUS_DS_NAME" '.[] | select(.name == $name) | .uid')
 
@@ -19,14 +18,12 @@ else
   echo "✅ Found Prometheus UID: $PROMETHEUS_UID"
 fi
 
-# Step 2: Loop through alerts and push
 alerts=$(yq e '.alerts | length' "$YAML_FILE")
 
 for i in $(seq 0 $((alerts - 1))); do
   alert_json=$(yq e ".alerts[$i]" "$YAML_FILE" | yq -o=json)
   folder=$(echo "$alert_json" | jq -r '.folder')
 
-  # ✅ Step 2.1: Resolve or create folder UID
   existing_folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" | \
     jq -r --arg title "$folder" '.[] | select(.title == $title) | .uid')
 
@@ -44,7 +41,6 @@ for i in $(seq 0 $((alerts - 1))); do
   annotations=$(echo "$alert_json" | jq '.annotations // {}')
   labels=$(echo "$alert_json" | jq '.labels // {}')
 
-  # ✅ Step 2.2: Build dynamic payload
   payload=$(jq -n \
     --argjson alert "$alert_json" \
     --argjson annotations "$annotations" \
@@ -55,6 +51,7 @@ for i in $(seq 0 $((alerts - 1))); do
     $template[0]
     | .folderUID = $folder_uid
     | .title = $alert.title
+    | (if $alert.uid then .uid = $alert.uid else . end)
     | (if $alert.group then .ruleGroup = $alert.group else del(.ruleGroup) end)
     | .condition = $alert.condition
     | .noDataState = $alert.no_data_state
@@ -69,32 +66,24 @@ for i in $(seq 0 $((alerts - 1))); do
     | .annotations = $annotations
     | .labels = $labels
     | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
-    | if $alert.uid then .uid = $alert.uid else . end
   ')
 
-  title=$(echo "$alert_json" | jq -r '.title')
+  uid=$(echo "$alert_json" | jq -r '.uid // empty')
 
-  # ✅ Check for existing alert rule by title
-  existing_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/alert-rules" | \
-    jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
-
-  if [ -n "$existing_uid" ]; then
+  if [ -n "$uid" ]; then
     method="PUT"
-    url="$GRAFANA_URL/api/v1/provisioning/alert-rules/$existing_uid"
+    url="$GRAFANA_URL/api/v1/provisioning/alert-rules/$uid"
   else
     method="POST"
     url="$GRAFANA_URL/api/v1/provisioning/alert-rules"
   fi
 
-  echo "📤 Pushing alert: $title via $method"
-  response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
-    -X "$method" "$url" \
+  echo "📤 Pushing alert: $(echo "$alert_json" | jq -r '.title') via $method"
+  curl -s -X "$method" "$url" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -H "X-Disable-Provenance: true" \
-    -d "$payload")
-
-  echo "📥 Response: $(tail -n1 <<< "$response")"
+    -d "$payload" > /dev/null
 done
 
 echo "✅ All alerts pushed dynamically."
