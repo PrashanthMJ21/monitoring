@@ -16,23 +16,37 @@ yq e -o=json "$TEMPLATE_FILE" | jq -c '.templates[]' | while read -r tpl; do
     --arg template "$template" \
     '{name: $name, template: $template}')
 
-  response=$(curl -s -X PUT "$GRAFANA_URL/api/v1/provisioning/templates/$name" \
+  curl -s -X PUT "$GRAFANA_URL/api/v1/provisioning/templates/$name" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -H "X-Disable-Provenance: true" \
-    -d "$json_payload")
+    -d "$json_payload" > /dev/null
 
-  echo "📨 [$name] => Done"
+  echo "📨 [$name] => Updated"
 done
 
 echo "📤 Creating contact points (UI editable)..."
 yq e -o=json "$CONTACT_FILE" | jq -c '.contactPoints[]' | while read -r cp; do
-  response=$(curl -s -X POST "$GRAFANA_URL/api/v1/provisioning/contact-points" \
+  name=$(echo "$cp" | jq -r '.name')
+
+  existing=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/contact-points" | jq -r --arg name "$name" '.[] | select(.name == $name)')
+
+  if [ -n "$existing" ]; then
+    uid=$(echo "$existing" | jq -r '.uid')
+    method="PUT"
+    url="$GRAFANA_URL/api/v1/provisioning/contact-points/$uid"
+  else
+    method="POST"
+    url="$GRAFANA_URL/api/v1/provisioning/contact-points"
+  fi
+
+  curl -s -X "$method" "$url" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -H "X-Disable-Provenance: true" \
-    -d "$cp")
-  echo "📨 [Contact Point] => Added"
+    -d "$cp" > /dev/null
+
+  echo "📨 [$name] => $method"
 done
 
 echo "✅ Contact point and templates provisioned successfully."
