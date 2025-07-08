@@ -1,28 +1,21 @@
 #!/bin/bash
 
 # -------- SETTINGS --------
-REPO_DIR="$HOME/monitoring/leucine_monitor"
+ROOT_DIR="$(realpath "$(dirname "$0")")"
+ENV_FILE="$ROOT_DIR/alerts/.env"
+ALERT_FILE="$ROOT_DIR/alerts/alert-details.yml"
+NOTIF_TEMPLATE_FILE="$ROOT_DIR/notifications/notification-templates.yml"
+CONTACT_FILE="$ROOT_DIR/notifications/contact-points.yml"
+DATASOURCE_FILE="$ROOT_DIR/provisioning/datasources/datasources.yml"
 
-ENV_FILE="$REPO_DIR/alerts/.env"
-ALERT_FILE="$REPO_DIR/alerts/alert-details.yml"
-NOTIF_TEMPLATE_FILE="$REPO_DIR/notifications/notification-templates.yml"
-CONTACT_FILE="$REPO_DIR/notifications/contact-points.yml"
-DATASOURCE_FILE="$REPO_DIR/provisioning/datasources/datasources.yml"
-
-ALERT_SCRIPT="$REPO_DIR/alerts/generate-and-push-alerts.sh"
-NOTIF_SCRIPT="$REPO_DIR/notifications/provision-notifications.sh"
+ALERT_SCRIPT="$ROOT_DIR/alerts/generate-and-push-alerts.sh"
+NOTIF_SCRIPT="$ROOT_DIR/notifications/provision-notifications.sh"
 # --------------------------
 
 echo "👀 Watching for changes..."
 echo "🔁 Press Ctrl+C to stop."
 
-# Check dependencies
-if ! command -v inotifywait >/dev/null; then
-  echo "❌ 'inotifywait' not found. Please install inotify-tools."
-  exit 1
-fi
-
-# Ensure .env is sourced
+# Load environment
 if [ -f "$ENV_FILE" ]; then
   source "$ENV_FILE"
 else
@@ -30,22 +23,14 @@ else
   exit 1
 fi
 
-# Validate scripts
-for script in "$ALERT_SCRIPT" "$NOTIF_SCRIPT"; do
-  if [ ! -f "$script" ]; then
-    echo "❌ Required script missing: $script"
-    exit 1
-  fi
-done
-
 # Start watcher
 inotifywait -mq -e modify --format '%w%f' \
   "$ALERT_FILE" \
   "$NOTIF_TEMPLATE_FILE" \
   "$CONTACT_FILE" \
-  "$DATASOURCE_FILE" |
-while read changed_file; do
-  echo "📦 Change detected in: $changed_file"
+  "$DATASOURCE_FILE" | while read changed_file; do
+
+  echo "📦 Detected change: $changed_file"
 
   case "$changed_file" in
     *alert-details.yml)
@@ -55,19 +40,15 @@ while read changed_file; do
       ;;
 
     *notification-templates.yml|*contact-points.yml)
-      echo "📬 Re-deploying contact points and templates..."
+      echo "📬 Re-deploying contacts and templates..."
       GRAFANA_URL="$GRAFANA_URL" API_KEY="$API_KEY" "$NOTIF_SCRIPT"
       echo "✅ Notifications updated."
       ;;
 
     *datasources.yml)
-      echo "📡 Datasource config changed. Restarting Grafana..."
-      cd "$REPO_DIR"
+      echo "📡 Restarting Grafana to apply datasource changes..."
       docker-compose restart grafana
       echo "✅ Grafana restarted."
-      ;;
-    *)
-      echo "⚠️ No action for: $changed_file"
       ;;
   esac
 done
