@@ -1,5 +1,6 @@
 contactPoints:
-  - name: Alerts
+  - uid: "alerts-slack"
+    name: Alerts
     type: slack
     isDefault: false
     disableResolveMessage: false
