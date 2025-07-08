@@ -71,20 +71,29 @@ for i in $(seq 0 $((alerts - 1))); do
     | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
   ')
 
-  echo "$payload" > "./alerts/payload_debug_$i.json"
+  title=$(echo "$alert_json" | jq -r '.title')
 
+  # ✅ Check for existing alert rule by title
+  existing_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/alert-rules" | \
+    jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
+
+  if [ -n "$existing_uid" ]; then
+    method="PUT"
+    url="$GRAFANA_URL/api/v1/provisioning/alert-rules/$existing_uid"
+  else
+    method="POST"
+    url="$GRAFANA_URL/api/v1/provisioning/alert-rules"
+  fi
+
+  echo "📤 Pushing alert: $title via $method"
   response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_$i.txt" \
-    -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
+    -X "$method" "$url" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -H "X-Disable-Provenance: true" \
     -d "$payload")
 
-  http_status=$(tail -n1 <<< "$response")
-
-  echo "📤 Pushing alert: $(echo "$alert_json" | jq -r '.name')"
-  echo "📥 HTTP Status: $http_status"
-  echo "Alert Created"
+  echo "📥 Response: $(tail -n1 <<< "$response")"
 done
 
 echo "✅ All alerts pushed dynamically."
