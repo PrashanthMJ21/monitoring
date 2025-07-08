@@ -1,5 +1,6 @@
 alerts:
-  - name: cleen_biocon_cpu
+  - uid: "cpu_alert-1"
+    name: cleen_biocon_cpu
     title: "cleen-biocon CPU"
     folder: "CPU-Usage"
     group: "cpu-alerts"
@@ -25,7 +26,8 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - name: cleen_biocon_memory
+  - uid: "memory_alert-1"
+    name: cleen_biocon_memory
     title: "cleen-biocon Memory"
     folder: "Memory-Usage"
     group: "memory-alerts"
