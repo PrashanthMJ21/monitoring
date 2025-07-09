@@ -22,17 +22,16 @@ yq e -o=json "$TEMPLATE_FILE" | jq -c '.templates[]' | while read -r tpl; do
     -H "X-Disable-Provenance: true" \
     -d "$json_payload" > /dev/null
 
-  echo "📨 [$name] => Updated"
+  echo "📨 [$name] => Template Updated"
 done
 
 echo "📤 Creating contact points (UI editable)..."
 yq e -o=json "$CONTACT_FILE" | jq -c '.contactPoints[]' | while read -r cp; do
   name=$(echo "$cp" | jq -r '.name')
 
-  # 🔍 Check for existing contact point
-  existing=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/contact-points" | \
-    jq -r --arg name "$name" '.[] | select(.name == $name)')
-
+  # Check if contact point already exists
+  existing=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/contact-points" | jq -r --arg name "$name" '.[] | select(.name == $name)')
+  
   if [ -n "$existing" ]; then
     uid=$(echo "$existing" | jq -r '.uid')
     method="PUT"
@@ -51,4 +50,4 @@ yq e -o=json "$CONTACT_FILE" | jq -c '.contactPoints[]' | while read -r cp; do
   echo "📨 [$name] => $method"
 done
 
-echo "✅ Contact point and templates provisioned successfully."
+echo "✅ Contact points and templates provisioned successfully."
