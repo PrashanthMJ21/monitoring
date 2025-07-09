@@ -11,3 +11,12 @@ datasources:
       httpMethod: POST
       queryTimeout: 60s
       tlsSkipVerify: true
+
+  - name: Loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    editable: true
+    jsonData:
+      maxLines: 1000
+      tlsSkipVerify: true
