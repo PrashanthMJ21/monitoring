@@ -29,9 +29,9 @@ echo "📤 Creating contact points (UI editable)..."
 yq e -o=json "$CONTACT_FILE" | jq -c '.contactPoints[]' | while read -r cp; do
   name=$(echo "$cp" | jq -r '.name')
 
-  # Check if contact point already exists
-  existing=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/contact-points" | jq -r --arg name "$name" '.[] | select(.name == $name)')
-  
+  existing=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/contact-points" |
+    jq -r --arg name "$name" '.[] | select(.name == $name)')
+
   if [ -n "$existing" ]; then
     uid=$(echo "$existing" | jq -r '.uid')
     method="PUT"
