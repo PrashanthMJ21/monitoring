@@ -3,33 +3,31 @@
 # ----------- CONFIGURABLE VARIABLES -------------
 YAML_FILE="./alerts/alert-details.yml"
 TEMPLATE_FILE="./alerts/alert-template.json"
-# PROMETHEUS_UID is expected to be loaded from .env
+GRAFANA_URL="${GRAFANA_URL}"
+API_KEY="${API_KEY}"
+PROMETHEUS_UID="${PROMETHEUS_UID}"
 # -----------------------------------------------
 
-# 🧪 Check required ENV variables
-if [[ -z "$GRAFANA_URL" || -z "$API_KEY" || -z "$PROMETHEUS_UID" ]]; then
-  echo "❌ Missing environment variables. Please source ./alerts/.env first."
+if [ -z "$PROMETHEUS_UID" ] || [ "$PROMETHEUS_UID" == "null" ]; then
+  echo "❌ PROMETHEUS_UID is not set. Exiting..."
   exit 1
+else
+  echo "✅ Using Prometheus UID: $PROMETHEUS_UID"
 fi
 
-echo "✅ Using Prometheus UID: $PROMETHEUS_UID"
-
-# Step 1: Count alert definitions
 alerts=$(yq e '.alerts | length' "$YAML_FILE")
 
 for i in $(seq 0 $((alerts - 1))); do
   alert_json=$(yq e ".alerts[$i]" "$YAML_FILE" | yq -o=json)
   folder=$(echo "$alert_json" | jq -r '.folder')
+  title=$(echo "$alert_json" | jq -r '.title')
+  uid=$(echo "$alert_json" | jq -r '.uid // empty')
 
-  # ✅ Step 2.1: Resolve or create folder UID
-  existing_folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" | \
+  # Create/get folder UID
+  folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" |
     jq -r --arg title "$folder" '.[] | select(.title == $title) | .uid')
-
-  if [ -n "$existing_folder_uid" ]; then
-    folder_uid="$existing_folder_uid"
-  else
+  if [ -z "$folder_uid" ]; then
     folder_uid=$(echo "$folder" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
-    echo "📁 Creating folder '$folder'..."
     curl -s -X POST "$GRAFANA_URL/api/folders" \
       -H "Authorization: $API_KEY" \
       -H "Content-Type: application/json" \
@@ -39,7 +37,7 @@ for i in $(seq 0 $((alerts - 1))); do
   annotations=$(echo "$alert_json" | jq '.annotations // {}')
   labels=$(echo "$alert_json" | jq '.labels // {}')
 
-  # ✅ Step 2.2: Build dynamic payload
+  # Build payload
   payload=$(jq -n \
     --argjson alert "$alert_json" \
     --argjson annotations "$annotations" \
@@ -64,16 +62,16 @@ for i in $(seq 0 $((alerts - 1))); do
     | .annotations = $annotations
     | .labels = $labels
     | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
-    | if $alert.uid then .uid = $alert.uid else . end
+    | if $alert.uid then .uid = $alert.uid else del(.uid) end
   ')
 
-  title=$(echo "$alert_json" | jq -r '.title')
+  # Detect existing UID in Grafana
+  existing_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/alert-rules" |
+    jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
 
-  # ✅ Use uid (if available) for update
-  uid=$(echo "$alert_json" | jq -r '.uid // empty')
-  if [ -n "$uid" ]; then
+  if [ -n "$existing_uid" ]; then
     method="PUT"
-    url="$GRAFANA_URL/api/v1/provisioning/alert-rules/$uid"
+    url="$GRAFANA_URL/api/v1/provisioning/alert-rules/$existing_uid"
   else
     method="POST"
     url="$GRAFANA_URL/api/v1/provisioning/alert-rules"
