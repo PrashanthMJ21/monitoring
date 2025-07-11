@@ -6,7 +6,7 @@ datasources:
     access: proxy
     url: http://prometheus:9090
     isDefault: true
-    editable: true
+    editable: false
     jsonData:
       httpMethod: POST
       queryTimeout: 60s
@@ -16,20 +16,21 @@ datasources:
     type: loki
     access: proxy
     url: http://loki:3100
-    editable: true
+    editable: false
     jsonData:
       maxLines: 1000
       tlsSkipVerify: true
 
   - name: Tempo
     type: tempo
+    uid: __TEMPO_UID__
     access: proxy
     url: http://tempo:3200
-    editable: true
+    editable: false
     jsonData:
       httpMethod: GET
       tracesToLogs:
-        datasourceUid: loki
+        datasourceUid: __LOKI_UID__
         tags: ['job', 'instance']
         mappedTags: ['service.name']
         mapTagNamesEnabled: true
@@ -38,7 +39,7 @@ datasources:
         filterByTraceID: true
         filterBySpanID: false
       serviceMap:
-        datasourceUid: prometheus
+        datasourceUid: __PROM_UID__
       nodeGraph:
         enabled: true
       search:
