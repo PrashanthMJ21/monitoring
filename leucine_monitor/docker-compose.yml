@@ -4,7 +4,7 @@ services:
   init-perms:
     image: alpine
     container_name: init-perms
-    entrypoint: ""
+    user: root  # ✅ Run as root to allow chown
     command: >
       sh -c "
         echo '📂 Fixing ownership of data-volumes...' && \
@@ -12,8 +12,7 @@ services:
         chown -R 472:472 /data/grafana && \
         chown -R 65534:65534 /data/prometheus && \
         chown -R 10001:10001 /data/loki && \
-        chown -R 65534:65534 /data/promtail && \
-        chown -R tempuser:tempuser /data && \
+        chown -R tempuser:tempuser /data/promtail && \
         echo '✅ Permissions fixed.'
       "
     volumes:
