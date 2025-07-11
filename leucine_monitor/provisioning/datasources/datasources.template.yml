@@ -23,7 +23,6 @@ datasources:
 
   - name: Tempo
     type: tempo
-    uid: __TEMPO_UID__
     access: proxy
     url: http://tempo:3200
     editable: false
