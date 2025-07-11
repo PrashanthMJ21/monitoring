@@ -1,0 +1,47 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: false
+    jsonData:
+      httpMethod: POST
+      queryTimeout: 60s
+      tlsSkipVerify: true
+
+  - name: Loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    editable: false
+    jsonData:
+      maxLines: 1000
+      tlsSkipVerify: true
+
+  - name: Tempo
+    type: tempo
+    access: proxy
+    url: http://tempo:3200
+    editable: false
+    jsonData:
+      httpMethod: GET
+      tracesToLogs:
+        datasourceUid: __LOKI_UID__
+        tags: ['job', 'instance']
+        mappedTags: ['service.name']
+        mapTagNamesEnabled: true
+        spanStartTimeShift: '5m'
+        spanEndTimeShift: '5m'
+        filterByTraceID: true
+        filterBySpanID: false
+      serviceMap:
+        datasourceUid: __PROM_UID__
+      nodeGraph:
+        enabled: true
+      search:
+        hide: false
+      spanBar:
+        type: tag
