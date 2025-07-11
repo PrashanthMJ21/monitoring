@@ -64,7 +64,7 @@ services:
     command: -config.file=/etc/loki/loki.yml
     volumes:
       - ./config/loki.yml:/etc/loki/loki.yml
-      - ./data-volumes/loki:/loki
+      - ./data-volumes/loki:/var/lib/loki
     restart: always
 
   promtail:
