@@ -15,6 +15,23 @@ else
   echo "✅ Using Prometheus UID: $PROMETHEUS_UID"
 fi
 
+# Step 1: Collect all desired UIDs from YAML
+declared_uids=$(yq e '.alerts[].uid // ""' "$YAML_FILE" | grep -v '^$' | sort)
+
+# Step 2: Get all existing alert UIDs from Grafana
+existing_alerts=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/alert-rules")
+existing_uids=$(echo "$existing_alerts" | jq -r '.[].uid' | sort)
+
+# Step 3: Delete alerts not in YAML
+for uid in $existing_uids; do
+  if ! grep -Fxq "$uid" <<< "$declared_uids"; then
+    echo "🗑️ Deleting orphaned alert UID: $uid"
+    curl -s -X DELETE "$GRAFANA_URL/api/v1/provisioning/alert-rules/$uid" \
+      -H "Authorization: $API_KEY" > /dev/null
+  fi
+done
+
+# Step 4: Push current alerts
 alerts=$(yq e '.alerts | length' "$YAML_FILE")
 
 for i in $(seq 0 $((alerts - 1))); do
@@ -66,8 +83,7 @@ for i in $(seq 0 $((alerts - 1))); do
   ')
 
   # Detect existing UID in Grafana
-  existing_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/alert-rules" |
-    jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
+  existing_uid=$(echo "$existing_alerts" | jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
 
   if [ -n "$existing_uid" ]; then
     method="PUT"
