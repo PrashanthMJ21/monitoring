@@ -13,10 +13,10 @@ NOTIF_SCRIPT="$ROOT_DIR/notifications/provision-notifications.sh"
 LOG_FILE="$ROOT_DIR/alerts/watcher.log"
 # --------------------------
 
-echo "👀 Watching for changes..." >> "$LOG_FILE"
-echo "🔁 Press Ctrl+C to stop." >> "$LOG_FILE"
+echo "👀 Watching for changes to alert, notification, and datasource files..." >> "$LOG_FILE"
+echo "⏱️ Started at: $(date)" >> "$LOG_FILE"
 
-# Load env
+# Load .env
 if [ -f "$ENV_FILE" ]; then
   source "$ENV_FILE"
 else
@@ -24,14 +24,14 @@ else
   exit 1
 fi
 
-# Watch loop
-inotifywait -mq -e close_write --format '%w%f' \
+# Start watching files
+inotifywait -mq -e modify,close_write,create,move,delete \
   "$ALERT_FILE" \
   "$NOTIF_TEMPLATE_FILE" \
   "$CONTACT_FILE" \
   "$DATASOURCE_FILE" | while read changed_file; do
 
-  echo "📦 Change detected in: $changed_file" >> "$LOG_FILE"
+  echo "📦 Change detected in: $changed_file at $(date)" >> "$LOG_FILE"
 
   case "$changed_file" in
     *alert-details.yml)
