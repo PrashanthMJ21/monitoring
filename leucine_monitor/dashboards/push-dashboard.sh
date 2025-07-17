@@ -3,23 +3,29 @@
 # 👇 Load env from correct relative path
 source ./alerts/.env
 
-# 👇 Make sure this points to correct path
-DASHBOARD_FILE="./dashboards/multi-server-dashboard.json"
+# 👇 Make sure these point to correct paths
+DASHBOARD_FILES=(
+  "./dashboards/multi-server-dashboard.json"
+  "./dashboards/synthetic-monitoring.json"
+)
 
-# Read dashboard JSON and wrap it for API
-dashboard_json=$(cat "$DASHBOARD_FILE")
+for DASHBOARD_FILE in "${DASHBOARD_FILES[@]}"; do
+  echo "📄 Pushing dashboard: $DASHBOARD_FILE"
 
-payload=$(jq -n \
-  --argjson dashboard "$dashboard_json" \
-  --arg folderId "0" \
-  --argjson overwrite true \
-  '{dashboard: $dashboard, folderId: ($folderId|tonumber), overwrite: $overwrite}')
+  dashboard_json=$(cat "$DASHBOARD_FILE")
 
-# Push via API
-response=$(curl -s -X POST "$GRAFANA_URL/api/dashboards/db" \
-  -H "Authorization: $API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "$payload")
+  payload=$(jq -n \
+    --argjson dashboard "$dashboard_json" \
+    --arg folderId "0" \
+    --argjson overwrite true \
+    '{dashboard: $dashboard, folderId: ($folderId|tonumber), overwrite: $overwrite}')
 
-echo "📊 Dashboard Done"
-# echo "$response"
+  response=$(curl -s -X POST "$GRAFANA_URL/api/dashboards/db" \
+    -H "Authorization: $API_KEY" \
+    -H "Content-Type: application/json" \
+    -d "$payload")
+
+  echo "➡️ Response for $(basename "$DASHBOARD_FILE"): $response"
+done
+
+echo "📊 All dashboards pushed!"
