@@ -14,3 +14,7 @@ storage:
     backend: local
     local:
       path: /tmp/tempo
+
+compactor:
+  compaction:
+    compacted_block_retention: 48h
