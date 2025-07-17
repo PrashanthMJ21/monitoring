@@ -9,14 +9,12 @@ dashboards=("multi-server-dashboard.json" "synthetic-monitoring.json")
 for file in "${dashboards[@]}"; do
   echo "📄 Pushing dashboard: ./dashboards/$file"
 
-  # Read dashboard JSON safely with jq
+  # Read and wrap the dashboard JSON as expected by Grafana
   dashboard_json=$(jq '.' "./dashboards/$file")
 
   payload=$(jq -n \
     --argjson dashboard "$dashboard_json" \
-    --arg folderId "0" \
-    --argjson overwrite true \
-    '{dashboard: $dashboard, folderId: ($folderId | tonumber), overwrite: $overwrite}')
+    '{dashboard: $dashboard, folderId: 0, overwrite: true}')
 
   # Push via API
   response=$(curl -s -X POST "$GRAFANA_URL/api/dashboards/db" \
