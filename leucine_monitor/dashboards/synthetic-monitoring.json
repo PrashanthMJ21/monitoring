@@ -1056,7 +1056,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Prometheus Blackbox Exporter",
+  "title": "synthetic-monitoring",
   "uid": "xtkCtBkiz",
   "version": 4
 }
