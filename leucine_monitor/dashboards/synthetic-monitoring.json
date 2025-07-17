@@ -1,1019 +1,1039 @@
 {
-   "__inputs": [ ],
-   "__requires": [ ],
-   "description": "A dashboard that monitors the Blackbox-exporter. It is created using the [blackbox-exporter-mixin](https://github.com/adinhodovic/blackbox-exporter-mixin) for the the (blackbox-exporter)[https://github.com/prometheus/blackbox_exporter].",
-   "editable": true,
-   "panels": [
+  "annotations": {
+    "list": [
       {
-         "collapsed": false,
-         "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 0
-         },
-         "id": 1,
-         "title": "Summary",
-         "type": "row"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "links": [
-                  {
-                     "targetBlank": true,
-                     "title": "Go To Probe",
-                     "type": "link",
-                     "url": "d/blackbox-exporter-j4da/blackbox-exporter?var-instance=${__field.labels.instance}&var-job=${__field.labels.job}"
-                  }
-               ],
-               "mappings": [
-                  {
-                     "options": {
-                        "0": {
-                           "color": "red",
-                           "text": "Down"
-                        },
-                        "1": {
-                           "color": "green",
-                           "text": "Up"
-                        }
-                     },
-                     "type": "value"
-                  }
-               ],
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 5,
-            "w": 24,
-            "x": 0,
-            "y": 1
-         },
-         "id": 2,
-         "maxDataPoints": 100,
-         "options": {
-            "colorMode": "background",
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            },
-            "text": {
-               "titleSize": 18,
-               "valueSize": 18
-            },
-            "textMode": "value_and_name"
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance) (\n  probe_success{\n    cluster=\"$cluster\",\n    job=~\"$job\"\n  }\n)\n",
-               "legendFormat": "{{instance}}"
-            }
-         ],
-         "title": "Status Map",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "red",
-                        "value": 0
-                     },
-                     {
-                        "color": "green",
-                        "value": 0.001
-                     }
-                  ]
-               },
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 6,
-            "x": 0,
-            "y": 6
-         },
-         "id": 3,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "count(\n  probe_success{\n    cluster=\"$cluster\",\n    job=~\"$job\"\n  }\n)\n"
-            }
-         ],
-         "title": "Probes",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "red",
-                        "value": 0
-                     },
-                     {
-                        "color": "yellow",
-                        "value": 0.98999999999999999
-                     },
-                     {
-                        "color": "green",
-                        "value": 0.999
-                     }
-                  ]
-               },
-               "unit": "percentunit"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 6,
-            "x": 6,
-            "y": 6
-         },
-         "id": 4,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "(\n  count(\n    probe_success{\n      cluster=\"$cluster\",\n      job=~\"$job\"\n    } == 1\n  )\n  OR vector(0)\n) /\ncount(\n  probe_success{\n    cluster=\"$cluster\",\n    job=~\"$job\"\n  }\n)\n"
-            }
-         ],
-         "title": "Probes Success",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "red",
-                        "value": 0
-                     },
-                     {
-                        "color": "green",
-                        "value": 0.999
-                     }
-                  ]
-               },
-               "unit": "percentunit"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 6,
-            "x": 12,
-            "y": 6
-         },
-         "id": 5,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "count(\n  probe_http_ssl{\n    cluster=\"$cluster\",\n    job=~\"$job\"\n  } == 1\n) /\ncount(\n  probe_http_version{\n    cluster=\"$cluster\",\n    job=~\"$job\"\n  }\n)\n"
-            }
-         ],
-         "title": "Probes SSL",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "unit": "s"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 6,
-            "x": 18,
-            "y": 6
-         },
-         "id": 6,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "avg(\n  probe_duration_seconds{\n    cluster=\"$cluster\",\n    job=~\"$job\"\n  }\n)\n"
-            }
-         ],
-         "title": "Probe Average Duration",
-         "type": "stat"
-      },
-      {
-         "collapsed": false,
-         "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 10
-         },
-         "id": 7,
-         "repeat": "instance",
-         "title": "$instance",
-         "type": "row"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "red",
-                        "value": 0
-                     },
-                     {
-                        "color": "yellow",
-                        "value": 0.98999999999999999
-                     },
-                     {
-                        "color": "green",
-                        "value": 0.999
-                     }
-                  ]
-               },
-               "unit": "percentunit"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 6,
-            "x": 0,
-            "y": 11
-         },
-         "id": 8,
-         "options": {
-            "colorMode": "background",
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance) (\n  probe_success{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n"
-            }
-         ],
-         "title": "Uptime",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "red",
-                        "value": 0
-                     },
-                     {
-                        "color": "yellow",
-                        "value": 0.98999999999999999
-                     },
-                     {
-                        "color": "green",
-                        "value": 0.999
-                     }
-                  ]
-               },
-               "unit": "percentunit"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 6,
-            "x": 0,
-            "y": 15
-         },
-         "id": 9,
-         "options": {
-            "colorMode": "background",
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "avg_over_time(\n  probe_success{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }[30d]\n)\n"
-            }
-         ],
-         "title": "Uptime 30d",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "mappings": [
-                  {
-                     "options": {
-                        "0": {
-                           "color": "red",
-                           "text": "No"
-                        },
-                        "1": {
-                           "color": "green",
-                           "text": "Yes"
-                        }
-                     },
-                     "type": "value"
-                  }
-               ],
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 2,
-            "w": 3,
-            "x": 0,
-            "y": 15
-         },
-         "id": 10,
-         "options": {
-            "colorMode": "background",
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance) (\n  probe_success{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n",
-               "instant": true
-            }
-         ],
-         "title": "Probe Success",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "green",
-                        "value": 0
-                     },
-                     {
-                        "color": "blue",
-                        "value": 300
-                     },
-                     {
-                        "color": "yellow",
-                        "value": 400
-                     },
-                     {
-                        "color": "red",
-                        "value": 500
-                     }
-                  ]
-               },
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 2,
-            "w": 3,
-            "x": 3,
-            "y": 15
-         },
-         "id": 11,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance) (\n  probe_http_status_code{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n",
-               "instant": true
-            }
-         ],
-         "title": "Latest Response Code",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "mappings": [
-                  {
-                     "options": {
-                        "0": {
-                           "color": "red",
-                           "text": "No"
-                        },
-                        "1": {
-                           "color": "green",
-                           "text": "Yes"
-                        }
-                     },
-                     "type": "value"
-                  }
-               ],
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 2,
-            "w": 3,
-            "x": 0,
-            "y": 17
-         },
-         "id": 12,
-         "options": {
-            "colorMode": "background",
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance) (\n  probe_http_ssl{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n",
-               "instant": true
-            }
-         ],
-         "title": "SSL",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "red",
-                        "value": 0
-                     },
-                     {
-                        "color": "green",
-                        "value": 1
-                     }
-                  ]
-               },
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 2,
-            "w": 3,
-            "x": 3,
-            "y": 17
-         },
-         "id": 13,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            },
-            "textMode": "name"
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance,version) (\n  probe_tls_version_info{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n",
-               "instant": true,
-               "legendFormat": "{{version}}"
-            }
-         ],
-         "title": "SSL Version",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "thresholds": {
-                  "steps": [
-                     {
-                        "color": "red",
-                        "value": 0
-                     },
-                     {
-                        "color": "green",
-                        "value": 1814400
-                     }
-                  ]
-               },
-               "unit": "dtdurations"
-            }
-         },
-         "gridPos": {
-            "h": 2,
-            "w": 6,
-            "x": 0,
-            "y": 19
-         },
-         "id": 14,
-         "options": {
-            "colorMode": "background",
-            "graphMode": "none"
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "min by (instance) (\n  probe_ssl_earliest_cert_expiry{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  } - time()\n)\n"
-            }
-         ],
-         "title": "SSL Certificate Expiry",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "mappings": [
-                  {
-                     "options": {
-                        "0": {
-                           "color": "green",
-                           "text": "No"
-                        },
-                        "1": {
-                           "color": "blue",
-                           "text": "Yes"
-                        }
-                     },
-                     "type": "value"
-                  }
-               ],
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 2,
-            "w": 3,
-            "x": 0,
-            "y": 22
-         },
-         "id": 15,
-         "options": {
-            "colorMode": "background",
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance) (\n  probe_http_redirects{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n",
-               "instant": true
-            }
-         ],
-         "title": "Redirects",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "unit": "short"
-            }
-         },
-         "gridPos": {
-            "h": 2,
-            "w": 3,
-            "x": 3,
-            "y": 22
-         },
-         "id": 16,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "lastNotNull"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "max by (instance) (\n  probe_http_version{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n",
-               "instant": true,
-               "legendFormat": "{{version}}"
-            }
-         ],
-         "title": "HTTP Version",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "unit": "s"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 0,
-            "y": 25
-         },
-         "id": 17,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "avg by (instance) (\n  probe_duration_seconds{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n"
-            }
-         ],
-         "title": "Average Latency",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "unit": "s"
-            }
-         },
-         "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 3,
-            "y": 25
-         },
-         "id": 18,
-         "options": {
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ]
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "avg by (instance) (\n  probe_dns_lookup_time_seconds{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n"
-            }
-         ],
-         "title": "Average Latency",
-         "type": "stat"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "custom": {
-                  "fillOpacity": 10,
-                  "spanNulls": false
-               },
-               "unit": "s"
-            }
-         },
-         "gridPos": {
-            "h": 10,
-            "w": 18,
-            "x": 6,
-            "y": 11
-         },
-         "id": 19,
-         "options": {
-            "legend": {
-               "calcs": [
-                  "mean",
-                  "max"
-               ],
-               "displayMode": "table",
-               "placement": "right",
-               "showLegend": true,
-               "sortBy": "Mean",
-               "sortDesc": true
-            },
-            "tooltip": {
-               "mode": "multi",
-               "sort": "desc"
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "sum by (instance) (\n  avg by (phase,instance) (\n    probe_http_duration_seconds{\n      cluster=\"$cluster\",\n      job=~\"$job\",\n      instance=~\"$instance\"\n    }\n  )\n)\n",
-               "legendFormat": "HTTP duration"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "avg by (instance) (\n  probe_duration_seconds{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n)\n",
-               "legendFormat": "Total probe duration"
-            }
-         ],
-         "title": "Probe Duration",
-         "type": "timeseries"
-      },
-      {
-         "datasource": {
-            "type": "datasource",
-            "uid": "-- Mixed --"
-         },
-         "fieldConfig": {
-            "defaults": {
-               "custom": {
-                  "fillOpacity": 100,
-                  "spanNulls": false,
-                  "stacking": {
-                     "mode": "percent"
-                  }
-               },
-               "unit": "s"
-            }
-         },
-         "gridPos": {
-            "h": 10,
-            "w": 18,
-            "x": 6,
-            "y": 21
-         },
-         "id": 20,
-         "options": {
-            "legend": {
-               "calcs": [
-                  "mean",
-                  "max"
-               ],
-               "displayMode": "table",
-               "placement": "right",
-               "showLegend": true,
-               "sortBy": "Mean",
-               "sortDesc": true
-            },
-            "tooltip": {
-               "mode": "multi",
-               "sort": "desc"
-            }
-         },
-         "pluginVersion": "v11.4.0",
-         "targets": [
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "avg(\n  probe_http_duration_seconds{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n) by (phase)\n",
-               "legendFormat": "{{ phase }}"
-            },
-            {
-               "datasource": {
-                  "type": "prometheus",
-                  "uid": "$datasource"
-               },
-               "expr": "avg(\n  probe_icmp_duration_seconds{\n    cluster=\"$cluster\",\n    job=~\"$job\",\n    instance=~\"$instance\"\n  }\n) by (phase)\n",
-               "legendFormat": "{{ phase }}"
-            }
-         ],
-         "title": "Probe Phases",
-         "type": "timeseries"
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
       }
-   ],
-   "schemaVersion": 39,
-   "tags": [
-      "blackbox-exporter",
-      "blackbox-exporter-mixin"
-   ],
-   "templating": {
-      "list": [
-         {
-            "current": {
-               "selected": true,
-               "text": "default",
-               "value": "default"
+    ]
+  },
+  "description": "Prometheus Blackbox Exporter Overview",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 7587,
+  "graphTooltip": 0,
+  "id": 1,
+  "iteration": 1641099796275,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 138,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "probe_duration_seconds{instance=~\"$target\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Global Probe Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 1,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 15,
+      "panels": [],
+      "repeat": "target",
+      "title": "$target status",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "text": "DOWN"
+                },
+                "1": {
+                  "text": "UP"
+                }
+              },
+              "type": "value"
             },
-            "label": "Data source",
-            "name": "datasource",
-            "query": "prometheus",
-            "type": "datasource"
-         },
-         {
-            "datasource": {
-               "type": "prometheus",
-               "uid": "${datasource}"
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#d44a3a",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 1
+              },
+              {
+                "color": "#299c46",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "id": 2,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "expr": "probe_success{instance=~\"$target\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "title": "Status",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 10,
+        "x": 4,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 25,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "probe_http_duration_seconds{instance=~\"$target\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ phase }}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "HTTP Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 10,
+        "x": 14,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 17,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "probe_duration_seconds{instance=~\"$target\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "seconds",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Probe Duration",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "text": "N/A"
+                },
+                "1": {
+                  "text": "YES"
+                }
+              },
+              "type": "value"
             },
-            "hide": 2,
-            "label": "Cluster",
-            "name": "cluster",
-            "query": "label_values(probe_success{}, cluster)",
-            "refresh": 2,
-            "sort": 1,
-            "type": "query"
-         },
-         {
-            "datasource": {
-               "type": "prometheus",
-               "uid": "${datasource}"
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 201
+              },
+              {
+                "color": "#d44a3a",
+                "value": 399
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 11
+      },
+      "id": 20,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "expr": "probe_http_status_code{instance=~\"$target\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Status Code",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 13
+      },
+      "id": 27,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "expr": "probe_http_version{instance=~\"$target\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Version",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "text": "NO"
+                },
+                "1": {
+                  "text": "YES"
+                }
+              },
+              "type": "value"
             },
-            "includeAll": true,
-            "label": "Job",
-            "multi": true,
-            "name": "job",
-            "query": "label_values(probe_success{cluster=\"$cluster\"}, job)",
-            "refresh": 2,
-            "sort": 1,
-            "type": "query"
-         },
-         {
-            "datasource": {
-               "type": "prometheus",
-               "uid": "${datasource}"
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#d44a3a",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 0
+              },
+              {
+                "color": "#299c46",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 15
+      },
+      "id": 18,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "expr": "probe_http_ssl{instance=~\"$target\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "title": "SSL",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "text": "NO"
+                },
+                "1": {
+                  "text": "YES"
+                }
+              },
+              "type": "value"
             },
-            "includeAll": false,
-            "label": "Instance",
-            "multi": false,
-            "name": "instance",
-            "query": "label_values(probe_success{cluster=\"$cluster\", job=~\"$job\"}, instance)",
-            "refresh": 2,
-            "sort": 1,
-            "type": "query"
-         }
-      ]
-   },
-   "time": {
-      "from": "now-2d",
-      "to": "now"
-   },
-   "timezone": "utc",
-   "title": "Blackbox Exporter",
-   "uid": "blackbox-exporter-j4da"
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#d44a3a",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 0
+              },
+              {
+                "color": "#299c46",
+                "value": 1209600
+              }
+            ]
+          },
+          "unit": "dtdurations"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 10,
+        "x": 4,
+        "y": 15
+      },
+      "id": 19,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "expr": "probe_ssl_earliest_cert_expiry{instance=~\"$target\"} - time()",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "title": "SSL Expiry",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 14,
+        "y": 15
+      },
+      "id": 23,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "expr": "avg(probe_duration_seconds{instance=~\"$target\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "title": "Average Probe Duration",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 19,
+        "y": 15
+      },
+      "id": 24,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "expr": "avg(probe_dns_lookup_time_seconds{instance=~\"$target\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "title": "Average DNS Lookup",
+      "type": "stat"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 34,
+  "style": "dark",
+  "tags": [
+    "blackbox",
+    "prometheus"
+  ],
+  "templating": {
+    "list": [
+      {
+        "auto": true,
+        "auto_count": 10,
+        "auto_min": "10s",
+        "current": {
+          "selected": false,
+          "text": "1m",
+          "value": "1m"
+        },
+        "hide": 0,
+        "label": "Interval",
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "auto",
+            "value": "$__auto_interval_interval"
+          },
+          {
+            "selected": false,
+            "text": "5s",
+            "value": "5s"
+          },
+          {
+            "selected": false,
+            "text": "10s",
+            "value": "10s"
+          },
+          {
+            "selected": false,
+            "text": "30s",
+            "value": "30s"
+          },
+          {
+            "selected": true,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "selected": false,
+            "text": "14d",
+            "value": "14d"
+          },
+          {
+            "selected": false,
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "query": "5s,10s,30s,1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "queryValue": "",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "target",
+        "options": [],
+        "query": {
+          "query": "label_values(probe_success, instance)",
+          "refId": "Prometheus-target-Variable-Query"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Prometheus Blackbox Exporter",
+  "uid": "xtkCtBkiz",
+  "version": 1,
+  "weekStart": ""
 }
