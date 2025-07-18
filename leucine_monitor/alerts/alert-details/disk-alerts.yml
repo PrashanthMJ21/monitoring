@@ -95,3 +95,1219 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+  - uid: "pharmax-cleen-Disk"
+    name: pharmax_cleen_Disk
+    title: "pharmax-cleen Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="pharmax-cleen-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="pharmax-cleen-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="pharmax-cleen-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.40.60.169"
+      threshold: "85"
+      title: "Pharmax-cleen Disk-usage"
+      url: "pharmax.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "acmegenerics-prod-Disk"
+    name: acmegenerics_prod_Disk
+    title: "acmegenerics-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="acmegenerics-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="acmegenerics-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="acmegenerics-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.43.10"
+      threshold: "85"
+      title: "Acmegenerics-prod Disk-usage"
+      url: "acmegenerics.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "andover.platform-prod-Disk"
+    name: andover_platform_prod_Disk
+    title: "andover.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="andover.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="andover.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="andover.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.26.237.139"
+      threshold: "85"
+      title: "Andover.platform-prod Disk-usage"
+      url: "andover.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "aurovitas.cleen-prod-Disk"
+    name: aurovitas_cleen_prod_Disk
+    title: "aurovitas.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="aurovitas.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="aurovitas.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="aurovitas.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "35.198.230.51"
+      threshold: "85"
+      title: "Aurovitas.cleen-prod Disk-usage"
+      url: "aurovitas.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "aizant.cleen-prod-Disk"
+    name: aizant_cleen_prod_Disk
+    title: "aizant.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="aizant.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="aizant.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="aizant.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.40.56.171"
+      threshold: "85"
+      title: "Aizant.cleen-prod Disk-usage"
+      url: "aizant.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "alembic.cleen-prod-Disk"
+    name: alembic_cleen_prod_Disk
+    title: "alembic.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="alembic.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="alembic.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="alembic.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.193.224.204"
+      threshold: "85"
+      title: "Alembic.cleen-prod Disk-usage"
+      url: "alembic.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "amneal.platform-prod-Disk"
+    name: amneal_platform_prod_Disk
+    title: "amneal.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="amneal.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="amneal.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="amneal.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "4.240.94.210"
+      threshold: "85"
+      title: "Amneal.platform-prod Disk-usage"
+      url: "amneal.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "arcolab.stelis.somerset-platform-prod-Disk"
+    name: arcolab_stelis_somerset_platform_prod_Disk
+    title: "arcolab.stelis.somerset-platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="arcolab.stelis.somerset-platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="arcolab.stelis.somerset-platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="arcolab.stelis.somerset-platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.9.127"
+      threshold: "85"
+      title: "Arcolab.stelis.somerset-platform-prod Disk-usage"
+      url: "arcolab.stelis.somerset-platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cipla.cleen-prod-Disk"
+    name: cipla_cleen_prod_Disk
+    title: "cipla.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cipla.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cipla.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="cipla.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "4.240.87.136"
+      threshold: "85"
+      title: "Cipla.cleen-prod Disk-usage"
+      url: "cipla.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cipla.usa.cleen-prod-Disk"
+    name: cipla_usa_cleen_prod_Disk
+    title: "cipla.usa.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cipla.usa.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cipla.usa.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="cipla.usa.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "13.87.246.226"
+      threshold: "85"
+      title: "Cipla.usa.cleen-prod Disk-usage"
+      url: "cipla.usa.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cipla.platform-prod-Disk"
+    name: cipla_platform_prod_Disk
+    title: "cipla.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cipla.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cipla.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="cipla.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "98.70.27.70"
+      threshold: "85"
+      title: "Cipla.platform-prod Disk-usage"
+      url: "cipla.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cronus.cleen-prod-Disk"
+    name: cronus_cleen_prod_Disk
+    title: "cronus.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cronus.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cronus.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="cronus.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "40.81.243.57"
+      threshold: "85"
+      title: "Cronus.cleen-prod Disk-usage"
+      url: "cronus.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "mydrreddys.cleen-prod-Disk"
+    name: mydrreddys_cleen_prod_Disk
+    title: "mydrreddys.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="mydrreddys.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="mydrreddys.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="mydrreddys.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.40.60.109"
+      threshold: "85"
+      title: "Mydrreddys.cleen-prod Disk-usage"
+      url: "mydrreddys.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "encube.cleen-prod-Disk"
+    name: encube_cleen_prod_Disk
+    title: "encube.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="encube.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="encube.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="encube.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.25.217"
+      threshold: "85"
+      title: "Encube.cleen-prod Disk-usage"
+      url: "encube.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "par.cleen-prod-Disk"
+    name: par_cleen_prod_Disk
+    title: "par.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="par.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="par.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="par.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "4.240.84.31"
+      threshold: "85"
+      title: "Par.cleen-prod Disk-usage"
+      url: "par.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "eugia.cleen-prod-Disk"
+    name: eugia_cleen_prod_Disk
+    title: "eugia.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="eugia.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="eugia.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="eugia.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.42.224"
+      threshold: "85"
+      title: "Eugia.cleen-prod Disk-usage"
+      url: "eugia.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "granules.cleen-prod-Disk"
+    name: granules_cleen_prod_Disk
+    title: "granules.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="granules.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="granules.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="granules.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.245.222.129"
+      threshold: "85"
+      title: "Granules.cleen-prod Disk-usage"
+      url: "granules.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "guardian.cleen-prod-Disk"
+    name: guardian_cleen_prod_Disk
+    title: "guardian.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="guardian.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="guardian.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="guardian.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.40.59.52"
+      threshold: "85"
+      title: "Guardian.cleen-prod Disk-usage"
+      url: "guardian.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "kusum.cleen-prod-Disk"
+    name: kusum_cleen_prod_Disk
+    title: "kusum.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="kusum.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="kusum.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="kusum.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.8.45"
+      threshold: "85"
+      title: "Kusum.cleen-prod Disk-usage"
+      url: "kusum.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "mlab.cleen-prod-Disk"
+    name: mlab_cleen_prod_Disk
+    title: "mlab.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="mlab.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="mlab.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="mlab.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.27.161"
+      threshold: "85"
+      title: "Mlab.cleen-prod Disk-usage"
+      url: "mlab.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "msn.cleen-prod-Disk"
+    name: msn_cleen_prod_Disk
+    title: "msn.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="msn.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="msn.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="msn.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "52.172.231.143"
+      threshold: "85"
+      title: "Msn.cleen-prod Disk-usage"
+      url: "msn.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "pii.cleen-prod-Disk"
+    name: pii_cleen_prod_Disk
+    title: "pii.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="pii.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="pii.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="pii.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "40.118.252.13"
+      threshold: "85"
+      title: "Pii.cleen-prod Disk-usage"
+      url: "pii.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "piramal.eforms-prod-Disk"
+    name: piramal_eforms_prod_Disk
+    title: "piramal.eforms-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="piramal.eforms-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="piramal.eforms-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="piramal.eforms-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.44.237"
+      threshold: "85"
+      title: "Piramal.eforms-prod Disk-usage"
+      url: "piramal.eforms.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "piramal.cleen-prod-Disk"
+    name: piramal_cleen_prod_Disk
+    title: "piramal.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="piramal.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="piramal.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="piramal.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "4.240.81.119"
+      threshold: "85"
+      title: "Piramal.cleen-prod Disk-usage"
+      url: "piramal.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "revlon-yuvi-prod-Disk"
+    name: revlon_yuvi_prod_Disk
+    title: "revlon-yuvi-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="revlon-yuvi-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="revlon-yuvi-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="revlon-yuvi-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "35.229.72.81"
+      threshold: "85"
+      title: "Revlon-yuvi-prod Disk-usage"
+      url: "revlon-yuvi.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "stelis.cleen-prod-Disk"
+    name: stelis_cleen_prod_Disk
+    title: "stelis.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="stelis.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="stelis.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="stelis.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.40.57.115"
+      threshold: "85"
+      title: "Stelis.cleen-prod Disk-usage"
+      url: "stelis.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "onesource.cleen-prod-Disk"
+    name: onesource_cleen_prod_Disk
+    title: "onesource.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="onesource.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="onesource.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="onesource.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "98.70.88.64"
+      threshold: "85"
+      title: "Onesource.cleen-prod Disk-usage"
+      url: "onesource.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "strides-us.platform-prod-Disk"
+    name: strides_us_platform_prod_Disk
+    title: "strides-us.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="strides-us.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="strides-us.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="strides-us.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.62.162.17"
+      threshold: "85"
+      title: "Strides-us.platform-prod Disk-usage"
+      url: "strides-us.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "strides.platform-prod-Disk"
+    name: strides_platform_prod_Disk
+    title: "strides.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="strides.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="strides.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="strides.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.15.94"
+      threshold: "85"
+      title: "Strides.platform-prod Disk-usage"
+      url: "strides.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "tenshi.cleen-prod-Disk"
+    name: tenshi_cleen_prod_Disk
+    title: "tenshi.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="tenshi.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="tenshi.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="tenshi.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.0.34"
+      threshold: "85"
+      title: "Tenshi.cleen-prod Disk-usage"
+      url: "tenshi.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "tenshi.platform-prod-Disk"
+    name: tenshi_platform_prod_Disk
+    title: "tenshi.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="tenshi.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="tenshi.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="tenshi.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "98.70.15.31"
+      threshold: "85"
+      title: "Tenshi.platform-prod Disk-usage"
+      url: "tenshi.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "teva.cleen-prod-Disk"
+    name: teva_cleen_prod_Disk
+    title: "teva.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="teva.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="teva.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="teva.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.9.184"
+      threshold: "85"
+      title: "Teva.cleen-prod Disk-usage"
+      url: "teva.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "torrentpharma.cleen-prod-Disk"
+    name: torrentpharma_cleen_prod_Disk
+    title: "torrentpharma.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="torrentpharma.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="torrentpharma.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="torrentpharma.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "40.81.244.238"
+      threshold: "85"
+      title: "Torrentpharma.cleen-prod Disk-usage"
+      url: "torrentpharma.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "troikaa.cleen-prod-Disk"
+    name: troikaa_cleen_prod_Disk
+    title: "troikaa.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="troikaa.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="troikaa.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="troikaa.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "40.81.241.106"
+      threshold: "85"
+      title: "Troikaa.cleen-prod Disk-usage"
+      url: "troikaa.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "valent.platform-prod-Disk"
+    name: valent_platform_prod_Disk
+    title: "valent.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="valent.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="valent.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="valent.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "75.101.198.155"
+      threshold: "85"
+      title: "Valent.platform-prod Disk-usage"
+      url: "valent.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "report.valent.platform-prod-Disk"
+    name: report_valent_platform_prod_Disk
+    title: "report.valent.platform-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="report.valent.platform-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="report.valent.platform-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="report.valent.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "44.218.213.34"
+      threshold: "85"
+      title: "Report.valent.platform-prod Disk-usage"
+      url: "report.valent.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "zydus.cleen-prod-Disk"
+    name: zydus_cleen_prod_Disk
+    title: "zydus.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="zydus.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="zydus.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="zydus.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "4.186.63.1"
+      threshold: "85"
+      title: "Zydus.cleen-prod Disk-usage"
+      url: "zydus.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "zyduscv.cleen-prod-Disk"
+    name: zyduscv_cleen_prod_Disk
+    title: "zyduscv.cleen-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="zyduscv.cleen-prod-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="zyduscv.cleen-prod-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="zyduscv.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.44.109"
+      threshold: "85"
+      title: "Zyduscv.cleen-prod Disk-usage"
+      url: "zyduscv.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
