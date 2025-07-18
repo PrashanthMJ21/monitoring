@@ -1,1 +1,96 @@
+alerts:
+  - uid: "cleen-biocon-Memory"
+    name: cleen_biocon_Memory
+    title: "cleen-biocon Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="cleen-biocon-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="cleen-biocon-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="cleen-biocon-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.95.3"
+      threshold: "85"
+      title: "cleen-biocon Memory-Usage"
+      url: "biocon.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
 
+  - uid: "platform-qa-Memory"
+    name: platform_qa_Memory
+    title: "platform-qa Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="platform-qa-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="platform-qa-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="platform-qa-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "34.93.160.186"
+      threshold: "85"
+      title: "Platform-qa Memory-Usage"
+      url: "qa.platform.leucinetech.com"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "acme-prod-memory"
+    name: acme_prod_memory
+    title: "acme-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="acme-production-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="acme-production-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="acme-production-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "40.80.92.34"
+      threshold: "85"
+      title: "acme-prod Memory-usage"
+      url: "formulation.acme.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
