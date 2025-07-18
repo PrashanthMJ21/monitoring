@@ -63,9 +63,9 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "acme-prod-memory"
-    name: acme_prod_memory
-    title: "acme-prod Memory"
+  - uid: "pharmax-cleen-Memory"
+    name: pharmax_cleen_Memory
+    title: "pharmax-cleen Memory"
     folder: "Memory-Usage"
     group: "Memory"
     condition: "C"
@@ -73,24 +73,1210 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          node_memory_MemAvailable_bytes{job="acme-production-server"} 
+          node_memory_MemAvailable_bytes{job="pharmax-cleen-server"} 
           / 
-          node_memory_MemTotal_bytes{job="acme-production-server"}
+          node_memory_MemTotal_bytes{job="pharmax-cleen-server"}
         ) * 100
       )
       and 
-      on(instance) up{job="acme-production-server"} == 1
+      on(instance) up{job="pharmax-cleen-server"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The Memory usage is above the threshold value."
-      server: "40.80.92.34"
+      server: "20.40.60.169"
       threshold: "85"
-      title: "acme-prod Memory-usage"
-      url: "formulation.acme.cleen.leucine.tech"
+      title: "Pharmax-Cleen Memory-Usage"
+      url: "pharmax.cleen.leucine.tech"
     labels:
       env: "production"
     contact_point: "Alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+
+  - uid: "acmegenerics-prod-Memory"
+    name: acmegenerics_prod_Memory
+    title: "acmegenerics-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="acmegenerics-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="acmegenerics-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="acmegenerics-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.43.10"
+      threshold: "85"
+      title: "Acmegenerics-prod Memory-Usage"
+      url: "acmegenerics.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "andover.platform-prod-Memory"
+    name: andover_platform_prod_Memory
+    title: "andover.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="andover.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="andover.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="andover.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.26.237.139"
+      threshold: "85"
+      title: "Andover.platform-prod Memory-Usage"
+      url: "andover.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "aurovitas.cleen-prod-Memory"
+    name: aurovitas_cleen_prod_Memory
+    title: "aurovitas.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="aurovitas.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="aurovitas.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="aurovitas.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "35.198.230.51"
+      threshold: "85"
+      title: "Aurovitas.cleen-prod Memory-Usage"
+      url: "aurovitas.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "aizant.cleen-prod-Memory"
+    name: aizant_cleen_prod_Memory
+    title: "aizant.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="aizant.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="aizant.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="aizant.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.40.56.171"
+      threshold: "85"
+      title: "Aizant.cleen-prod Memory-Usage"
+      url: "aizant.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "alembic.cleen-prod-Memory"
+    name: alembic_cleen_prod_Memory
+    title: "alembic.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="alembic.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="alembic.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="alembic.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.193.224.204"
+      threshold: "85"
+      title: "Alembic.cleen-prod Memory-Usage"
+      url: "alembic.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "amneal.platform-prod-Memory"
+    name: amneal_platform_prod_Memory
+    title: "amneal.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="amneal.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="amneal.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="amneal.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "4.240.94.210"
+      threshold: "85"
+      title: "Amneal.platform-prod Memory-Usage"
+      url: "amneal.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "arcolab.stelis.somerset-platform-prod-Memory"
+    name: arcolab_stelis_somerset_platform_prod_Memory
+    title: "arcolab.stelis.somerset-platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="arcolab.stelis.somerset-platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="arcolab.stelis.somerset-platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="arcolab.stelis.somerset-platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.9.127"
+      threshold: "85"
+      title: "Arcolab.stelis.somerset-platform-prod Memory-Usage"
+      url: "arcolab.stelis.somerset-platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cipla.cleen-prod-Memory"
+    name: cipla_cleen_prod_Memory
+    title: "cipla.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="cipla.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="cipla.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="cipla.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "4.240.87.136"
+      threshold: "85"
+      title: "Cipla.cleen-prod Memory-Usage"
+      url: "cipla.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cipla.usa.cleen-prod-Memory"
+    name: cipla_usa_cleen_prod_Memory
+    title: "cipla.usa.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="cipla.usa.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="cipla.usa.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="cipla.usa.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "13.87.246.226"
+      threshold: "85"
+      title: "Cipla.usa.cleen-prod Memory-Usage"
+      url: "cipla.usa.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cipla.platform-prod-Memory"
+    name: cipla_platform_prod_Memory
+    title: "cipla.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="cipla.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="cipla.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="cipla.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "98.70.27.70"
+      threshold: "85"
+      title: "Cipla.platform-prod Memory-Usage"
+      url: "cipla.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cronus.cleen-prod-Memory"
+    name: cronus_cleen_prod_Memory
+    title: "cronus.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="cronus.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="cronus.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="cronus.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "40.81.243.57"
+      threshold: "85"
+      title: "Cronus.cleen-prod Memory-Usage"
+      url: "cronus.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "mydrreddys.cleen-prod-Memory"
+    name: mydrreddys_cleen_prod_Memory
+    title: "mydrreddys.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="mydrreddys.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="mydrreddys.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="mydrreddys.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.40.60.109"
+      threshold: "85"
+      title: "Mydrreddys.cleen-prod Memory-Usage"
+      url: "mydrreddys.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "encube.cleen-prod-Memory"
+    name: encube_cleen_prod_Memory
+    title: "encube.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="encube.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="encube.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="encube.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.25.217"
+      threshold: "85"
+      title: "Encube.cleen-prod Memory-Usage"
+      url: "encube.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "par.cleen-prod-Memory"
+    name: par_cleen_prod_Memory
+    title: "par.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="par.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="par.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="par.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "4.240.84.31"
+      threshold: "85"
+      title: "Par.cleen-prod Memory-Usage"
+      url: "par.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "eugia.cleen-prod-Memory"
+    name: eugia_cleen_prod_Memory
+    title: "eugia.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="eugia.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="eugia.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="eugia.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.42.224"
+      threshold: "85"
+      title: "Eugia.cleen-prod Memory-Usage"
+      url: "eugia.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "granules.cleen-prod-Memory"
+    name: granules_cleen_prod_Memory
+    title: "granules.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="granules.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="granules.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="granules.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.245.222.129"
+      threshold: "85"
+      title: "Granules.cleen-prod Memory-Usage"
+      url: "granules.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "guardian.cleen-prod-Memory"
+    name: guardian_cleen_prod_Memory
+    title: "guardian.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="guardian.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="guardian.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="guardian.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.40.59.52"
+      threshold: "85"
+      title: "Guardian.cleen-prod Memory-Usage"
+      url: "guardian.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "kusum.cleen-prod-Memory"
+    name: kusum_cleen_prod_Memory
+    title: "kusum.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="kusum.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="kusum.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="kusum.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.8.45"
+      threshold: "85"
+      title: "Kusum.cleen-prod Memory-Usage"
+      url: "kusum.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "mlab.cleen-prod-Memory"
+    name: mlab_cleen_prod_Memory
+    title: "mlab.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="mlab.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="mlab.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="mlab.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.27.161"
+      threshold: "85"
+      title: "Mlab.cleen-prod Memory-Usage"
+      url: "mlab.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "msn.cleen-prod-Memory"
+    name: msn_cleen_prod_Memory
+    title: "msn.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="msn.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="msn.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="msn.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "52.172.231.143"
+      threshold: "85"
+      title: "Msn.cleen-prod Memory-Usage"
+      url: "msn.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "pii.cleen-prod-Memory"
+    name: pii_cleen_prod_Memory
+    title: "pii.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="pii.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="pii.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="pii.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "40.118.252.13"
+      threshold: "85"
+      title: "Pii.cleen-prod Memory-Usage"
+      url: "pii.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "piramal.eforms-prod-Memory"
+    name: piramal_eforms_prod_Memory
+    title: "piramal.eforms-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="piramal.eforms-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="piramal.eforms-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="piramal.eforms-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.44.237"
+      threshold: "85"
+      title: "Piramal.eforms-prod Memory-Usage"
+      url: "piramal.eforms.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "piramal.cleen-prod-Memory"
+    name: piramal_cleen_prod_Memory
+    title: "piramal.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="piramal.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="piramal.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="piramal.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "4.240.81.119"
+      threshold: "85"
+      title: "Piramal.cleen-prod Memory-Usage"
+      url: "piramal.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "revlon-yuvi-prod-Memory"
+    name: revlon_yuvi_prod_Memory
+    title: "revlon-yuvi-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="revlon-yuvi-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="revlon-yuvi-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="revlon-yuvi-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "35.229.72.81"
+      threshold: "85"
+      title: "Revlon-yuvi-prod Memory-Usage"
+      url: "revlon-yuvi.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "stelis.cleen-prod-Memory"
+    name: stelis_cleen_prod_Memory
+    title: "stelis.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="stelis.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="stelis.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="stelis.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.40.57.115"
+      threshold: "85"
+      title: "Stelis.cleen-prod Memory-Usage"
+      url: "stelis.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "onesource.cleen-prod-Memory"
+    name: onesource_cleen_prod_Memory
+    title: "onesource.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="onesource.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="onesource.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="onesource.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "98.70.88.64"
+      threshold: "85"
+      title: "Onesource.cleen-prod Memory-Usage"
+      url: "onesource.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "strides-us.platform-prod-Memory"
+    name: strides_us_platform_prod_Memory
+    title: "strides-us.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="strides-us.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="strides-us.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="strides-us.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.62.162.17"
+      threshold: "85"
+      title: "Strides-us.platform-prod Memory-Usage"
+      url: "strides-us.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "strides.platform-prod-Memory"
+    name: strides_platform_prod_Memory
+    title: "strides.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="strides.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="strides.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="strides.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.15.94"
+      threshold: "85"
+      title: "Strides.platform-prod Memory-Usage"
+      url: "strides.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "tenshi.cleen-prod-Memory"
+    name: tenshi_cleen_prod_Memory
+    title: "tenshi.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="tenshi.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="tenshi.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="tenshi.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.0.34"
+      threshold: "85"
+      title: "Tenshi.cleen-prod Memory-Usage"
+      url: "tenshi.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "tenshi.platform-prod-Memory"
+    name: tenshi_platform_prod_Memory
+    title: "tenshi.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="tenshi.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="tenshi.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="tenshi.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "98.70.15.31"
+      threshold: "85"
+      title: "Tenshi.platform-prod Memory-Usage"
+      url: "tenshi.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "teva.cleen-prod-Memory"
+    name: teva_cleen_prod_Memory
+    title: "teva.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="teva.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="teva.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="teva.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.9.184"
+      threshold: "85"
+      title: "Teva.cleen-prod Memory-Usage"
+      url: "teva.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "torrentpharma.cleen-prod-Memory"
+    name: torrentpharma_cleen_prod_Memory
+    title: "torrentpharma.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="torrentpharma.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="torrentpharma.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="torrentpharma.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "40.81.244.238"
+      threshold: "85"
+      title: "Torrentpharma.cleen-prod Memory-Usage"
+      url: "torrentpharma.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "troikaa.cleen-prod-Memory"
+    name: troikaa_cleen_prod_Memory
+    title: "troikaa.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="troikaa.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="troikaa.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="troikaa.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "40.81.241.106"
+      threshold: "85"
+      title: "Troikaa.cleen-prod Memory-Usage"
+      url: "troikaa.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "valent.platform-prod-Memory"
+    name: valent_platform_prod_Memory
+    title: "valent.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="valent.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="valent.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="valent.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "75.101.198.155"
+      threshold: "85"
+      title: "Valent.platform-prod Memory-Usage"
+      url: "valent.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "report.valent.platform-prod-Memory"
+    name: report_valent_platform_prod_Memory
+    title: "report.valent.platform-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="report.valent.platform-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="report.valent.platform-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="report.valent.platform-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "44.218.213.34"
+      threshold: "85"
+      title: "Report.valent.platform-prod Memory-Usage"
+      url: "report.valent.platform.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "zydus.cleen-prod-Memory"
+    name: zydus_cleen_prod_Memory
+    title: "zydus.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="zydus.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="zydus.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="zydus.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "4.186.63.1"
+      threshold: "85"
+      title: "Zydus.cleen-prod Memory-Usage"
+      url: "zydus.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "zyduscv.cleen-prod-Memory"
+    name: zyduscv_cleen_prod_Memory
+    title: "zyduscv.cleen-prod Memory"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="zyduscv.cleen-prod-server"} 
+          / 
+          node_memory_MemTotal_bytes{job="zyduscv.cleen-prod-server"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="zyduscv.cleen-prod-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "20.244.44.109"
+      threshold: "85"
+      title: "Zyduscv.cleen-prod Memory-Usage"
+      url: "zyduscv.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+
