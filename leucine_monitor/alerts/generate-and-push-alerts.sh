@@ -65,22 +65,23 @@ for i in $(seq 0 $((alerts - 1))); do
     $template[0]
     | .folderUID = $folder_uid
     | .title = $alert.title
-    | (if $alert.group then .ruleGroup = $alert.group else del(.ruleGroup) end)
-    | .condition = $alert.condition
-    | .noDataState = $alert.no_data_state
-    | .execErrState = $alert.exec_err_state
-    | .for = $alert.pending
-    | (if $alert.keep_firing_for then .keepState = $alert.keep_firing_for else . end)
+    | (if $alert.group != null then .ruleGroup = $alert.group else del(.ruleGroup) end)
+    | (if $alert.condition != null then .condition = $alert.condition else del(.condition) end)
+    | (if $alert.no_data_state != null then .noDataState = $alert.no_data_state else del(.noDataState) end)
+    | (if $alert.exec_err_state != null then .execErrState = $alert.exec_err_state else del(.execErrState) end)
+    | (if $alert.pending != null then .for = $alert.pending else del(.for) end)
+    | (if $alert.keep_firing_for != null then .keepState = $alert.keep_firing_for else del(.keepState) end)
     | .data[0].datasourceUid = $prometheus_uid
-    | .data[0].model.expr = $alert.expr
-    | .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold
-    | .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold
+    | (if $alert.expr != null then .data[0].model.expr = $alert.expr else del(.data[0].model.expr) end)
+    | (if $alert.threshold != null then .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold else del(.data[1].model.conditions[0].evaluator.params[0]) end)
+    | (if $alert.recovery_threshold != null then .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold else del(.data[1].model.conditions[0].unloadEvaluator.params[0]) end)
     | .data[1].model.conditions[0].query.params[0] = "A"
     | .annotations = $annotations
     | .labels = $labels
-    | if $alert.contact_point then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end
-    | if $alert.uid then .uid = $alert.uid else del(.uid) end
+    | (if $alert.contact_point != null then .notification_settings.receiver = $alert.contact_point else del(.notification_settings) end)
+    | (if $alert.uid != null then .uid = $alert.uid else del(.uid) end)
   ')
+
 
   # Detect existing UID in Grafana
   existing_uid=$(echo "$existing_alerts" | jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
