@@ -1,1 +1,97 @@
+alerts:
+  - uid: "cleen-biocon-Disk"
+    name: cleen_biocon_Disk
+    title: "cleen-biocon Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cleen-biocon-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cleen-biocon-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="cleen-biocon-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "20.244.95.3"
+      threshold: "85"
+      title: "cleen-biocon Disk-Usage"
+      url: "biocon.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "platform-qa-Disk"
+    name: platform_qa_Disk
+    title: "platform-qa Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="platform-qa-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="platform-qa-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="platform-qa-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "34.93.160.186"
+      threshold: "85"
+      title: "Platform-qa Disk-usage"
+      url: "qa.platform.leucinetech.com"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "acme-prod-Disk"
+    name: acme_prod_disk
+    title: "acme-prod Disk"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="acme-production-server"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="acme-production-server"})
+        ))
+      )
+      and 
+      on(instance) up{job="acme-production-server"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "40.80.92.34"
+      threshold: "85"
+      title: "acme-prod Disk-usage"
+      url: "formulation.acme.cleen.leucine.tech"
+    labels:
+      env: "production"
+    contact_point: "Alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
 
