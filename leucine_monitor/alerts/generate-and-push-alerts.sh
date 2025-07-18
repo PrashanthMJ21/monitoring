@@ -101,7 +101,7 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
     fi
 
     echo "📤 Pushing alert: $title via $method"
-    response=$(curl -s -w "\n%{http_code}" -o "./alerts/response_body_${uid:-$i}.txt" \
+    response=$(curl -s -w "%{http_code}" -o /dev/null \
       -X "$method" "$url" \
       -H "Authorization: $API_KEY" \
       -H "Content-Type: application/json" \
