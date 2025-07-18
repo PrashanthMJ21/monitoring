@@ -116,5 +116,269 @@ scrape_configs:
         labels:
           server_ip: '40.80.92.34'
           server_name: 'acme-production-server'
-# rule_files:
-#   - "alert.rules.yml"
+
+  - job_name: 'pharmax-cleen-server'
+    static_configs:
+      - targets: ['pharmax-cleen-server:9100']
+        labels:
+          server_ip: '20.40.60.169'
+          server_name: 'pharmax-cleen-server'
+
+  - job_name: 'acmegenerics-prod-server'
+    static_configs:
+      - targets: ['acmegenerics-prod-server:9100']
+        labels:
+          server_ip: '20.244.43.10'
+          server_name: 'acmegenerics-prod-server'
+
+  - job_name: 'andover.platform-prod-server'
+    static_configs:
+      - targets: ['andover.platform-prod-server:9100']
+        labels:
+          server_ip: '20.26.237.139'
+          server_name: 'andover.platform-prod-server'
+
+  - job_name: 'aurovitas.cleen-prod-server'
+    static_configs:
+      - targets: ['aurovitas.cleen-prod-server:9100']
+        labels:
+          server_ip: '35.198.230.51'
+          server_name: 'aurovitas.cleen-prod-server'
+
+  - job_name: 'aizant.cleen-prod-server'
+    static_configs:
+      - targets: ['aizant.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.40.56.171'
+          server_name: 'aizant.cleen-prod-server'
+
+  - job_name: 'alembic.cleen-prod-server'
+    static_configs:
+      - targets: ['alembic.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.193.224.204'
+          server_name: 'alembic.cleen-prod-server'
+
+  - job_name: 'amneal.platform-prod-server'
+    static_configs:
+      - targets: ['amneal.platform-prod-server:9100']
+        labels:
+          server_ip: '4.240.94.210'
+          server_name: 'amneal.platform-prod-server'
+
+  - job_name: 'arcolab.stelis.somerset-platform-prod-server'
+    static_configs:
+      - targets: ['arcolab.stelis.somerset-platform-prod-server:9100']
+        labels:
+          server_ip: '20.244.9.127'
+          server_name: 'arcolab.stelis.somerset-platform-prod-server'
+
+  - job_name: 'cipla.cleen-prod-server'
+    static_configs:
+      - targets: ['cipla.cleen-prod-server:9100']
+        labels:
+          server_ip: '4.240.87.136'
+          server_name: 'cipla.cleen-prod-server'
+
+  - job_name: 'cipla.usa.cleen-prod-server'
+    static_configs:
+      - targets: ['cipla.usa.cleen-prod-server:9100']
+        labels:
+          server_ip: '13.87.246.226'
+          server_name: 'cipla.usa.cleen-prod-server'
+
+  - job_name: 'cipla.platform-prod-server'
+    static_configs:
+      - targets: ['cipla.platform-prod-server:9100']
+        labels:
+          server_ip: '98.70.27.70'
+          server_name: 'cipla.platform-prod-server'
+
+  - job_name: 'cronus.cleen-prod-server'
+    static_configs:
+      - targets: ['cronus.cleen-prod-server:9100']
+        labels:
+          server_ip: '40.81.243.57'
+          server_name: 'cronus.cleen-prod-server'
+
+  - job_name: 'mydrreddys.cleen-prod-server'
+    static_configs:   
+      - targets: ['mydrreddys.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.40.60.109'
+          server_name: 'mydrreddys.cleen-prod-server'
+
+  - job_name: 'encube.cleen-prod-server'
+    static_configs:
+      - targets: ['encube.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.244.25.217'
+          server_name: 'encube.cleen-prod-server'
+
+  - job_name: 'par.cleen-prod-server'
+    static_configs:
+      - targets: ['par.cleen-prod-server:9100']
+        labels:
+          server_ip: '4.240.84.31'
+          server_name: 'par.cleen-prod-server'
+
+  - job_name: 'eugia.cleen-prod-server'
+    static_configs:
+      - targets: ['eugia.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.244.42.224'
+          server_name: 'eugia.cleen-prod-server'
+
+  - job_name: 'granules.cleen-prod-server'
+    static_configs:
+      - targets: ['granules.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.245.222.129'
+          server_name: 'granules.cleen-prod-server'
+
+  - job_name: 'guardian.cleen-prod-server'
+    static_configs:
+      - targets: ['guardian.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.40.59.52'
+          server_name: 'guardian.cleen-prod-server'
+
+  - job_name: 'kusum.cleen-prod-server'
+    static_configs:
+      - targets: ['kusum.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.244.8.45'
+          server_name: 'kusum.cleen-prod-server'
+
+  - job_name: 'mlab.cleen-prod-server'
+    static_configs:
+      - targets: ['mlab.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.244.27.161'
+          server_name: 'mlab.cleen-prod-server'
+
+  - job_name: 'msn.cleen-prod-server'
+    static_configs:
+      - targets: ['msn.cleen-prod-server:9100']
+        labels:
+          server_ip: '52.172.231.143'
+          server_name: 'msn.cleen-prod-server'
+
+  - job_name: 'pii.cleen-prod-server'
+    static_configs:
+      - targets: ['pii.cleen-prod-server:9100']
+        labels:
+          server_ip: '40.118.252.13'
+          server_name: 'pii.cleen-prod-server'
+
+  - job_name: 'piramal.eforms-prod-server'
+    static_configs:
+      - targets: ['piramal.eforms-prod-server:9100']
+        labels:
+          server_ip: '20.244.44.237'
+          server_name: 'piramal.eforms-prod-server'
+
+  - job_name: 'piramal.cleen-prod-server'
+    static_configs:
+      - targets: ['piramal.cleen-prod-server:9100']
+        labels:
+          server_ip: '4.240.81.119'
+          server_name: 'piramal.cleen-prod-server'
+
+  - job_name: 'revlon-yuvi-prod-server'
+    static_configs:
+      - targets: ['revlon-yuvi-prod-server:9100']
+        labels:
+          server_ip: '35.229.72.81'
+          server_name: 'revlon-yuvi-prod-server'
+
+  - job_name: 'stelis.cleen-prod-server'
+    static_configs:
+      - targets: ['stelis.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.40.57.115'
+          server_name: 'stelis.cleen-prod-server'
+
+  - job_name: 'onesource.cleen-prod-server'
+    static_configs:
+      - targets: ['onesource.cleen-prod-server:9100']
+        labels:
+          server_ip: '98.70.88.64'
+          server_name: 'onesource.cleen-prod-server'
+
+  - job_name: 'strides-us.platform-prod-server'
+    static_configs:
+      - targets: ['strides-us.platform-prod-server:9100']
+        labels:
+          server_ip: '20.62.162.17'
+          server_name: 'strides-us.platform-prod-server'
+
+  - job_name: 'strides.platform-prod-server'
+    static_configs:
+      - targets: ['strides.platform-prod-server:9100']
+        labels:
+          server_ip: '20.244.15.94'
+          server_name: 'strides.platform-prod-server'
+
+  - job_name: 'tenshi.cleen-prod-server'
+    static_configs:
+      - targets: ['tenshi.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.244.0.34'
+          server_name: 'tenshi.cleen-prod-server'
+
+  - job_name: 'tenshi.platform-prod-server'
+    static_configs:
+      - targets: ['tenshi.platform-prod-server:9100']
+        labels:
+          server_ip: '98.70.15.31'
+          server_name: 'tenshi.platform-prod-server'
+
+  - job_name: 'teva.cleen-prod-server'
+    static_configs:
+      - targets: ['teva.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.244.9.184'
+          server_name: 'teva.cleen-prod-server'
+
+  - job_name: 'torrentpharma.cleen-prod-server'
+    static_configs:
+      - targets: ['torrentpharma.cleen-prod-server:9100']
+        labels:
+          server_ip: '40.81.244.238'
+          server_name: 'torrentpharma.cleen-prod-server'
+
+  - job_name: 'troikaa.cleen-prod-server'
+    static_configs:
+      - targets: ['troikaa.cleen-prod-server:9100']
+        labels:
+          server_ip: '40.81.241.106'
+          server_name: 'troikaa.cleen-prod-server'
+
+  - job_name: 'valent.platform-prod-server'
+    static_configs:
+      - targets: ['valent.platform-prod-server:9100']
+        labels:
+          server_ip: '75.101.198.155'
+          server_name: 'valent.platform-prod-server'
+
+  - job_name: 'report.valent.platform-prod-server'
+    static_configs:
+      - targets: ['report.valent.platform-prod-server:9100']
+        labels:
+          server_ip: '44.218.213.34'
+          server_name: 'report.valent.platform-prod-server'
+
+  - job_name: 'zydus.cleen-prod-server'
+    static_configs:
+      - targets: ['zydus.cleen-prod-server:9100']
+        labels:
+          server_ip: '4.186.63.1'
+          server_name: 'zydus.cleen-prod-server'
+
+  - job_name: 'zyduscv.cleen-prod-server'
+    static_configs:
+      - targets: ['zyduscv.cleen-prod-server:9100']
+        labels:
+          server_ip: '20.244.44.109'
+          server_name: 'zyduscv.cleen-prod-server'
