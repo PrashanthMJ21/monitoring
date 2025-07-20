@@ -108,7 +108,14 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
       -H "X-Disable-Provenance: true" \
       -d "$payload")
 
-    echo "📥 Response for $title: $(tail -n1 <<< "$response")"
+    echo "📥 Response for $title: $response"
+
+    # 🔴 Save failed payload if status is not 200/201
+    if [ "$response" != "200" ] && [ "$response" != "201" ]; then
+      mkdir -p ./alerts/failed_payloads
+      echo "$payload" > "./alerts/failed_payloads/${uid:-$i}.json"
+    fi
+
   done
 done
 
