@@ -19,7 +19,7 @@ alerts:
     env: "production"
   contact_point: "Alerts"
   pending: "0s"
-  no_data_state: "Normal"
+  no_data_state: "OK"
   exec_err_state: "Error"
 
 
