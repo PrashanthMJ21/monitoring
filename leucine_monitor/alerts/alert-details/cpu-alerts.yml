@@ -1199,7 +1199,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zyduscv.cleen-prod-cpu"
+  - uid: "zyduscv-cleen-prod-cpu"
     name: zyduscv_cleen_prod_cpu
     title: "zyduscv.cleen-prod CPU"
     folder: "CPU-Usage"
