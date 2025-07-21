@@ -287,7 +287,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "arcolab-stelis-somerset-platform-prod-Memory"
+  - uid: "arcolab-stelis-somerset-prod-Memory"
     name: arcolab_stelis_somerset_platform_prod_Memory
     title: "arcolab.stelis.somerset-platform-prod Memory"
     folder: "Memory-Usage"
