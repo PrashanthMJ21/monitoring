@@ -209,7 +209,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aizant.cleen-prod-cpu"
+  - uid: "aizant-cleen-prod-cpu"
     name: aizant_cleen_prod_cpu
     title: "aizant.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -239,7 +239,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "alembic.cleen-prod-cpu"
+  - uid: "alembic-cleen-prod-cpu"
     name: alembic_cleen_prod_cpu
     title: "alembic.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -269,7 +269,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "amneal.platform-prod-cpu"
+  - uid: "amneal-platform-prod-cpu"
     name: amneal_platform_prod_cpu
     title: "amneal.platform-prod CPU"
     folder: "CPU-Usage"
@@ -299,7 +299,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "arcolab.stelis.somerset-platform-prod-cpu"
+  - uid: "arcolab-stelis-somerset-platform-prod-cpu"
     name: arcolab_stelis_somerset_platform_prod_cpu
     title: "arcolab.stelis.somerset-platform-prod CPU"
     folder: "CPU-Usage"
@@ -329,7 +329,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.cleen-prod-cpu"
+  - uid: "cipla-cleen-prod-cpu"
     name: cipla_cleen_prod_cpu
     title: "cipla.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -359,7 +359,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.usa.cleen-prod-cpu"
+  - uid: "cipla-usa-cleen-prod-cpu"
     name: cipla_usa_cleen_prod_cpu
     title: "cipla.usa.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -389,7 +389,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.platform-prod-cpu"
+  - uid: "cipla-platform-prod-cpu"
     name: cipla_platform_prod_cpu
     title: "cipla.platform-prod CPU"
     folder: "CPU-Usage"
@@ -419,7 +419,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cronus.cleen-prod-cpu"
+  - uid: "cronus-cleen-prod-cpu"
     name: cronus_cleen_prod_cpu
     title: "cronus.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -449,7 +449,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mydrreddys.cleen-prod-cpu"
+  - uid: "mydrreddys-cleen-prod-cpu"
     name: mydrreddys_cleen_prod_cpu
     title: "mydrreddys.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -479,7 +479,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "encube.cleen-prod-cpu"
+  - uid: "encube-cleen-prod-cpu"
     name: encube_cleen_prod_cpu
     title: "encube.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -509,7 +509,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "par.cleen-prod-cpu"
+  - uid: "par-cleen-prod-cpu"
     name: par_cleen_prod_cpu
     title: "par.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -539,7 +539,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "eugia.cleen-prod-cpu"
+  - uid: "eugia-cleen-prod-cpu"
     name: eugia_cleen_prod_cpu
     title: "eugia.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -569,7 +569,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "granules.cleen-prod-cpu"
+  - uid: "granules-cleen-prod-cpu"
     name: granules_cleen_prod_cpu
     title: "granules.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -599,7 +599,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "guardian.cleen-prod-cpu"
+  - uid: "guardian-cleen-prod-cpu"
     name: guardian_cleen_prod_cpu
     title: "guardian.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -629,7 +629,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "kusum.cleen-prod-cpu"
+  - uid: "kusum-cleen-prod-cpu"
     name: kusum_cleen_prod_cpu
     title: "kusum.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -659,7 +659,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mlab.cleen-prod-cpu"
+  - uid: "mlab-cleen-prod-cpu"
     name: mlab_cleen_prod_cpu
     title: "mlab.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -689,7 +689,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "msn.cleen-prod-cpu"
+  - uid: "msn-cleen-prod-cpu"
     name: msn_cleen_prod_cpu
     title: "msn.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -719,7 +719,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "pii.cleen-prod-cpu"
+  - uid: "pii-cleen-prod-cpu"
     name: pii_cleen_prod_cpu
     title: "pii.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -749,7 +749,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal.eforms-prod-cpu"
+  - uid: "piramal-eforms-prod-cpu"
     name: piramal_eforms_prod_cpu
     title: "piramal.eforms-prod CPU"
     folder: "CPU-Usage"
@@ -779,7 +779,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal.cleen-prod-cpu"
+  - uid: "piramal-cleen-prod-cpu"
     name: piramal_cleen_prod_cpu
     title: "piramal.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -839,7 +839,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "stelis.cleen-prod-cpu"
+  - uid: "stelis-cleen-prod-cpu"
     name: stelis_cleen_prod_cpu
     title: "stelis.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -869,7 +869,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "onesource.cleen-prod-cpu"
+  - uid: "onesource-cleen-prod-cpu"
     name: onesource_cleen_prod_cpu
     title: "onesource.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -899,7 +899,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "strides-us.platform-prod-cpu"
+  - uid: "strides-us-platform-prod-cpu"
     name: strides_us_platform_prod_cpu
     title: "strides-us.platform-prod CPU"
     folder: "CPU-Usage"
@@ -929,7 +929,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "strides.platform-prod-cpu"
+  - uid: "strides-platform-prod-cpu"
     name: strides_platform_prod_cpu
     title: "strides.platform-prod CPU"
     folder: "CPU-Usage"
@@ -959,7 +959,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi.cleen-prod-cpu"
+  - uid: "tenshi-cleen-prod-cpu"
     name: tenshi_cleen_prod_cpu
     title: "tenshi.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -989,7 +989,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi.platform-prod-cpu"
+  - uid: "tenshi-platform-prod-cpu"
     name: tenshi_platform_prod_cpu
     title: "tenshi.platform-prod CPU"
     folder: "CPU-Usage"
@@ -1019,7 +1019,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "teva.cleen-prod-cpu"
+  - uid: "teva-cleen-prod-cpu"
     name: teva_cleen_prod_cpu
     title: "teva.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -1049,7 +1049,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "torrentpharma.cleen-prod-cpu"
+  - uid: "torrentpharma-cleen-prod-cpu"
     name: torrentpharma_cleen_prod_cpu
     title: "torrentpharma.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -1079,7 +1079,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "troikaa.cleen-prod-cpu"
+  - uid: "troikaa-cleen-prod-cpu"
     name: troikaa_cleen_prod_cpu
     title: "troikaa.cleen-prod CPU"
     folder: "CPU-Usage"
@@ -1109,7 +1109,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "valent.platform-prod-cpu"
+  - uid: "valent-platform-prod-cpu"
     name: valent_platform_prod_cpu
     title: "valent.platform-prod CPU"
     folder: "CPU-Usage"
@@ -1139,7 +1139,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "report.valent.platform-prod-cpu"
+  - uid: "report-valent-platform-prod-cpu"
     name: report_valent_platform_prod_cpu
     title: "report.valent.platform-prod CPU"
     folder: "CPU-Usage"
@@ -1169,7 +1169,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus.cleen-prod-cpu"
+  - uid: "zydus-cleen-prod-cpu"
     name: zydus_cleen_prod_cpu
     title: "zydus.cleen-prod CPU"
     folder: "CPU-Usage"
