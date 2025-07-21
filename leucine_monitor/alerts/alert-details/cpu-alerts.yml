@@ -299,7 +299,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "arcolab-stelis-somerset-platform-prod-cpu"
+  - uid: "arcolab-stelis-somerset-prod-cpu"
     name: arcolab_stelis_somerset_platform_prod_cpu
     title: "arcolab.stelis.somerset-platform-prod CPU"
     folder: "CPU-Usage"
