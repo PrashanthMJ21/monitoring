@@ -127,7 +127,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "andover.platform-prod-Memory"
+  - uid: "andover-platform-prod-Memory"
     name: andover_platform_prod_Memory
     title: "andover.platform-prod Memory"
     folder: "Memory-Usage"
@@ -159,7 +159,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aurovitas.cleen-prod-Memory"
+  - uid: "aurovitas-cleen-prod-Memory"
     name: aurovitas_cleen_prod_Memory
     title: "aurovitas.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -191,7 +191,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aizant.cleen-prod-Memory"
+  - uid: "aizant-cleen-prod-Memory"
     name: aizant_cleen_prod_Memory
     title: "aizant.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -223,7 +223,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "alembic.cleen-prod-Memory"
+  - uid: "alembic-cleen-prod-Memory"
     name: alembic_cleen_prod_Memory
     title: "alembic.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -255,7 +255,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "amneal.platform-prod-Memory"
+  - uid: "amneal-platform-prod-Memory"
     name: amneal_platform_prod_Memory
     title: "amneal.platform-prod Memory"
     folder: "Memory-Usage"
@@ -287,7 +287,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "arcolab.stelis.somerset-platform-prod-Memory"
+  - uid: "arcolab-stelis-somerset-platform-prod-Memory"
     name: arcolab_stelis_somerset_platform_prod_Memory
     title: "arcolab.stelis.somerset-platform-prod Memory"
     folder: "Memory-Usage"
@@ -319,7 +319,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.cleen-prod-Memory"
+  - uid: "cipla-cleen-prod-Memory"
     name: cipla_cleen_prod_Memory
     title: "cipla.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -351,7 +351,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.usa.cleen-prod-Memory"
+  - uid: "cipla-usa-cleen-prod-Memory"
     name: cipla_usa_cleen_prod_Memory
     title: "cipla.usa.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -383,7 +383,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.platform-prod-Memory"
+  - uid: "cipla-platform-prod-Memory"
     name: cipla_platform_prod_Memory
     title: "cipla.platform-prod Memory"
     folder: "Memory-Usage"
@@ -415,7 +415,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cronus.cleen-prod-Memory"
+  - uid: "cronus-cleen-prod-Memory"
     name: cronus_cleen_prod_Memory
     title: "cronus.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -447,7 +447,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mydrreddys.cleen-prod-Memory"
+  - uid: "mydrreddys-cleen-prod-Memory"
     name: mydrreddys_cleen_prod_Memory
     title: "mydrreddys.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -479,7 +479,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "encube.cleen-prod-Memory"
+  - uid: "encube-cleen-prod-Memory"
     name: encube_cleen_prod_Memory
     title: "encube.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -511,7 +511,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "par.cleen-prod-Memory"
+  - uid: "par-cleen-prod-Memory"
     name: par_cleen_prod_Memory
     title: "par.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -543,7 +543,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "eugia.cleen-prod-Memory"
+  - uid: "eugia-cleen-prod-Memory"
     name: eugia_cleen_prod_Memory
     title: "eugia.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -575,7 +575,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "granules.cleen-prod-Memory"
+  - uid: "granules-cleen-prod-Memory"
     name: granules_cleen_prod_Memory
     title: "granules.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -607,7 +607,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "guardian.cleen-prod-Memory"
+  - uid: "guardian-cleen-prod-Memory"
     name: guardian_cleen_prod_Memory
     title: "guardian.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -639,7 +639,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "kusum.cleen-prod-Memory"
+  - uid: "kusum-cleen-prod-Memory"
     name: kusum_cleen_prod_Memory
     title: "kusum.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -671,7 +671,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mlab.cleen-prod-Memory"
+  - uid: "mlab-cleen-prod-Memory"
     name: mlab_cleen_prod_Memory
     title: "mlab.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -703,7 +703,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "msn.cleen-prod-Memory"
+  - uid: "msn-cleen-prod-Memory"
     name: msn_cleen_prod_Memory
     title: "msn.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -735,7 +735,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "pii.cleen-prod-Memory"
+  - uid: "pii-cleen-prod-Memory"
     name: pii_cleen_prod_Memory
     title: "pii.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -767,7 +767,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal.eforms-prod-Memory"
+  - uid: "piramal-eforms-prod-Memory"
     name: piramal_eforms_prod_Memory
     title: "piramal.eforms-prod Memory"
     folder: "Memory-Usage"
@@ -799,7 +799,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal.cleen-prod-Memory"
+  - uid: "piramal-cleen-prod-Memory"
     name: piramal_cleen_prod_Memory
     title: "piramal.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -863,7 +863,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "stelis.cleen-prod-Memory"
+  - uid: "stelis-cleen-prod-Memory"
     name: stelis_cleen_prod_Memory
     title: "stelis.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -895,7 +895,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "onesource.cleen-prod-Memory"
+  - uid: "onesource-cleen-prod-Memory"
     name: onesource_cleen_prod_Memory
     title: "onesource.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -927,7 +927,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "strides-us.platform-prod-Memory"
+  - uid: "strides-us-platform-prod-Memory"
     name: strides_us_platform_prod_Memory
     title: "strides-us.platform-prod Memory"
     folder: "Memory-Usage"
@@ -959,7 +959,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "strides.platform-prod-Memory"
+  - uid: "strides-platform-prod-Memory"
     name: strides_platform_prod_Memory
     title: "strides.platform-prod Memory"
     folder: "Memory-Usage"
@@ -991,7 +991,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi.cleen-prod-Memory"
+  - uid: "tenshi-cleen-prod-Memory"
     name: tenshi_cleen_prod_Memory
     title: "tenshi.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -1023,7 +1023,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi.platform-prod-Memory"
+  - uid: "tenshi-platform-prod-Memory"
     name: tenshi_platform_prod_Memory
     title: "tenshi.platform-prod Memory"
     folder: "Memory-Usage"
@@ -1055,7 +1055,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "teva.cleen-prod-Memory"
+  - uid: "teva-cleen-prod-Memory"
     name: teva_cleen_prod_Memory
     title: "teva.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -1087,7 +1087,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "torrentpharma.cleen-prod-Memory"
+  - uid: "torrentpharma-cleen-prod-Memory"
     name: torrentpharma_cleen_prod_Memory
     title: "torrentpharma.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -1119,7 +1119,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "troikaa.cleen-prod-Memory"
+  - uid: "troikaa-cleen-prod-Memory"
     name: troikaa_cleen_prod_Memory
     title: "troikaa.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -1151,7 +1151,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "valent.platform-prod-Memory"
+  - uid: "valent-platform-prod-Memory"
     name: valent_platform_prod_Memory
     title: "valent.platform-prod Memory"
     folder: "Memory-Usage"
@@ -1183,7 +1183,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "report.valent.platform-prod-Memory"
+  - uid: "report-valent-platform-prod-Memory"
     name: report_valent_platform_prod_Memory
     title: "report.valent.platform-prod Memory"
     folder: "Memory-Usage"
@@ -1215,7 +1215,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus.cleen-prod-Memory"
+  - uid: "zydus-cleen-prod-Memory"
     name: zydus_cleen_prod_Memory
     title: "zydus.cleen-prod Memory"
     folder: "Memory-Usage"
@@ -1247,7 +1247,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zyduscv.cleen-prod-Memory"
+  - uid: "zyduscv-cleen-prod-Memory"
     name: zyduscv_cleen_prod_Memory
     title: "zyduscv.cleen-prod Memory"
     folder: "Memory-Usage"
