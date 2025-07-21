@@ -82,6 +82,7 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
       | (if $alert.expr != null then .data[0].model.expr = $alert.expr else del(.data[0].model.expr) end)
       | (if $alert.threshold != null then .data[1].model.conditions[0].evaluator.params[0] = $alert.threshold else del(.data[1].model.conditions[0].evaluator.params[0]) end)
       | (if $alert.recovery_threshold != null then .data[1].model.conditions[0].unloadEvaluator.params[0] = $alert.recovery_threshold else del(.data[1].model.conditions[0].unloadEvaluator.params[0]) end)
+      | (if $alert.evaluator.type != null then .data[1].model.conditions[0].evaluator.type = $alert.evaluator.type else . end)
       | (if .data[1]?.model?.conditions?[0]?.query?.params != null then .data[1].model.conditions[0].query.params[0] = "A" else . end)
       | .annotations = $annotations
       | .labels = $labels
