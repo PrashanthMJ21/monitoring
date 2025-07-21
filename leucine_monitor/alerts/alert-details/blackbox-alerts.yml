@@ -22,4 +22,991 @@ alerts:
   no_data_state: "OK"
   exec_err_state: "Error"
 
+- uid: "pharmax-probe"
+  name: pharmax_probe
+  title: "Pharmax Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://pharmax.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Pharmax server"
+    url: "pharmax.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
 
+- uid: "acmegenerics-probe"
+  name: acmegenerics_probe
+  title: "Acmegenerics Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://acmegenerics.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Acmegenerics server"
+    url: "acmegenerics.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "andover-platform-probe"
+  name: andover_platform_probe
+  title: "Andover Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://andover.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Andover Platform server"
+    url: "andover.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "aurovitas-probe"
+  name: aurovitas_probe
+  title: "Aurovitas Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://aurovitas.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Aurovitas server"
+    url: "aurovitas.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "formulation-acme-probe"
+  name: formulation_acme_probe
+  title: "Formulation Acme Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://formulation.acme.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Formulation Acme server"
+    url: "formulation.acme.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "immacule-probe"
+  name: immacule_probe
+  title: "Immacule Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://immacule.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Immacule server"
+    url: "immacule.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "aizant-probe"
+  name: aizant_probe
+  title: "Aizant Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://aizant.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Aizant server"
+    url: "aizant.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "alembic-probe"
+  name: alembic_probe
+  title: "Alembic Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://alembic.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Alembic server"
+    url: "alembic.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "amneal-platform-probe"
+  name: amneal_platform_probe
+  title: "Amneal Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://amneal.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Amneal Platform server"
+    url: "amneal.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "arcolab-platform-probe"
+  name: arcolab_platform_probe
+  title: "Arcolab Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://arcolab.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Arcolab Platform server"
+    url: "arcolab.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "cipla-cleen-probe"
+  name: cipla_cleen_probe
+  title: "Cipla Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://cipla.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Cipla Cleen server"
+    url: "cipla.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "biocon-cleen-probe"
+  name: biocon_cleen_probe
+  title: "Biocon Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://biocon.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Biocon Cleen server"
+    url: "biocon.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "cipla-usa-cleen-probe"
+  name: cipla_usa_cleen_probe
+  title: "Cipla USA Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://cipla.usa.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Cipla USA Cleen server"
+    url: "cipla.usa.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "cipla-platform-probe"
+  name: cipla_platform_probe
+  title: "Cipla Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://cipla.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Cipla Platform server"
+    url: "cipla.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "cronus-cleen-probe"
+  name: cronus_cleen_probe
+  title: "Cronus Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://cronus.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Cronus Cleen server"
+    url: "cronus.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "mydrreddys-cleen-probe"
+  name: mydrreddys_cleen_probe
+  title: "Mydrreddys Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://mydrreddys.cleen.leucinetech.com"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Mydrreddys Cleen server"
+    url: "mydrreddys.cleen.leucinetech.com"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "encube-cleen-probe"
+  name: encube_cleen_probe
+  title: "Encube Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://encube.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Encube Cleen server"
+    url: "encube.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "par-cleen-probe"
+  name: par_cleen_probe
+  title: "Par Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://par.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Par Cleen server"
+    url: "par.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "eugia-cleen-probe"
+  name: eugia_cleen_probe
+  title: "Eugia Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://eugia.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Eugia Cleen server"
+    url: "eugia.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "granules-cleen-probe"
+  name: granules_cleen_probe
+  title: "Granules Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://granules.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Granules Cleen server"
+    url: "granules.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "guardian-cleen-probe"
+  name: guardian_cleen_probe
+  title: "Guardian Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://guardian.cleen.leucinetech.com"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Guardian Cleen server"
+    url: "guardian.cleen.leucinetech.com"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "kusum-cleen-probe"
+  name: kusum_cleen_probe
+  title: "Kusum Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://kusum.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Kusum Cleen server"
+    url: "kusum.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "mlab-cleen-probe"
+  name: mlab_cleen_probe
+  title: "Mlab Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://mlab.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Mlab Cleen server"
+    url: "mlab.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "msn-cleen-probe"
+  name: msn_cleen_probe
+  title: "MSN Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://msn.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "MSN Cleen server"
+    url: "msn.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "pii-cleen-probe"
+  name: pii_cleen_probe
+  title: "PII Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://pii.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "PII Cleen server"
+    url: "pii.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "piramal-eforms-probe"
+  name: piramal_eforms_probe
+  title: "Piramal Eforms Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://piramal.eforms.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Piramal Eforms server"
+    url: "piramal.eforms.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "piramal-cleen-probe"
+  name: piramal_cleen_probe
+  title: "Piramal Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://piramal.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Piramal Cleen server"
+    url: "piramal.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "revlon-yuvi-probe"
+  name: revlon_yuvi_probe
+  title: "Revlon Yuvi Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://revlon-yuvi.leucine.ai"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Revlon Yuvi server"
+    url: "revlon-yuvi.leucine.ai"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "somerset-platform-probe"
+  name: somerset_platform_probe
+  title: "Somerset Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://somerset.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Somerset Platform server"
+    url: "somerset.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "stelis-cleen-probe"
+  name: stelis_cleen_probe
+  title: "Stelis Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://stelis.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Stelis Cleen server"
+    url: "stelis.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "stelis-platform-probe"
+  name: stelis_platform_probe
+  title: "Stelis Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://stelis.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Stelis Platform server"
+    url: "stelis.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "onesource-cleen-probe"
+  name: onesource_cleen_probe
+  title: "Onesource Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://onesource.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Onesource Cleen server"
+    url: "onesource.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "strides-us-platform-probe"
+  name: strides_us_platform_probe
+  title: "Strides US Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://strides-us.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Strides US Platform server"
+    url: "strides-us.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "strides-platform-probe"
+  name: strides_platform_probe
+  title: "Strides Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://strides.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Strides Platform server"
+    url: "strides.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "tenshi-cleen-probe"
+  name: tenshi_cleen_probe
+  title: "Tenshi Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://tenshi.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Tenshi Cleen server"
+    url: "tenshi.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "tenshi-platform-probe"
+  name: tenshi_platform_probe
+  title: "Tenshi Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://tenshi.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Tenshi Platform server"
+    url: "tenshi.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "teva-cleen-probe"
+  name: teva_cleen_probe
+  title: "Teva Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://teva.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Teva Cleen server"
+    url: "teva.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "torrentpharma-cleen-probe"
+  name: torrentpharma_cleen_probe
+  title: "Torrentpharma Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://torrentpharma.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Torrentpharma Cleen server"
+    url: "torrentpharma.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "troikaa-cleen-probe"
+  name: troikaa_cleen_probe
+  title: "Troikaa Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://troikaa.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Troikaa Cleen server"
+    url: "troikaa.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "valent-platform-probe"
+  name: valent_platform_probe
+  title: "Valent Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://valent.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Valent Platform server"
+    url: "valent.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "report-valent-platform-probe"
+  name: report_valent_platform_probe
+  title: "Report Valent Platform Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://report.valent.platform.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Report Valent Platform server"
+    url: "report.valent.platform.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "zydus-cleen-probe"
+  name: zydus_cleen_probe
+  title: "Zydus Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://zydus.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Zydus Cleen server"
+    url: "zydus.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "zyduscv-cleen-probe"
+  name: zyduscv_cleen_probe
+  title: "Zyduscv Cleen Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://zyduscv.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Zyduscv Cleen server"
+    url: "zyduscv.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Blackbox-alerts"
+  pending: "0s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
