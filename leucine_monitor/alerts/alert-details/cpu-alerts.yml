@@ -24,7 +24,7 @@ alerts:
       url: "biocon.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -54,7 +54,7 @@ alerts:
       url: "qa.platform.leucinetech.com"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -84,7 +84,7 @@ alerts:
       url: "generics.acme.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -114,7 +114,7 @@ alerts:
       url: "pharmax.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -144,7 +144,7 @@ alerts:
       url: "acmegenerics.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -174,7 +174,7 @@ alerts:
       url: "andover.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -204,7 +204,7 @@ alerts:
       url: "aurovitas.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -234,7 +234,7 @@ alerts:
       url: "aizant.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -264,7 +264,7 @@ alerts:
       url: "alembic.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -294,7 +294,7 @@ alerts:
       url: "amneal.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -324,7 +324,7 @@ alerts:
       url: "arcolab.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -354,7 +354,7 @@ alerts:
       url: "cipla.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -384,7 +384,7 @@ alerts:
       url: "cipla.usa.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -414,7 +414,7 @@ alerts:
       url: "cipla.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -444,7 +444,7 @@ alerts:
       url: "cronus.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -474,7 +474,7 @@ alerts:
       url: "mydrreddys.cleen.leucinetech.com"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -504,7 +504,7 @@ alerts:
       url: "encube.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -534,7 +534,7 @@ alerts:
       url: "par.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -564,7 +564,7 @@ alerts:
       url: "eugia.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -594,7 +594,7 @@ alerts:
       url: "granules.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -624,7 +624,7 @@ alerts:
       url: "guardian.cleen.leucinetech.com"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -654,7 +654,7 @@ alerts:
       url: "kusum.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -684,7 +684,7 @@ alerts:
       url: "mlab.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -714,7 +714,7 @@ alerts:
       url: "msn.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -744,7 +744,7 @@ alerts:
       url: "pii.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -774,7 +774,7 @@ alerts:
       url: "piramal.eforms.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -804,7 +804,7 @@ alerts:
       url: "piramal.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -834,7 +834,7 @@ alerts:
       url: "revlon-yuvi.leucine.ai"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -864,7 +864,7 @@ alerts:
       url: "stelis.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -894,7 +894,7 @@ alerts:
       url: "onesource.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -924,7 +924,7 @@ alerts:
       url: "strides-us.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -954,7 +954,7 @@ alerts:
       url: "strides.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -984,7 +984,7 @@ alerts:
       url: "tenshi.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -1014,7 +1014,7 @@ alerts:
       url: "tenshi.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -1044,7 +1044,7 @@ alerts:
       url: "teva.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -1074,7 +1074,7 @@ alerts:
       url: "torrentpharma.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -1104,7 +1104,7 @@ alerts:
       url: "troikaa.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -1134,7 +1134,7 @@ alerts:
       url: "valent.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -1164,7 +1164,7 @@ alerts:
       url: "report.valent.platform.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
@@ -1194,7 +1194,7 @@ alerts:
       url: "zydus.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
