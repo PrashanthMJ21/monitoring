@@ -1,1 +1,25 @@
+alerts:
+- uid: "acme-generics-probe"
+  name: acme_generics_probe
+  title: "Acme Generics Probe"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://generics.acme.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "Generics-acme server"
+    url: "generics.acme.cleen.leucine.tech"
+  labels:
+    env: "production"
+  contact_point: "Alerts"
+  pending: "0s"
+  no_data_state: "Normal"
+  exec_err_state: "Error"
+
 
