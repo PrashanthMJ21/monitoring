@@ -17,7 +17,7 @@ alerts:
     url: "generics.acme.cleen.leucine.tech"
   labels:
     env: "production"
-  contact_point: "Alerts"
+  contact_point: "Blackbox-alerts"
   pending: "0s"
   no_data_state: "OK"
   exec_err_state: "Error"
