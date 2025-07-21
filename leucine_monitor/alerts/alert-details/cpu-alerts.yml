@@ -1224,7 +1224,7 @@ alerts:
       url: "zyduscv.cleen.leucine.tech"
     labels:
       env: "production"
-    contact_point: "Alerts"
+    contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
