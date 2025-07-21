@@ -159,7 +159,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "andover.platform-prod-Disk"
+  - uid: "andover-platform-prod-Disk"
     name: andover_platform_prod_Disk
     title: "andover.platform-prod Disk"
     folder: "Disk-Usage"
@@ -191,7 +191,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aurovitas.cleen-prod-Disk"
+  - uid: "aurovitas-cleen-prod-Disk"
     name: aurovitas_cleen_prod_Disk
     title: "aurovitas.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -223,7 +223,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aizant.cleen-prod-Disk"
+  - uid: "aizant-cleen-prod-Disk"
     name: aizant_cleen_prod_Disk
     title: "aizant.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -255,7 +255,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "alembic.cleen-prod-Disk"
+  - uid: "alembic-cleen-prod-Disk"
     name: alembic_cleen_prod_Disk
     title: "alembic.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -287,7 +287,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "amneal.platform-prod-Disk"
+  - uid: "amneal-platform-prod-Disk"
     name: amneal_platform_prod_Disk
     title: "amneal.platform-prod Disk"
     folder: "Disk-Usage"
@@ -319,7 +319,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "arcolab.stelis.somerset-platform-prod-Disk"
+  - uid: "arcolab-stelis-somerset-platform-prod-Disk"
     name: arcolab_stelis_somerset_platform_prod_Disk
     title: "arcolab.stelis.somerset-platform-prod Disk"
     folder: "Disk-Usage"
@@ -351,7 +351,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.cleen-prod-Disk"
+  - uid: "cipla-cleen-prod-Disk"
     name: cipla_cleen_prod_Disk
     title: "cipla.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -383,7 +383,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.usa.cleen-prod-Disk"
+  - uid: "cipla-usa-cleen-prod-Disk"
     name: cipla_usa_cleen_prod_Disk
     title: "cipla.usa.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -415,7 +415,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla.platform-prod-Disk"
+  - uid: "cipla-platform-prod-Disk"
     name: cipla_platform_prod_Disk
     title: "cipla.platform-prod Disk"
     folder: "Disk-Usage"
@@ -447,7 +447,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cronus.cleen-prod-Disk"
+  - uid: "cronus-cleen-prod-Disk"
     name: cronus_cleen_prod_Disk
     title: "cronus.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -479,7 +479,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mydrreddys.cleen-prod-Disk"
+  - uid: "mydrreddys-cleen-prod-Disk"
     name: mydrreddys_cleen_prod_Disk
     title: "mydrreddys.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -511,7 +511,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "encube.cleen-prod-Disk"
+  - uid: "encube-cleen-prod-Disk"
     name: encube_cleen_prod_Disk
     title: "encube.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -543,7 +543,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "par.cleen-prod-Disk"
+  - uid: "par-cleen-prod-Disk"
     name: par_cleen_prod_Disk
     title: "par.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -575,7 +575,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "eugia.cleen-prod-Disk"
+  - uid: "eugia-cleen-prod-Disk"
     name: eugia_cleen_prod_Disk
     title: "eugia.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -607,7 +607,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "granules.cleen-prod-Disk"
+  - uid: "granules-cleen-prod-Disk"
     name: granules_cleen_prod_Disk
     title: "granules.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -639,7 +639,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "guardian.cleen-prod-Disk"
+  - uid: "guardian-cleen-prod-Disk"
     name: guardian_cleen_prod_Disk
     title: "guardian.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -671,7 +671,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "kusum.cleen-prod-Disk"
+  - uid: "kusum-cleen-prod-Disk"
     name: kusum_cleen_prod_Disk
     title: "kusum.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -703,7 +703,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mlab.cleen-prod-Disk"
+  - uid: "mlab-cleen-prod-Disk"
     name: mlab_cleen_prod_Disk
     title: "mlab.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -735,7 +735,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "msn.cleen-prod-Disk"
+  - uid: "msn-cleen-prod-Disk"
     name: msn_cleen_prod_Disk
     title: "msn.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -767,7 +767,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "pii.cleen-prod-Disk"
+  - uid: "pii-cleen-prod-Disk"
     name: pii_cleen_prod_Disk
     title: "pii.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -799,7 +799,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal.eforms-prod-Disk"
+  - uid: "piramal-eforms-prod-Disk"
     name: piramal_eforms_prod_Disk
     title: "piramal.eforms-prod Disk"
     folder: "Disk-Usage"
@@ -831,7 +831,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal.cleen-prod-Disk"
+  - uid: "piramal-cleen-prod-Disk"
     name: piramal_cleen_prod_Disk
     title: "piramal.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -895,7 +895,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "stelis.cleen-prod-Disk"
+  - uid: "stelis-cleen-prod-Disk"
     name: stelis_cleen_prod_Disk
     title: "stelis.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -927,7 +927,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "onesource.cleen-prod-Disk"
+  - uid: "onesource-cleen-prod-Disk"
     name: onesource_cleen_prod_Disk
     title: "onesource.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -959,7 +959,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "strides-us.platform-prod-Disk"
+  - uid: "strides-us-platform-prod-Disk"
     name: strides_us_platform_prod_Disk
     title: "strides-us.platform-prod Disk"
     folder: "Disk-Usage"
@@ -991,7 +991,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "strides.platform-prod-Disk"
+  - uid: "strides-platform-prod-Disk"
     name: strides_platform_prod_Disk
     title: "strides.platform-prod Disk"
     folder: "Disk-Usage"
@@ -1023,7 +1023,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi.cleen-prod-Disk"
+  - uid: "tenshi-cleen-prod-Disk"
     name: tenshi_cleen_prod_Disk
     title: "tenshi.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -1055,7 +1055,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi.platform-prod-Disk"
+  - uid: "tenshi-platform-prod-Disk"
     name: tenshi_platform_prod_Disk
     title: "tenshi.platform-prod Disk"
     folder: "Disk-Usage"
@@ -1087,7 +1087,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "teva.cleen-prod-Disk"
+  - uid: "teva-cleen-prod-Disk"
     name: teva_cleen_prod_Disk
     title: "teva.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -1119,7 +1119,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "torrentpharma.cleen-prod-Disk"
+  - uid: "torrentpharma-cleen-prod-Disk"
     name: torrentpharma_cleen_prod_Disk
     title: "torrentpharma.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -1151,7 +1151,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "troikaa.cleen-prod-Disk"
+  - uid: "troikaa-cleen-prod-Disk"
     name: troikaa_cleen_prod_Disk
     title: "troikaa.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -1183,7 +1183,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "valent.platform-prod-Disk"
+  - uid: "valent-platform-prod-Disk"
     name: valent_platform_prod_Disk
     title: "valent.platform-prod Disk"
     folder: "Disk-Usage"
@@ -1215,7 +1215,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "report.valent.platform-prod-Disk"
+  - uid: "report-valent-platform-prod-Disk"
     name: report_valent_platform_prod_Disk
     title: "report.valent.platform-prod Disk"
     folder: "Disk-Usage"
@@ -1247,7 +1247,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus.cleen-prod-Disk"
+  - uid: "zydus-cleen-prod-Disk"
     name: zydus_cleen_prod_Disk
     title: "zydus.cleen-prod Disk"
     folder: "Disk-Usage"
@@ -1279,7 +1279,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zyduscv.cleen-prod-Disk"
+  - uid: "zyduscv-cleen-prod-Disk"
     name: zyduscv_cleen_prod_Disk
     title: "zyduscv.cleen-prod Disk"
     folder: "Disk-Usage"
