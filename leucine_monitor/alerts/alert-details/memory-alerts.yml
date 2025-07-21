@@ -343,7 +343,7 @@ alerts:
       server: "20.244.9.127"
       threshold: "85"
       title: "Arcolab.stelis.somerset-platform-prod Memory-Usage"
-      url: "arcolab.stelis.somerset-platform.leucine.tech"
+      url: "arcolab.platform.leucine.tech"
     labels:
       env: "production"
     contact_point: "Alerts"
@@ -503,7 +503,7 @@ alerts:
       server: "20.40.60.109"
       threshold: "85"
       title: "Mydrreddys.cleen-prod Memory-Usage"
-      url: "mydrreddys.cleen.leucine.tech"
+      url: "mydrreddys.cleen.leucinetech.com"
     labels:
       env: "production"
     contact_point: "Alerts"
@@ -663,7 +663,7 @@ alerts:
       server: "20.40.59.52"
       threshold: "85"
       title: "Guardian.cleen-prod Memory-Usage"
-      url: "guardian.cleen.leucine.tech"
+      url: "guardian.cleen.leucinetech.com"
     labels:
       env: "production"
     contact_point: "Alerts"
@@ -887,7 +887,7 @@ alerts:
       server: "35.229.72.81"
       threshold: "85"
       title: "Revlon-yuvi-prod Memory-Usage"
-      url: "revlon-yuvi.leucine.tech"
+      url: "revlon-yuvi.leucine.ai"
     labels:
       env: "production"
     contact_point: "Alerts"
