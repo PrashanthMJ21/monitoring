@@ -7,12 +7,18 @@ source ./alerts/.env
 dashboards=("multi-server-dashboard.json" "synthetic-monitoring.json")
 
 for file in "${dashboards[@]}"; do
-  echo "📄 Pushing dashboard: ./dashboards/$file"
+  full_path="./dashboards/$file"
+  echo "📄 Pushing dashboard: $full_path"
 
-  # Read and parse dashboard JSON directly
-  payload=$(jq -n \
-    --slurpfile dashboard "./dashboards/$file" \
-    '{dashboard: $dashboard[0], folderId: 0, overwrite: true}')
+  # Check if the file is already wrapped
+  if jq -e 'has("dashboard")' "$full_path" > /dev/null; then
+    payload=$(cat "$full_path")
+    echo "📦 Already wrapped: $file"
+  else
+    payload=$(jq -n --argjson dash "$(cat "$full_path")" \
+      '{dashboard: $dash, folderId: 0, overwrite: true}')
+    echo "📦 Wrapped: $file"
+  fi
 
   # Push via API
   response=$(curl -s -X POST "$GRAFANA_URL/api/dashboards/db" \
