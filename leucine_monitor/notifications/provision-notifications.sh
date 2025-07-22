@@ -50,4 +50,10 @@ yq e -o=json "$CONTACT_FILE" | jq -c '.contactPoints[]' | while read -r cp; do
   echo "📨 [$name] => $method"
 done
 
-echo "✅ Contact points and templates provisioned successfully."
+echo "📤 Updating notification policy (default and child policies)..."
+curl -s -X POST "$GRAFANA_URL/api/v1/provisioning/policies" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/yaml" \
+  --data-binary @notification-policy.yml > /dev/null
+
+echo "✅ Contact points, templates, and notification policy provisioned successfully."
