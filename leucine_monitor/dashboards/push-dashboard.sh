@@ -1,32 +1,31 @@
 #!/bin/bash
 
-# 👇 Load env from correct relative path
+# ✅ Load environment variables
 source ./alerts/.env
 
-# Array of dashboards to push
-dashboards=("multi-server-dashboard.json" "synthetic-monitoring.json")
+echo "📊 Pushing dashboards..."
 
-for file in "${dashboards[@]}"; do
-  full_path="./dashboards/$file"
-  echo "📄 Pushing dashboard: $full_path"
+# Loop through all JSON files in ./dashboards
+for file in ./dashboards/*.json; do
+  echo "📄 Pushing dashboard: $file"
 
-  # Check if the file is already wrapped
-  if jq -e 'has("dashboard")' "$full_path" > /dev/null; then
-    payload=$(cat "$full_path")
-    echo "📦 Already wrapped: $file"
+  # ✅ Check if already wrapped (i.e., top-level "dashboard" key exists)
+  if jq 'has("dashboard")' "$file" | grep -q true; then
+    payload=$(cat "$file")
+    echo "📦 Already Wrapped: $(basename "$file")"
   else
-    payload=$(jq -n --argjson dash "$(cat "$full_path")" \
-      '{dashboard: $dash, folderId: 0, overwrite: true}')
-    echo "📦 Wrapped: $file"
+    payload=$(jq -n --slurpfile dash "$file" \
+      '{dashboard: $dash[0], overwrite: true, folderUid: ""}')
+    echo "📦 Wrapped: $(basename "$file")"
   fi
 
-  # Push via API
+  # 🚀 Push to Grafana
   response=$(curl -s -X POST "$GRAFANA_URL/api/dashboards/db" \
     -H "Authorization: $API_KEY" \
     -H "Content-Type: application/json" \
     -d "$payload")
 
-  echo "➡️ Response for $file: $response"
+  echo "➡️ Response for $(basename "$file"): $response"
 done
 
-echo "📊 All dashboards pushed!"
+echo "✅ All dashboards pushed successfully."
