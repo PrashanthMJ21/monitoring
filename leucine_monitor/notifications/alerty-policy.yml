@@ -1,1 +1,8 @@
+policies:
+  - receiver: "grafana-default-email"
+    group_by: ["grafana_folder", "alertname"]
+    group_wait: 10s
+    group_interval: 5s
+    repeat_interval: 1d
+    object_matchers: []
 
