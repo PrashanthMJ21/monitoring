@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ✅ Load environment variables
+source ./alerts/.env
+
 # ----------- CONFIGURABLE VARIABLES -------------
 TEMPLATE_FILE="./alerts/alert-template.json"
 ALERTS_DIR="./alerts/alert-details"
@@ -15,18 +18,18 @@ else
   echo "✅ Using Prometheus UID: $PROMETHEUS_UID"
 fi
 
-# 🧠 Step 1: Collect all declared UIDs from all YAMLs
+# 🧠 Collect declared UIDs
 declared_uids=""
 for YAML_FILE in "$ALERTS_DIR"/*.yml; do
   declared_uids+=$(yq e '.alerts[].uid // ""' "$YAML_FILE" | grep -v '^$' | sort)
   declared_uids+=$'\n'
 done
 
-# 🧠 Step 2: Get all existing alert UIDs from Grafana
+# 🧠 Get existing alerts from Grafana
 existing_alerts=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/v1/provisioning/alert-rules")
 existing_uids=$(echo "$existing_alerts" | jq -r '.[].uid' | sort)
 
-# 🧹 Step 3: Delete alerts not in YAMLs
+# 🧹 Delete orphaned alerts
 for uid in $existing_uids; do
   if ! grep -Fxq "$uid" <<< "$declared_uids"; then
     echo "🗑️ Deleting orphaned alert UID: $uid"
@@ -35,10 +38,11 @@ for uid in $existing_uids; do
   fi
 done
 
-# 🚀 Step 4: Loop over each YAML and push alerts
-for YAML_FILE in "$ALERTS_DIR"/*.yml; do
-  echo "📁 Processing $YAML_FILE"
+# 🔁 Folder-wise tracking
+declare -A failed_alerts_by_folder
 
+# 🚀 Push alerts from YAMLs
+for YAML_FILE in "$ALERTS_DIR"/*.yml; do
   alerts_count=$(yq e '.alerts | length' "$YAML_FILE")
 
   for i in $(seq 0 $((alerts_count - 1))); do
@@ -47,7 +51,7 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
     title=$(echo "$alert_json" | jq -r '.title')
     uid=$(echo "$alert_json" | jq -r '.uid // empty')
 
-    # Create/get folder UID
+    # Ensure folder exists
     folder_uid=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/folders" |
       jq -r --arg title "$folder" '.[] | select(.title == $title) | .uid')
     if [ -z "$folder_uid" ]; then
@@ -97,7 +101,7 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
       | (if $alert.uid != null then .uid = $alert.uid else del(.uid) end)
     ')
 
-    # Detect existing UID in Grafana
+    # Check if alert already exists
     existing_uid=$(echo "$existing_alerts" | jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
 
     if [ -n "$existing_uid" ]; then
@@ -108,7 +112,7 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
       url="$GRAFANA_URL/api/v1/provisioning/alert-rules"
     fi
 
-    echo "📤 Pushing alert: $title via $method"
+    # Push the alert
     response=$(curl -s -w "%{http_code}" -o /dev/null \
       -X "$method" "$url" \
       -H "Authorization: $API_KEY" \
@@ -116,15 +120,30 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
       -H "X-Disable-Provenance: true" \
       -d "$payload")
 
-    echo "📥 Response for $title: $response"
-
-    # 🔴 Save failed payload if status is not 200/201
-    if [ "$response" != "200" ] && [ "$response" != "201" ]; then
+    # Track failures
+    if [[ "$response" != "200" && "$response" != "201" ]]; then
       mkdir -p ./alerts/failed_payloads
       echo "$payload" > "./alerts/failed_payloads/${uid:-$i}.json"
+      failed_alerts_by_folder["$folder"]+="$title"$'\n'
     fi
 
   done
 done
 
-echo "✅ All alerts synced with Grafana."
+# 🧾 Final folder-wise summary
+echo -e "\n📊 Final Summary:"
+for folder in $(printf "%s\n" "${!failed_alerts_by_folder[@]}" | sort); do
+  echo "❌ Failed alerts in folder '$folder':"
+  echo "${failed_alerts_by_folder[$folder]}" | sed 's/^/   - /'
+  echo "✅ Remaining $folder alerts pushed successfully."
+done
+
+# Any folders without failures
+for YAML_FILE in "$ALERTS_DIR"/*.yml; do
+  folders=$(yq e '.alerts[].folder' "$YAML_FILE" | sort -u)
+  for folder in $folders; do
+    if [ -z "${failed_alerts_by_folder[$folder]+_}" ]; then
+      echo "✅ All $folder alerts pushed successfully."
+    fi
+  done
+done
