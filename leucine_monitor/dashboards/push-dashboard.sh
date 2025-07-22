@@ -14,9 +14,15 @@ for file in ./dashboards/*.json; do
     payload=$(cat "$file")
     echo "📦 Already Wrapped: $(basename "$file")"
   else
-    payload=$(jq -n --slurpfile dash "$file" \
-      '{dashboard: $dash[0], overwrite: true, folderUid: ""}')
-    echo "📦 Wrapped: $(basename "$file")"
+    # ✅ Safely wrap unwrapped dashboards
+    if jq empty "$file" > /dev/null 2>&1; then
+      payload=$(jq -n --slurpfile dash "$file" \
+        '{dashboard: $dash[0], overwrite: true, folderUid: ""}')
+      echo "📦 Wrapped: $(basename "$file")"
+    else
+      echo "❌ Invalid JSON: $(basename "$file")"
+      continue
+    fi
   fi
 
   # 🚀 Push to Grafana
