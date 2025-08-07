@@ -247,7 +247,7 @@ scrape_configs:
     static_configs:
       - targets: ['teva-production:9100']
         labels:
-          server_ip: '20.244.9.184'
+          server_ip: '20.217.81.45'
           server_name: 'teva-production'
 
   - job_name: 'torrentpharma-production'
