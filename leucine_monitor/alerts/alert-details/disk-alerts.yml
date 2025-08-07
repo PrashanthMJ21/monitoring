@@ -1,29 +1,29 @@
-#cleen-production
+#cleen production
 alerts:
   - uid: "pharmax-production"
     name: pharmax_production
     title: "pharmax-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="pharmax-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="pharmax-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="pharmax-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="pharmax-production"})
+        ))
       )
       and 
       on(instance) up{job="pharmax-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.40.60.169"
       threshold: "85"
-      title: "pharmax-production Memory-Usage"
+      title: "pharmax-production Disk-Usage"
       url: "pharmax.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -35,27 +35,27 @@ alerts:
   - uid: "aurovitas-production"
     name: aurovitas_production
     title: "aurovitas-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="aurovitas-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="aurovitas-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="aurovitas-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="aurovitas-production"})
+        ))
       )
       and 
       on(instance) up{job="aurovitas-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "35.198.230.51"
       threshold: "85"
-      title: "aurovitas-production Memory-Usage"
+      title: "aurovitas-production Disk-Usage"
       url: "aurovitas.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -67,27 +67,27 @@ alerts:
   - uid: "acme-production"
     name: acme_production
     title: "acme-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="acme-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="acme-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="acme-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="acme-production"})
+        ))
       )
       and 
       on(instance) up{job="acme-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "40.80.92.34"
       threshold: "85"
-      title: "acme-production Memory-Usage"
+      title: "acme-production Disk-Usage"
       url: "generics.acme.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -99,27 +99,27 @@ alerts:
   - uid: "aizant-production"
     name: aizant_production
     title: "aizant-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="aizant-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="aizant-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="aizant-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="aizant-production"})
+        ))
       )
       and 
       on(instance) up{job="aizant-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.40.56.171"
       threshold: "85"
-      title: "aizant-production Memory-Usage"
+      title: "aizant-production Disk-Usage"
       url: "aizant.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -131,27 +131,27 @@ alerts:
   - uid: "alembic-production"
     name: alembic_production
     title: "alembic-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="alembic-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="alembic-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="alembic-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="alembic-production"})
+        ))
       )
       and 
       on(instance) up{job="alembic-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.193.224.204"
       threshold: "85"
-      title: "alembic-production Memory-Usage"
+      title: "alembic-production Disk-Usage"
       url: "alembic.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -163,27 +163,27 @@ alerts:
   - uid: "cipla-production"
     name: cipla_production
     title: "cipla-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="cipla-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="cipla-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cipla-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cipla-production"})
+        ))
       )
       and 
       on(instance) up{job="cipla-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "4.240.87.136"
       threshold: "85"
-      title: "cipla-production Memory-Usage"
+      title: "cipla-production Disk-Usage"
       url: "cipla.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -195,27 +195,27 @@ alerts:
   - uid: "biocon-production"
     name: biocon_production
     title: "biocon-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="biocon-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="biocon-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="biocon-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="biocon-production"})
+        ))
       )
       and 
       on(instance) up{job="biocon-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.95.3"
       threshold: "85"
-      title: "biocon-production Memory-Usage"
+      title: "biocon-production Disk-Usage"
       url: "biocon.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -224,30 +224,31 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+alerts:
   - uid: "cipla-usa-production"
     name: cipla_usa_production
     title: "cipla-usa-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="cipla-usa-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="cipla-usa-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cipla-usa-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cipla-usa-production"})
+        ))
       )
       and 
       on(instance) up{job="cipla-usa-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "13.87.246.226"
       threshold: "85"
-      title: "cipla-usa-production Memory-Usage"
+      title: "cipla-usa-production Disk-Usage"
       url: "cipla.usa.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -259,27 +260,27 @@ alerts:
   - uid: "cronus-production"
     name: cronus_production
     title: "cronus-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="cronus-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="cronus-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="cronus-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="cronus-production"})
+        ))
       )
       and 
       on(instance) up{job="cronus-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "40.81.243.57"
       threshold: "85"
-      title: "cronus-production Memory-Usage"
+      title: "cronus-production Disk-Usage"
       url: "cronus.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -291,27 +292,27 @@ alerts:
   - uid: "drl-production"
     name: drl_production
     title: "drl-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="mydrreddys-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="mydrreddys-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="mydrreddys-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="mydrreddys-production"})
+        ))
       )
       and 
       on(instance) up{job="mydrreddys-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.40.60.109"
       threshold: "85"
-      title: "drl-production Memory-Usage"
+      title: "drl-production Disk-Usage"
       url: "mydrreddys.cleen.leucinetech.com"
     labels:
       env: "cleen"
@@ -323,27 +324,27 @@ alerts:
   - uid: "encube-production"
     name: encube_production
     title: "encube-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="encube-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="encube-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="encube-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="encube-production"})
+        ))
       )
       and 
       on(instance) up{job="encube-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.25.217"
       threshold: "85"
-      title: "encube-production Memory-Usage"
+      title: "encube-production Disk-Usage"
       url: "encube.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -355,27 +356,27 @@ alerts:
   - uid: "par-production"
     name: par_production
     title: "par-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="par-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="par-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="par-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="par-production"})
+        ))
       )
       and 
       on(instance) up{job="par-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "4.240.84.31"
       threshold: "85"
-      title: "par-production Memory-Usage"
+      title: "par-production Disk-Usage"
       url: "par.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -387,27 +388,27 @@ alerts:
   - uid: "eugia-production"
     name: eugia_production
     title: "eugia-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="eugia-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="eugia-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="eugia-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="eugia-production"})
+        ))
       )
       and 
       on(instance) up{job="eugia-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.42.224"
       threshold: "85"
-      title: "eugia-production Memory-Usage"
+      title: "eugia-production Disk-Usage"
       url: "eugia.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -419,27 +420,27 @@ alerts:
   - uid: "granules-production"
     name: granules_production
     title: "granules-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="granules-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="granules-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="granules-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="granules-production"})
+        ))
       )
       and 
       on(instance) up{job="granules-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.245.222.129"
       threshold: "85"
-      title: "granules-production Memory-Usage"
+      title: "granules-production Disk-Usage"
       url: "granules.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -451,27 +452,27 @@ alerts:
   - uid: "guardian-production"
     name: guardian_production
     title: "guardian-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="guardian-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="guardian-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="guardian-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="guardian-production"})
+        ))
       )
       and 
       on(instance) up{job="guardian-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.40.59.52"
       threshold: "85"
-      title: "guardian-production Memory-Usage"
+      title: "guardian-production Disk-Usage"
       url: "guardian.cleen.leucinetech.com"
     labels:
       env: "cleen"
@@ -480,30 +481,31 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+alerts:
   - uid: "kusum-production"
     name: kusum_production
     title: "kusum-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="kusum-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="kusum-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="kusum-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="kusum-production"})
+        ))
       )
       and 
       on(instance) up{job="kusum-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.8.45"
       threshold: "85"
-      title: "kusum-production Memory-Usage"
+      title: "kusum-production Disk-Usage"
       url: "kusum.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -515,27 +517,27 @@ alerts:
   - uid: "mlab-production"
     name: mlab_production
     title: "mlab-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="mlab-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="mlab-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="mlab-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="mlab-production"})
+        ))
       )
       and 
       on(instance) up{job="mlab-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.27.161"
       threshold: "85"
-      title: "mlab-production Memory-Usage"
+      title: "mlab-production Disk-Usage"
       url: "mlab.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -547,27 +549,27 @@ alerts:
   - uid: "msn-production"
     name: msn_production
     title: "msn-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="msn-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="msn-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="msn-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="msn-production"})
+        ))
       )
       and 
       on(instance) up{job="msn-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "52.172.231.143"
       threshold: "85"
-      title: "msn-production Memory-Usage"
+      title: "msn-production Disk-Usage"
       url: "msn.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -579,27 +581,27 @@ alerts:
   - uid: "pii-production"
     name: pii_production
     title: "pii-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="pii-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="pii-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="pii-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="pii-production"})
+        ))
       )
       and 
       on(instance) up{job="pii-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "40.118.252.13"
       threshold: "85"
-      title: "pii-production Memory-Usage"
+      title: "pii-production Disk-Usage"
       url: "pii.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -611,27 +613,27 @@ alerts:
   - uid: "piramal-production"
     name: piramal_production
     title: "piramal-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="piramal-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="piramal-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="piramal-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="piramal-production"})
+        ))
       )
       and 
       on(instance) up{job="piramal-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "4.240.81.119"
       threshold: "85"
-      title: "piramal-production Memory-Usage"
+      title: "piramal-production Disk-Usage"
       url: "piramal.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -643,27 +645,27 @@ alerts:
   - uid: "stelis-production"
     name: stelis_production
     title: "stelis-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="stelis-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="stelis-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="stelis-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="stelis-production"})
+        ))
       )
       and 
       on(instance) up{job="stelis-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.40.57.115"
       threshold: "85"
-      title: "stelis-production Memory-Usage"
+      title: "stelis-production Disk-Usage"
       url: "stelis.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -675,27 +677,27 @@ alerts:
   - uid: "tenshi-production"
     name: tenshi_production
     title: "tenshi-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="tenshi-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="tenshi-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="tenshi-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="tenshi-production"})
+        ))
       )
       and 
       on(instance) up{job="tenshi-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.0.34"
       threshold: "85"
-      title: "tenshi-production Memory-Usage"
+      title: "tenshi-production Disk-Usage"
       url: "tenshi.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -707,27 +709,27 @@ alerts:
   - uid: "teva-production"
     name: teva_production
     title: "teva-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="teva-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="teva-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="teva-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="teva-production"})
+        ))
       )
       and 
       on(instance) up{job="teva-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.9.184"
       threshold: "85"
-      title: "teva-production Memory-Usage"
+      title: "teva-production Disk-Usage"
       url: "teva.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -739,27 +741,27 @@ alerts:
   - uid: "torrentpharma-production"
     name: torrentpharma_production
     title: "torrentpharma-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="torrentpharma-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="torrentpharma-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="torrentpharma-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="torrentpharma-production"})
+        ))
       )
       and 
       on(instance) up{job="torrentpharma-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "40.81.244.238"
       threshold: "85"
-      title: "torrentpharma-production Memory-Usage"
+      title: "torrentpharma-production Disk-Usage"
       url: "torrentpharma.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -771,27 +773,27 @@ alerts:
   - uid: "troikaa-production"
     name: troikaa_production
     title: "troikaa-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="troikaa-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="troikaa-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="troikaa-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="troikaa-production"})
+        ))
       )
       and 
       on(instance) up{job="troikaa-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "40.81.241.106"
       threshold: "85"
-      title: "troikaa-production Memory-Usage"
+      title: "troikaa-production Disk-Usage"
       url: "troikaa.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -803,27 +805,27 @@ alerts:
   - uid: "zydus-production"
     name: zydus_production
     title: "zydus-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="zydus-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="zydus-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="zydus-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="zydus-production"})
+        ))
       )
       and 
       on(instance) up{job="zydus-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "4.186.63.1"
       threshold: "85"
-      title: "zydus-production Memory-Usage"
+      title: "zydus-production Disk-Usage"
       url: "zydus.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -835,27 +837,27 @@ alerts:
   - uid: "zyduscv-production"
     name: zyduscv_production
     title: "zyduscv-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="zyduscv-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="zyduscv-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="zyduscv-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="zyduscv-production"})
+        ))
       )
       and 
       on(instance) up{job="zyduscv-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "20.244.44.109"
       threshold: "85"
-      title: "zyduscv-production Memory-Usage"
+      title: "zyduscv-production Disk-Usage"
       url: "zyduscv.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -864,31 +866,31 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-#platform-prods
+#platform-productions
   - uid: "amneal-dwi-production"
     name: amneal_dwi_production
     title: "amneal-dwi-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="amneal-dwi-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="amneal-dwi-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="amneal-dwi-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="amneal-dwi-production"})
+        ))
       )
       and 
       on(instance) up{job="amneal-dwi-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "4.240.94.210"
       threshold: "85"
-      title: "amneal-dwi-production Memory-Usage"
+      title: "amneal-dwi-production Disk-Usage"
       url: "amneal.platform.leucine.tech"
     labels:
       env: "platform"
@@ -900,27 +902,27 @@ alerts:
   - uid: "tenshi-dwi-production"
     name: tenshi_dwi_production
     title: "tenshi-dwi-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="tenshi-dwi-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="tenshi-dwi-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="tenshi-dwi-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="tenshi-dwi-production"})
+        ))
       )
       and 
       on(instance) up{job="tenshi-dwi-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "98.70.15.31"
       threshold: "85"
-      title: "tenshi-dwi-production Memory-Usage"
+      title: "tenshi-dwi-production Disk-Usage"
       url: "tenshi.platform.leucine.tech"
     labels:
       env: "platform"
