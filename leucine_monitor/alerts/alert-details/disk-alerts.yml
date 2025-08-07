@@ -223,8 +223,7 @@ alerts:
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
-
-alerts:
+    
   - uid: "cipla-usa-production-disk"
     name: cipla_usa_production
     title: "cipla-usa-production"
@@ -481,7 +480,6 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-alerts:
   - uid: "kusum-production-disk"
     name: kusum_production
     title: "kusum-production"
