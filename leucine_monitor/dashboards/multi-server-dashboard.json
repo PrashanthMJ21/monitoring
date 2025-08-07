@@ -327,7 +327,7 @@
             "refId": "B"
           },
           {
-            "expr": "100 - ((node_filesystem_avail_bytes{mountpoint=\"/\"} * 100) / node_filesystem_size_bytes{mountpoint=\"/\"})",
+            "expr": "100 * (1 - (sum by(instance) (node_filesystem_free_bytes{device="/dev/root"}) / sum by(instance) (node_filesystem_size_bytes{device="/dev/root"})))",
             "format": "table",
             "instant": true,
             "interval": "",
