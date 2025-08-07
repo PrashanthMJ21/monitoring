@@ -1,7 +1,8 @@
+#cleen-productions
 alerts:
-  - uid: "cleen-biocon-cpu"
-    name: cleen_biocon_cpu
-    title: "cleen-biocon CPU"
+  - uid: "pharmax-production"
+    name: pharmax_production_
+    title: "pharmax-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -9,119 +10,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="cleen-biocon-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="pharmax-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="cleen-biocon-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value. and the application is up."
-      server: "20.244.95.3"
-      threshold: "85"
-      title: "cleen-biocon CPU-Usage"
-      url: "biocon.cleen.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "platform-qa-cpu"
-    name: platform_qa_cpu
-    title: "platform-qa-CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="platform-qa-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="platform-qa-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "34.93.160.186"
-      threshold: "85"
-      title: "Platform-qa CPU-usage"
-      url: "qa.platform.leucinetech.com"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "acme-prod-cpu"
-    name: acme_prod_cpu
-    title: "acme-prod-CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="acme-production-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="acme-production-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "40.80.92.34"
-      threshold: "85"
-      title: "acme-prod CPU-usage"
-      url: "generics.acme.cleen.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "pharmax-cleen-cpu"
-    name: pharmax_cleen_cpu
-    title: "pharmax-cleen CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="pharmax-cleen-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="pharmax-cleen-server"} == 1
+      on(instance) up{job="pharmax-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.40.60.169"
       threshold: "85"
-      title: "Pharmax-cleen CPU-Usage"
+      title: "pharmax-production CPU-Usage"
       url: "pharmax.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "acmegenerics-prod-cpu"
-    name: acmegenerics_prod_cpu
-    title: "acmegenerics-prod CPU"
+  - uid: "aurovitas-production"
+    name: aurovitas_production
+    title: "aurovitas-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -129,89 +40,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="acmegenerics-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="aurovitas-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="acmegenerics-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "20.244.43.10"
-      threshold: "85"
-      title: "Acmegenerics-prod CPU-Usage"
-      url: "acmegenerics.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "andover-platform-prod-cpu"
-    name: andover_platform_prod_cpu
-    title: "andover.platform-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="andover.platform-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="andover.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "20.26.237.139"
-      threshold: "85"
-      title: "Andover.platform-prod CPU-Usage"
-      url: "andover.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "aurovitas-cleen-prod-cpu"
-    name: aurovitas_cleen_prod_cpu
-    title: "aurovitas.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="aurovitas.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="aurovitas.cleen-prod-server"} == 1
+      on(instance) up{job="aurovitas-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "35.198.230.51"
       threshold: "85"
-      title: "Aurovitas.cleen-prod CPU-Usage"
+      title: "aurovitas-production CPU-Usage"
       url: "aurovitas.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aizant-cleen-prod-cpu"
-    name: aizant_cleen_prod_cpu
-    title: "aizant.cleen-prod CPU"
+  - uid: "acme-production"
+    name: acme_production
+    title: "acme-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -219,29 +70,59 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="aizant.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="acme-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="aizant.cleen-prod-server"} == 1
+      on(instance) up{job="acme-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "40.80.92.34"
+      threshold: "85"
+      title: "acme-production CPU-Usage"
+      url: "generics.acme.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "aizant-production"
+    name: aizant_production
+    title: "aizant-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="aizant-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and 
+      on(instance) up{job="aizant-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.40.56.171"
       threshold: "85"
-      title: "Aizant.cleen-prod CPU-Usage"
+      title: "aizant-production CPU-Usage"
       url: "aizant.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "alembic-cleen-prod-cpu"
-    name: alembic_cleen_prod_cpu
-    title: "alembic.cleen-prod CPU"
+  - uid: "alembic-production"
+    name: alembic_production
+    title: "alembic-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -249,29 +130,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="alembic.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="alembic-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="alembic.cleen-prod-server"} == 1
+      on(instance) up{job="alembic-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.193.224.204"
       threshold: "85"
-      title: "Alembic.cleen-prod CPU-Usage"
+      title: "alembic-production CPU-Usage"
       url: "alembic.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "amneal-platform-prod-cpu"
-    name: amneal_platform_prod_cpu
-    title: "amneal.platform-prod CPU"
+  - uid: "cipla-production"
+    name: cipla_production
+    title: "cipla-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -279,89 +160,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="amneal.platform-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="cipla-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="amneal.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "4.240.94.210"
-      threshold: "85"
-      title: "Amneal.platform-prod CPU-Usage"
-      url: "amneal.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "arcolab-stelis-somerset-prod-cpu"
-    name: arcolab_stelis_somerset_platform_prod_cpu
-    title: "arcolab.stelis.somerset-platform-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="arcolab.stelis.somerset-platform-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="arcolab.stelis.somerset-platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "20.244.9.127"
-      threshold: "85"
-      title: "Arcolab.stelis.somerset-platform-prod CPU-Usage"
-      url: "arcolab.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "cipla-cleen-prod-cpu"
-    name: cipla_cleen_prod_cpu
-    title: "cipla.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="cipla.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="cipla.cleen-prod-server"} == 1
+      on(instance) up{job="cipla-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "4.240.87.136"
       threshold: "85"
-      title: "Cipla.cleen-prod CPU-Usage"
+      title: "cipla-production CPU-Usage"
       url: "cipla.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla-usa-cleen-prod-cpu"
-    name: cipla_usa_cleen_prod_cpu
-    title: "cipla.usa.cleen-prod CPU"
+  - uid: "biocon-production"
+    name: biocon_production
+    title: "biocon-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -369,29 +190,59 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="cipla.usa.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="biocon-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="cipla.usa.cleen-prod-server"} == 1
+      on(instance) up{job="biocon-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "20.244.95.3"
+      threshold: "85"
+      title: "biocon-production CPU-Usage"
+      url: "biocon.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "cipla-usa-production"
+    name: cipla_usa_production
+    title: "cipla-usa-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="cipla-usa-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and 
+      on(instance) up{job="cipla-usa-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "13.87.246.226"
       threshold: "85"
-      title: "Cipla.usa.cleen-prod CPU-Usage"
+      title: "cipla-usa-production CPU-Usage"
       url: "cipla.usa.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla-platform-prod-cpu"
-    name: cipla_platform_prod_cpu
-    title: "cipla.platform-prod CPU"
+  - uid: "cronus-production"
+    name: cronus_production
+    title: "cronus-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -399,59 +250,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="cipla.platform-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="cronus-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="cipla.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "98.70.27.70"
-      threshold: "85"
-      title: "Cipla.platform-prod CPU-Usage"
-      url: "cipla.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "cronus-cleen-prod-cpu"
-    name: cronus_cleen_prod_cpu
-    title: "cronus.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="cronus.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="cronus.cleen-prod-server"} == 1
+      on(instance) up{job="cronus-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "40.81.243.57"
       threshold: "85"
-      title: "Cronus.cleen-prod CPU-Usage"
+      title: "cronus-production CPU-Usage"
       url: "cronus.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mydrreddys-cleen-prod-cpu"
-    name: mydrreddys_cleen_prod_cpu
-    title: "mydrreddys.cleen-prod CPU"
+  - uid: "drl-production"
+    name: drl_production
+    title: "drl-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -459,29 +280,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="mydrreddys.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="mydrreddys-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="mydrreddys.cleen-prod-server"} == 1
+      on(instance) up{job="mydrreddys-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.40.60.109"
       threshold: "85"
-      title: "Mydrreddys.cleen-prod CPU-Usage"
+      title: "drl-production CPU-usage"
       url: "mydrreddys.cleen.leucinetech.com"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "encube-cleen-prod-cpu"
-    name: encube_cleen_prod_cpu
-    title: "encube.cleen-prod CPU"
+  - uid: "encube-production"
+    name: encube_production
+    title: "encube-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -489,29 +310,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="encube.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="encube-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="encube.cleen-prod-server"} == 1
+      on(instance) up{job="encube-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.244.25.217"
       threshold: "85"
-      title: "Encube.cleen-prod CPU-Usage"
+      title: "encube-production CPU-Usage"
       url: "encube.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "par-cleen-prod-cpu"
-    name: par_cleen_prod_cpu
-    title: "par.cleen-prod CPU"
+  - uid: "par-production"
+    name: par_production
+    title: "par-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -519,29 +340,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="par.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="par-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="par.cleen-prod-server"} == 1
+      on(instance) up{job="par-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "4.240.84.31"
       threshold: "85"
-      title: "Par.cleen-prod CPU-Usage"
+      title: "par-production CPU-Usage"
       url: "par.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "eugia-cleen-prod-cpu"
-    name: eugia_cleen_prod_cpu
-    title: "eugia.cleen-prod CPU"
+  - uid: "eugia-production"
+    name: eugia_production
+    title: "eugia-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -549,29 +370,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="eugia.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="eugia-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="eugia.cleen-prod-server"} == 1
+      on(instance) up{job="eugia-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.244.42.224"
       threshold: "85"
-      title: "Eugia.cleen-prod CPU-Usage"
+      title: "eugia-production CPU-Usage"
       url: "eugia.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "granules-cleen-prod-cpu"
-    name: granules_cleen_prod_cpu
-    title: "granules.cleen-prod CPU"
+  - uid: "granules-production"
+    name: granules_production
+    title: "granules-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -579,29 +400,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="granules.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="granules-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="granules.cleen-prod-server"} == 1
+      on(instance) up{job="granules-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.245.222.129"
       threshold: "85"
-      title: "Granules.cleen-prod CPU-Usage"
+      title: "granules-production CPU-Usage"
       url: "granules.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "guardian-cleen-prod-cpu"
-    name: guardian_cleen_prod_cpu
-    title: "guardian.cleen-prod CPU"
+  - uid: "guardian-production"
+    name: guardian_production
+    title: "guardian-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -609,29 +430,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="guardian.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="guardian-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="guardian.cleen-prod-server"} == 1
+      on(instance) up{job="guardian-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.40.59.52"
       threshold: "85"
-      title: "Guardian.cleen-prod CPU-Usage"
+      title: "guardian-production CPU-Usage"
       url: "guardian.cleen.leucinetech.com"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "kusum-cleen-prod-cpu"
-    name: kusum_cleen_prod_cpu
-    title: "kusum.cleen-prod CPU"
+  - uid: "kusum-production"
+    name: kusum_production
+    title: "kusum-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -639,29 +460,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="kusum.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="kusum-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="kusum.cleen-prod-server"} == 1
+      on(instance) up{job="kusum-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.244.8.45"
       threshold: "85"
-      title: "Kusum.cleen-prod CPU-Usage"
+      title: "kusum-production CPU-Usage"
       url: "kusum.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mlab-cleen-prod-cpu"
-    name: mlab_cleen_prod_cpu
-    title: "mlab.cleen-prod CPU"
+  - uid: "mlab-production"
+    name: mlab_production
+    title: "mlab-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -669,29 +490,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="mlab.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="mlab-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="mlab.cleen-prod-server"} == 1
+      on(instance) up{job="mlab-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.244.27.161"
       threshold: "85"
-      title: "Mlab.cleen-prod CPU-Usage"
+      title: "mlab-production CPU-Usage"
       url: "mlab.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "msn-cleen-prod-cpu"
-    name: msn_cleen_prod_cpu
-    title: "msn.cleen-prod CPU"
+  - uid: "msn-production"
+    name: msn_production
+    title: "msn-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -699,29 +520,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="msn.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="msn-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="msn.cleen-prod-server"} == 1
+      on(instance) up{job="msn-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "52.172.231.143"
       threshold: "85"
-      title: "Msn.cleen-prod CPU-Usage"
+      title: "msn-production CPU-Usage"
       url: "msn.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "pii-cleen-prod-cpu"
-    name: pii_cleen_prod_cpu
-    title: "pii.cleen-prod CPU"
+  - uid: "pii-production"
+    name: pii_production
+    title: "pii-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -729,29 +550,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="pii.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="pii-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="pii.cleen-prod-server"} == 1
+      on(instance) up{job="pii-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "40.118.252.13"
       threshold: "85"
-      title: "Pii.cleen-prod CPU-Usage"
+      title: "pii-production CPU-Usage"
       url: "pii.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal-eforms-prod-cpu"
-    name: piramal_eforms_prod_cpu
-    title: "piramal.eforms-prod CPU"
+  - uid: "piramal-production"
+    name: piramal_production
+    title: "piramal-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -759,59 +580,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="piramal.eforms-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="piramal-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="piramal.eforms-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "20.244.44.237"
-      threshold: "85"
-      title: "Piramal.eforms-prod CPU-Usage"
-      url: "piramal.eforms.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "piramal-cleen-prod-cpu"
-    name: piramal_cleen_prod_cpu
-    title: "piramal.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="piramal.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="piramal.cleen-prod-server"} == 1
+      on(instance) up{job="piramal-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "4.240.81.119"
       threshold: "85"
-      title: "Piramal.cleen-prod CPU-Usage"
+      title: "piramal-production CPU-Usage"
       url: "piramal.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "revlon-yuvi-prod-cpu"
-    name: revlon_yuvi_prod_cpu
-    title: "revlon-yuvi-prod CPU"
+  - uid: "stelis-production"
+    name: stelis_production
+    title: "stelis-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -819,59 +610,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="revlon-yuvi-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="stelis-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="revlon-yuvi-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "35.229.72.81"
-      threshold: "85"
-      title: "Revlon-yuvi-prod CPU-Usage"
-      url: "revlon-yuvi.leucine.ai"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "stelis-cleen-prod-cpu"
-    name: stelis_cleen_prod_cpu
-    title: "stelis.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="stelis.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="stelis.cleen-prod-server"} == 1
+      on(instance) up{job="stelis-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.40.57.115"
       threshold: "85"
-      title: "Stelis.cleen-prod CPU-Usage"
+      title: "stelis-production CPU-Usage"
       url: "stelis.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "onesource-cleen-prod-cpu"
-    name: onesource_cleen_prod_cpu
-    title: "onesource.cleen-prod CPU"
+  - uid: "tenshi-production"
+    name: tenshi_production
+    title: "tenshi-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -879,119 +640,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="onesource.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="tenshi-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="onesource.cleen-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "98.70.88.64"
-      threshold: "85"
-      title: "Onesource.cleen-prod CPU-Usage"
-      url: "onesource.cleen.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "strides-us-platform-prod-cpu"
-    name: strides_us_platform_prod_cpu
-    title: "strides-us.platform-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="strides-us.platform-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="strides-us.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "20.62.162.17"
-      threshold: "85"
-      title: "Strides-us.platform-prod CPU-Usage"
-      url: "strides-us.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "strides-platform-prod-cpu"
-    name: strides_platform_prod_cpu
-    title: "strides.platform-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="strides.platform-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="strides.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "20.244.15.94"
-      threshold: "85"
-      title: "Strides.platform-prod CPU-Usage"
-      url: "strides.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "tenshi-cleen-prod-cpu"
-    name: tenshi_cleen_prod_cpu
-    title: "tenshi.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="tenshi.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="tenshi.cleen-prod-server"} == 1
+      on(instance) up{job="tenshi-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.244.0.34"
       threshold: "85"
-      title: "Tenshi.cleen-prod CPU-Usage"
+      title: "tenshi-production CPU-Usage"
       url: "tenshi.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi-platform-prod-cpu"
-    name: tenshi_platform_prod_cpu
-    title: "tenshi.platform-prod CPU"
+  - uid: "teva-production"
+    name: teva_production
+    title: "teva-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -999,59 +670,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="tenshi.platform-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="teva-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="tenshi.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "98.70.15.31"
-      threshold: "85"
-      title: "Tenshi.platform-prod CPU-Usage"
-      url: "tenshi.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "teva-cleen-prod-cpu"
-    name: teva_cleen_prod_cpu
-    title: "teva.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="teva.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="teva.cleen-prod-server"} == 1
+      on(instance) up{job="teva-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.244.9.184"
       threshold: "85"
-      title: "Teva.cleen-prod CPU-Usage"
+      title: "teva-production CPU-Usage"
       url: "teva.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "torrentpharma-cleen-prod-cpu"
-    name: torrentpharma_cleen_prod_cpu
-    title: "torrentpharma.cleen-prod CPU"
+  - uid: "torrentpharma-production"
+    name: torrentpharma_production
+    title: "torrentpharma-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -1059,29 +700,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="torrentpharma.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="torrentpharma-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="torrentpharma.cleen-prod-server"} == 1
+      on(instance) up{job="torrentpharma-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "40.81.244.238"
       threshold: "85"
-      title: "Torrentpharma.cleen-prod CPU-Usage"
+      title: "torrentpharma-production CPU-Usage"
       url: "torrentpharma.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "troikaa-cleen-prod-cpu"
-    name: troikaa_cleen_prod_cpu
-    title: "troikaa.cleen-prod CPU"
+  - uid: "troikaa-production"
+    name: troikaa_production
+    title: "troikaa-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -1089,29 +730,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="troikaa.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="troikaa-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="troikaa.cleen-prod-server"} == 1
+      on(instance) up{job="troikaa-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "40.81.241.106"
       threshold: "85"
-      title: "Troikaa.cleen-prod CPU-Usage"
+      title: "troikaa-production CPU-Usage"
       url: "troikaa.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "valent-platform-prod-cpu"
-    name: valent_platform_prod_cpu
-    title: "valent.platform-prod CPU"
+  - uid: "zydus-production"
+    name: zydus_production
+    title: "zydus-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -1119,89 +760,29 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="valent.platform-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="zydus-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="valent.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "75.101.198.155"
-      threshold: "85"
-      title: "Valent.platform-prod CPU-Usage"
-      url: "valent.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "report-valent-platform-prod-cpu"
-    name: report_valent_platform_prod_cpu
-    title: "report.valent.platform-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="report.valent.platform-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="report.valent.platform-prod-server"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "44.218.213.34"
-      threshold: "85"
-      title: "Report.valent.platform-prod CPU-Usage"
-      url: "report.valent.platform.leucine.tech"
-    labels:
-      env: "production"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
-  - uid: "zydus-cleen-prod-cpu"
-    name: zydus_cleen_prod_cpu
-    title: "zydus.cleen-prod CPU"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="zydus.cleen-prod-server", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="zydus.cleen-prod-server"} == 1
+      on(instance) up{job="zydus-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "4.186.63.1"
       threshold: "85"
-      title: "Zydus.cleen-prod CPU-Usage"
+      title: "zydus-production CPU-Usage"
       url: "zydus.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zyduscv-cleen-prod-cpu"
-    name: zyduscv_cleen_prod_cpu
-    title: "zyduscv.cleen-prod CPU"
+  - uid: "zyduscv-production"
+    name: zyduscv_production
+    title: "zyduscv-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -1209,22 +790,85 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="zyduscv.cleen-prod-server", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="zyduscv-production", mode="idle"}[1m])
         ) * 100
       )
       and 
-      on(instance) up{job="zyduscv.cleen-prod-server"} == 1
+      on(instance) up{job="zyduscv-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
       server: "20.244.44.109"
       threshold: "85"
-      title: "Zyduscv.cleen-prod CPU-Usage"
+      title: "zyduscv-production CPU-Usage"
       url: "zyduscv.cleen.leucine.tech"
     labels:
-      env: "production"
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+
+#platform-productions
+  - uid: "amneal-dwi-production"
+    name: amneal_dwi_production
+    title: "amneal-dwi-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="amneal-dwi-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and 
+      on(instance) up{job="amneal-dwi-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "4.240.94.210"
+      threshold: "85"
+      title: "amneal-dwi-production CPU-Usage"
+      url: "amneal.platform.leucine.tech"
+    labels:
+      env: "platform"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "tenshi-dwi-production"
+    name: tenshi_dwi_production
+    title: "tenshi-dwi-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="tenshi-dwi-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and 
+      on(instance) up{job="tenshi-dwi-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "98.70.15.31"
+      threshold: "85"
+      title: "tenshi-dwi-production CPU-Usage"
+      url: "tenshi.platform.leucine.tech"
+    labels:
+      env: "platform"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+
