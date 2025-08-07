@@ -88,211 +88,211 @@ scrape_configs:
         replacement: blackbox-exporter:9115
 
 #cleen-prods 
-  - job_name: 'pharmax-cleen-production'
+  - job_name: 'pharmax-production'
     static_configs:
       - targets: ['pharmax-production:9100']
         labels:
           server_ip: '20.40.60.169'
-          server_name: 'pharmax-cleen-production'
+          server_name: 'pharmax-production'
 
-  - job_name: 'aurovitas.cleen-production'
+  - job_name: 'aurovitas-production'
     static_configs:
       - targets: ['aurovitas-production:9100']
         labels:
           server_ip: '35.198.230.51'
-          server_name: 'aurovitas.cleen-production'
+          server_name: 'aurovitas-production'
 
-  - job_name: 'aizant.cleen-production'
+  - job_name: 'aizant-production'
     static_configs:
       - targets: ['aizant-production:9100']
         labels:
           server_ip: '20.40.56.171'
-          server_name: 'aizant.cleen-production'
+          server_name: 'aizant-production'
 
-  - job_name: 'alembic.cleen-production'
+  - job_name: 'alembic-production'
     static_configs:
       - targets: ['alembic-production:9100']
         labels:
          server_ip: '20.193.224.204'
-         server_name: 'alembic.cleen-production'
+         server_name: 'alembic-production'
 
-  - job_name: 'cipla.cleen-production'
+  - job_name: 'cipla-production'
     static_configs:
       - targets: ['cipla-production:9100']
         labels:
           server_ip: '4.240.87.136'
-          server_name: 'cipla.cleen-production'
+          server_name: 'cipla-production'
 
 
-  - job_name: 'biocon.cleen-production'
+  - job_name: 'biocon-production'
     static_configs:
       - targets: ['biocon-production:9100']
         labels:
           server_ip: '20.244.95.3'
-          server_name: 'biocon.cleen-production'
+          server_name: 'biocon-production'
 
-  - job_name: 'cipla.usa.cleen-production'
+  - job_name: 'cipla-usa-production'
     static_configs:
       - targets: ['cipla-usa-production:9100']
         labels:
           server_ip: '13.87.246.226'
-          server_name: 'cipla.usa.cleen-production'
+          server_name: 'cipla-usa-production'
 
-  - job_name: 'cronus.cleen-production'
+  - job_name: 'cronus-production'
     static_configs:
       - targets: ['cronus-production:9100']
         labels:
           server_ip: '40.81.243.57'
-          server_name: 'cronus.cleen-production'
+          server_name: 'cronus-production'
 
-  - job_name: 'mydrreddys.cleen-production'
+  - job_name: 'mydrreddys-production'
     static_configs:
-      - targets: ['drl-production:9100']
+      - targets: ['mydrreddys-production:9100']
         labels:
           server_ip: '20.40.60.109'
-          server_name: 'mydrreddys.cleen-production'
+          server_name: 'mydrreddys-production'
 
-  - job_name: 'encube.cleen-production'
+  - job_name: 'encube-production'
     static_configs:
       - targets: ['encube-production:9100']
         labels:
           server_ip: '20.244.25.217'
-          server_name: 'encube.cleen-production'
+          server_name: 'encube-production'
 
-  - job_name: 'par.cleen-production'
+  - job_name: 'par-production'
     static_configs:
       - targets: ['par-production:9100']
         labels:
           server_ip: '4.240.84.31'
-          server_name: 'par.cleen-production'
+          server_name: 'par-production'
 
-  - job_name: 'eugia.cleen-production'
+  - job_name: 'eugia-production'
     static_configs:
       - targets: ['eugia-production:9100']
         labels:
           server_ip: '20.244.42.224'
-          server_name: 'eugia.cleen-production'
+          server_name: 'eugia-production'
 
-  - job_name: 'granules.cleen-production'
+  - job_name: 'granules-production'
     static_configs:
       - targets: ['granules-production:9100']
         labels:
           server_ip: '20.245.222.129'
-          server_name: 'granules.cleen-production'
+          server_name: 'granules-production'
 
-  - job_name: 'guardian.cleen-production'
+  - job_name: 'guardian-production'
     static_configs:
       - targets: ['guardian-production:9100']
         labels:
           server_ip: '20.40.59.52'
-          server_name: 'guardian.cleen-production'
+          server_name: 'guardian-production'
 
-  - job_name: 'kusum.cleen-production'
+  - job_name: 'kusum-production'
     static_configs:
       - targets: ['kusum-production:9100']
         labels:
           server_ip: '20.244.8.45'
-          server_name: 'kusum.cleen-production'
+          server_name: 'kusum-production'
 
-  - job_name: 'mlab.cleen-production'
+  - job_name: 'mlab-production'
     static_configs:
       - targets: ['mlab-production:9100']
         labels:
           server_ip: '20.244.27.161'
-          server_name: 'mlab.cleen-production'
+          server_name: 'mlab-production'
 
-  - job_name: 'msn.cleen-production'
+  - job_name: 'msn-production'
     static_configs:
       - targets: ['msn-production:9100']
         labels:
           server_ip: '52.172.231.143'
-          server_name: 'msn.cleen-production'
+          server_name: 'msn-production'
 
-  - job_name: 'pii.cleen-production'
+  - job_name: 'pii-production'
     static_configs:
       - targets: ['pii-production:9100']
         labels:
           server_ip: '40.118.252.13'
-          server_name: 'pii.cleen-production'
+          server_name: 'pii-production'
 
-  - job_name: 'piramal.cleen-production'
+  - job_name: 'piramal-production'
     static_configs:
       - targets: ['piramal-production:9100']
         labels:
           server_ip: '4.240.81.119'
-          server_name: 'piramal.cleen-production'
+          server_name: 'piramal-production'
 
-  - job_name: 'stelis.cleen-production'
+  - job_name: 'stelis-production'
     static_configs:
       - targets: ['stelis-production:9100']
         labels:
           server_ip: '20.40.57.115'
-          server_name: 'stelis.cleen-production'
+          server_name: 'stelis-production'
 
-  - job_name: 'onesource.cleen-production'
+  - job_name: 'onesource-production'
     static_configs:
-      - targets: ['steri-production:9100']
+      - targets: ['onesource-production:9100']
         labels:
           server_ip: '98.70.88.64'
-          server_name: 'onesource.cleen-production'
+          server_name: 'onesource-production'
 
-  - job_name: 'tenshi.cleen-production'
+  - job_name: 'tenshi-production'
     static_configs:
       - targets: ['tenshi-production:9100']
         labels:
           server_ip: '20.244.0.34'
-          server_name: 'tenshi.cleen-production'
+          server_name: 'tenshi-production'
 
-  - job_name: 'teva.cleen-production'
+  - job_name: 'teva-production'
     static_configs:
       - targets: ['teva-production:9100']
         labels:
           server_ip: '20.244.9.184'
-          server_name: 'teva.cleen-production'
+          server_name: 'teva-production'
 
-  - job_name: 'torrentpharma.cleen-production'
+  - job_name: 'torrentpharma-production'
     static_configs:
       - targets: ['torrent-production:9100']
         labels:
           server_ip: '40.81.244.238'
-          server_name: 'torrentpharma.cleen-production'
+          server_name: 'torrentpharma-production'
 
-  - job_name: 'troikaa.cleen-production'
+  - job_name: 'troikaa-production'
     static_configs:
       - targets: ['troikaa-production:9100']
         labels:
           server_ip: '40.81.241.106'
-          server_name: 'troikaa.cleen-production'
+          server_name: 'troikaa-production'
 
-  - job_name: 'zydus.cleen-production'
-    static_configs:
-      - targets: ['zydus-dwi-production:9100']
-        labels:
-          server_ip: '4.186.63.1'
-          server_name: 'zydus.cleen-production'
-
-  - job_name: 'zyduscv.cleen-production'
+  - job_name: 'zydus-production'
     static_configs:
       - targets: ['zydus-production:9100']
         labels:
+          server_ip: '4.186.63.1'
+          server_name: 'zydus-production'
+
+  - job_name: 'zyduscv-production'
+    static_configs:
+      - targets: ['zyduscv-production:9100']
+        labels:
           server_ip: '20.244.44.109'
-          server_name: 'zyduscv.cleen-production'
+          server_name: 'zyduscv-production'
 
 
 #platform-prods
-  - job_name: 'amneal-platform production'
+  - job_name: 'amneal-dwi-production'
     static_configs:
       - targets: ['amneal-dwi-production:9100']
         labels:
           server_ip: '4.240.94.210'
-          server_name: 'amneal-platform production'
+          server_name: 'amneal-dwi-production'
 
-  - job_name: 'tenshi-platform production'
+  - job_name: 'tenshi-dwi-production'
     static_configs:
       - targets: ['tenshi-dwi-production:9100']
         labels:
           server_ip: '98.70.15.31'
-          server_name: 'tenshi-platform production'
+          server_name: 'tenshi-dwi-production'
 
 
 #non-prods
