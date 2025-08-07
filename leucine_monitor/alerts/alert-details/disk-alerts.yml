@@ -1,6 +1,6 @@
 #cleen production
 alerts:
-  - uid: "pharmax-production"
+  - uid: "pharmax-production-disk"
     name: pharmax_production
     title: "pharmax-production"
     folder: "Disk-Usage"
@@ -32,7 +32,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aurovitas-production"
+  - uid: "aurovitas-production-disk"
     name: aurovitas_production
     title: "aurovitas-production"
     folder: "Disk-Usage"
@@ -64,7 +64,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "acme-production"
+  - uid: "acme-production-disk"
     name: acme_production
     title: "acme-production"
     folder: "Disk-Usage"
@@ -96,7 +96,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aizant-production"
+  - uid: "aizant-production-disk"
     name: aizant_production
     title: "aizant-production"
     folder: "Disk-Usage"
@@ -128,7 +128,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "alembic-production"
+  - uid: "alembic-production-disk"
     name: alembic_production
     title: "alembic-production"
     folder: "Disk-Usage"
@@ -160,7 +160,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla-production"
+  - uid: "cipla-production-disk"
     name: cipla_production
     title: "cipla-production"
     folder: "Disk-Usage"
@@ -192,7 +192,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "biocon-production"
+  - uid: "biocon-production-disk"
     name: biocon_production
     title: "biocon-production"
     folder: "Disk-Usage"
@@ -225,7 +225,7 @@ alerts:
     exec_err_state: "Error"
 
 alerts:
-  - uid: "cipla-usa-production"
+  - uid: "cipla-usa-production-disk"
     name: cipla_usa_production
     title: "cipla-usa-production"
     folder: "Disk-Usage"
@@ -257,7 +257,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cronus-production"
+  - uid: "cronus-production-disk"
     name: cronus_production
     title: "cronus-production"
     folder: "Disk-Usage"
@@ -289,7 +289,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mydrreddys-production"
+  - uid: "mydrreddys-production-disk"
     name: mydrreddys_production
     title: "mydrreddys-production"
     folder: "Disk-Usage"
@@ -321,7 +321,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "encube-production"
+  - uid: "encube-production-disk"
     name: encube_production
     title: "encube-production"
     folder: "Disk-Usage"
@@ -353,7 +353,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "par-production"
+  - uid: "par-production-disk"
     name: par_production
     title: "par-production"
     folder: "Disk-Usage"
@@ -385,7 +385,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "eugia-production"
+  - uid: "eugia-production-disk"
     name: eugia_production
     title: "eugia-production"
     folder: "Disk-Usage"
@@ -417,7 +417,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "granules-production"
+  - uid: "granules-production-disk"
     name: granules_production
     title: "granules-production"
     folder: "Disk-Usage"
@@ -449,7 +449,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "guardian-production"
+  - uid: "guardian-production-disk"
     name: guardian_production
     title: "guardian-production"
     folder: "Disk-Usage"
@@ -482,7 +482,7 @@ alerts:
     exec_err_state: "Error"
 
 alerts:
-  - uid: "kusum-production"
+  - uid: "kusum-production-disk"
     name: kusum_production
     title: "kusum-production"
     folder: "Disk-Usage"
@@ -514,7 +514,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mlab-production"
+  - uid: "mlab-production-disk"
     name: mlab_production
     title: "mlab-production"
     folder: "Disk-Usage"
@@ -546,7 +546,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "msn-production"
+  - uid: "msn-production-disk"
     name: msn_production
     title: "msn-production"
     folder: "Disk-Usage"
@@ -578,7 +578,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "pii-production"
+  - uid: "pii-production-disk"
     name: pii_production
     title: "pii-production"
     folder: "Disk-Usage"
@@ -610,7 +610,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal-production"
+  - uid: "piramal-production-disk"
     name: piramal_production
     title: "piramal-production"
     folder: "Disk-Usage"
@@ -642,7 +642,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "stelis-production"
+  - uid: "stelis-production-disk"
     name: stelis_production
     title: "stelis-production"
     folder: "Disk-Usage"
@@ -674,7 +674,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "onesource-production"
+  - uid: "onesource-production-disk"
     name: onesource_production
     title: "onesource-production"
     folder: "Memory-Usage"
@@ -706,7 +706,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi-production"
+  - uid: "tenshi-production-disk"
     name: tenshi_production
     title: "tenshi-production"
     folder: "Disk-Usage"
@@ -738,7 +738,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "teva-production"
+  - uid: "teva-production-disk"
     name: teva_production
     title: "teva-production"
     folder: "Disk-Usage"
@@ -770,7 +770,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "torrentpharma-production"
+  - uid: "torrentpharma-production-disk"
     name: torrentpharma_production
     title: "torrentpharma-production"
     folder: "Disk-Usage"
@@ -802,7 +802,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "troikaa-production"
+  - uid: "troikaa-production-disk"
     name: troikaa_production
     title: "troikaa-production"
     folder: "Disk-Usage"
@@ -834,7 +834,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus-production"
+  - uid: "zydus-production-disk"
     name: zydus_production
     title: "zydus-production"
     folder: "Disk-Usage"
@@ -866,7 +866,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zyduscv-production"
+  - uid: "zyduscv-production-disk"
     name: zyduscv_production
     title: "zyduscv-production"
     folder: "Disk-Usage"
@@ -899,7 +899,7 @@ alerts:
     exec_err_state: "Error"
 
 #platform-productions
-  - uid: "amneal-dwi-production"
+  - uid: "amneal-dwi-production-disk"
     name: amneal_dwi_production
     title: "amneal-dwi-production"
     folder: "Disk-Usage"
@@ -931,7 +931,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi-dwi-production"
+  - uid: "tenshi-dwi-production-disk"
     name: tenshi_dwi_production
     title: "tenshi-dwi-production"
     folder: "Disk-Usage"
