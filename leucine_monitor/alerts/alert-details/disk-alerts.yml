@@ -672,7 +672,6 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-alerts:
   - uid: "onesource-production-disk"
     name: onesource_production
     title: "onesource-production"
