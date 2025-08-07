@@ -17,55 +17,67 @@ scrape_configs:
     params:
       module: [http_2xx]
     static_configs:
+      # cleen's
       - targets:
-        - https://uat.cleen.leucinetech.com
-        - https://qa.cleen.leucinetech.com
-        - https://biocon.qa.cleen.leucinetech.com
-        - https://jenkins.leucinetech.com
-        - https://immacule.cleen.leucine.tech
-        - https://generics.acme.cleen.leucine.tech
-        - https://formulation.acme.cleen.leucine.tech
-        - https://pharmax.cleen.leucine.tech
-        - https://acmegenerics.leucine.tech
-        - https://andover.platform.leucine.tech
-        - https://aurovitas.cleen.leucine.tech
-        - https://aizant.cleen.leucine.tech
-        - https://alembic.cleen.leucine.tech
-        - https://amneal.platform.leucine.tech
-        - https://arcolab.platform.leucine.tech
-        - https://cipla.cleen.leucine.tech
-        - https://biocon.cleen.leucine.tech
-        - https://cipla.usa.cleen.leucine.tech
-        - https://cipla.platform.leucine.tech
-        - https://cronus.cleen.leucine.tech
-        - https://mydrreddys.cleen.leucinetech.com
-        - https://encube.cleen.leucine.tech
-        - https://par.cleen.leucine.tech
-        - https://eugia.cleen.leucine.tech
-        - https://granules.cleen.leucine.tech
-        - https://guardian.cleen.leucinetech.com
-        - https://kusum.cleen.leucine.tech
-        - https://mlab.cleen.leucine.tech
-        - https://msn.cleen.leucine.tech
-        - https://pii.cleen.leucine.tech
-        - https://piramal.eforms.leucine.tech
-        - https://piramal.cleen.leucine.tech
-        - https://revlon-yuvi.leucine.ai
-        - https://somerset.platform.leucine.tech
-        - https://stelis.cleen.leucine.tech
-        - https://stelis.platform.leucine.tech
-        - https://onesource.cleen.leucine.tech
-        - https://strides-us.platform.leucine.tech
-        - https://strides.platform.leucine.tech
-        - https://tenshi.cleen.leucine.tech
-        - https://tenshi.platform.leucine.tech
-        - https://teva.cleen.leucine.tech
-        - https://torrentpharma.cleen.leucine.tech
-        - https://troikaa.cleen.leucine.tech
-        - https://valent.platform.leucine.tech
-        - https://report.valent.platform.leucine.tech
-        - https://zydus.cleen.leucine.tech
-        - https://zyduscv.cleen.leucine.tech
+          - https://aizant.cleen.leucine.tech
+          - https://alembic.cleen.leucine.tech
+          - https://aurovitas.cleen.leucine.tech
+          - https://biocon.cleen.leucine.tech
+          - https://biocon.qa.cleen.leucinetech.com
+          - https://cipla.cleen.leucine.tech
+          - https://cipla.usa.cleen.leucine.tech
+          - https://cronus.cleen.leucine.tech
+          - https://encube.cleen.leucine.tech
+          - https://eugia.cleen.leucine.tech
+          - https://formulation.acme.cleen.leucine.tech
+          - https://generics.acme.cleen.leucine.tech
+          - https://granules.cleen.leucine.tech
+          - https://guardian.cleen.leucinetech.com
+          - https://immacule.cleen.leucine.tech
+          - https://kusum.cleen.leucine.tech
+          - https://mlab.cleen.leucine.tech
+          - https://msn.cleen.leucine.tech
+          - https://mydrreddys.cleen.leucinetech.com
+          - https://onesource.cleen.leucine.tech
+          - https://par.cleen.leucine.tech
+          - https://pharmax.cleen.leucine.tech
+          - https://pii.cleen.leucine.tech
+          - https://piramal.cleen.leucine.tech
+          - https://qa.cleen.leucinetech.com
+          - https://stelis.cleen.leucine.tech
+          - https://tenshi.cleen.leucine.tech
+          - https://teva.cleen.leucine.tech
+          - https://torrentpharma.cleen.leucine.tech
+          - https://troikaa.cleen.leucine.tech
+          - https://uat.cleen.leucinetech.com
+          - https://zydus.cleen.leucine.tech
+          - https://zyduscv.cleen.leucine.tech
+        labels:
+          team: cleen
+
+      # dwi's / platform
+      - targets:
+          - https://api.amneal.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.andover.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.arcolab.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.cipla.platform.leucine.tech/v1/auth/account/lookup?username=system
+          # - https://api.somerset.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.stelis.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.strides-us.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.strides.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.tenshi.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.valent.platform.leucine.tech/v1/auth/account/lookup?username=system
+        labels:
+          team: platform
+
+      # others
+      - targets:
+          - https://acmegenerics.leucine.tech
+          - https://piramal.eforms.leucine.tech
+          - https://revlon-yuvi.leucine.ai
+          - https://api.qa.platform.leucinetech.com/v1/auth/account/lookup?username=system
+        labels:
+          team: non-prod
         
     relabel_configs:
       - source_labels: [__address__]
@@ -75,27 +87,215 @@ scrape_configs:
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
-  - job_name: 'Grafana-Server'
+#cleen-prods 
+  - job_name: 'pharmax-cleen-production'
     static_configs:
-      - targets: ['grafana-server:9100']
+      - targets: ['pharmax-production:9100']
         labels:
-          server_ip: '52.66.38.198'
-          server_name: 'grafana-server'
+          server_ip: '20.40.60.169'
+          server_name: 'pharmax-cleen-production'
 
-  - job_name: 'prometheus-server'
+  - job_name: 'aurovitas.cleen-production'
     static_configs:
-      - targets: ['prometheus-server:9100']
+      - targets: ['aurovitas-production:9100']
         labels:
-          server_ip: '13.204.64.137'
-          server_name: 'prometheus-server'
+          server_ip: '35.198.230.51'
+          server_name: 'aurovitas.cleen-production'
 
-  - job_name: 'Promtail-NE'
+  - job_name: 'aizant.cleen-production'
     static_configs:
-      - targets: ['13.235.42.208:9100']
+      - targets: ['aizant-production:9100']
         labels:
-          server_ip: '13.235.42.208'
-          server_name: 'Promtail-NE'
+          server_ip: '20.40.56.171'
+          server_name: 'aizant.cleen-production'
 
+  - job_name: 'alembic.cleen-production'
+    static_configs:
+      - targets: ['alembic-production:9100']
+        labels:
+         server_ip: '20.193.224.204'
+         server_name: 'alembic.cleen-production'
+
+  - job_name: 'cipla.cleen-production'
+    static_configs:
+      - targets: ['cipla-production:9100']
+        labels:
+          server_ip: '4.240.87.136'
+          server_name: 'cipla.cleen-production'
+
+
+  - job_name: 'biocon.cleen-production'
+    static_configs:
+      - targets: ['biocon-production:9100']
+        labels:
+          server_ip: '20.244.95.3'
+          server_name: 'biocon.cleen-production'
+
+  - job_name: 'cipla.usa.cleen-production'
+    static_configs:
+      - targets: ['cipla-usa-production:9100']
+        labels:
+          server_ip: '13.87.246.226'
+          server_name: 'cipla.usa.cleen-production'
+
+  - job_name: 'cronus.cleen-production'
+    static_configs:
+      - targets: ['cronus-production:9100']
+        labels:
+          server_ip: '40.81.243.57'
+          server_name: 'cronus.cleen-production'
+
+  - job_name: 'mydrreddys.cleen-production'
+    static_configs:
+      - targets: ['drl-production:9100']
+        labels:
+          server_ip: '20.40.60.109'
+          server_name: 'mydrreddys.cleen-production'
+
+  - job_name: 'encube.cleen-production'
+    static_configs:
+      - targets: ['encube-production:9100']
+        labels:
+          server_ip: '20.244.25.217'
+          server_name: 'encube.cleen-production'
+
+  - job_name: 'par.cleen-production'
+    static_configs:
+      - targets: ['par-production:9100']
+        labels:
+          server_ip: '4.240.84.31'
+          server_name: 'par.cleen-production'
+
+  - job_name: 'eugia.cleen-production'
+    static_configs:
+      - targets: ['eugia-production:9100']
+        labels:
+          server_ip: '20.244.42.224'
+          server_name: 'eugia.cleen-production'
+
+  - job_name: 'granules.cleen-production'
+    static_configs:
+      - targets: ['granules-production:9100']
+        labels:
+          server_ip: '20.245.222.129'
+          server_name: 'granules.cleen-production'
+
+  - job_name: 'guardian.cleen-production'
+    static_configs:
+      - targets: ['guardian-production:9100']
+        labels:
+          server_ip: '20.40.59.52'
+          server_name: 'guardian.cleen-production'
+
+  - job_name: 'kusum.cleen-production'
+    static_configs:
+      - targets: ['kusum-production:9100']
+        labels:
+          server_ip: '20.244.8.45'
+          server_name: 'kusum.cleen-production'
+
+  - job_name: 'mlab.cleen-production'
+    static_configs:
+      - targets: ['mlab-production:9100']
+        labels:
+          server_ip: '20.244.27.161'
+          server_name: 'mlab.cleen-production'
+
+  - job_name: 'msn.cleen-production'
+    static_configs:
+      - targets: ['msn-production:9100']
+        labels:
+          server_ip: '52.172.231.143'
+          server_name: 'msn.cleen-production'
+
+  - job_name: 'pii.cleen-production'
+    static_configs:
+      - targets: ['pii-production:9100']
+        labels:
+          server_ip: '40.118.252.13'
+          server_name: 'pii.cleen-production'
+
+  - job_name: 'piramal.cleen-production'
+    static_configs:
+      - targets: ['piramal-production:9100']
+        labels:
+          server_ip: '4.240.81.119'
+          server_name: 'piramal.cleen-production'
+
+  - job_name: 'stelis.cleen-production'
+    static_configs:
+      - targets: ['stelis-production:9100']
+        labels:
+          server_ip: '20.40.57.115'
+          server_name: 'stelis.cleen-production'
+
+  - job_name: 'onesource.cleen-production'
+    static_configs:
+      - targets: ['steri-production:9100']
+        labels:
+          server_ip: '98.70.88.64'
+          server_name: 'onesource.cleen-production'
+
+  - job_name: 'tenshi.cleen-production'
+    static_configs:
+      - targets: ['tenshi-production:9100']
+        labels:
+          server_ip: '20.244.0.34'
+          server_name: 'tenshi.cleen-production'
+
+  - job_name: 'teva.cleen-production'
+    static_configs:
+      - targets: ['teva-production:9100']
+        labels:
+          server_ip: '20.244.9.184'
+          server_name: 'teva.cleen-production'
+
+  - job_name: 'torrentpharma.cleen-production'
+    static_configs:
+      - targets: ['torrent-production:9100']
+        labels:
+          server_ip: '40.81.244.238'
+          server_name: 'torrentpharma.cleen-production'
+
+  - job_name: 'troikaa.cleen-production'
+    static_configs:
+      - targets: ['troikaa-production:9100']
+        labels:
+          server_ip: '40.81.241.106'
+          server_name: 'troikaa.cleen-production'
+
+  - job_name: 'zydus.cleen-production'
+    static_configs:
+      - targets: ['zydus-dwi-production:9100']
+        labels:
+          server_ip: '4.186.63.1'
+          server_name: 'zydus.cleen-production'
+
+  - job_name: 'zyduscv.cleen-production'
+    static_configs:
+      - targets: ['zydus-production:9100']
+        labels:
+          server_ip: '20.244.44.109'
+          server_name: 'zyduscv.cleen-production'
+
+
+#platform-prods
+  - job_name: 'amneal-platform production'
+    static_configs:
+      - targets: ['amneal-dwi-production:9100']
+        labels:
+          server_ip: '4.240.94.210'
+          server_name: 'amneal-platform production'
+
+  - job_name: 'tenshi-platform production'
+    static_configs:
+      - targets: ['tenshi-dwi-production:9100']
+        labels:
+          server_ip: '98.70.15.31'
+          server_name: 'tenshi-platform production'
+
+
+#non-prods
   - job_name: 'platform-qa-server'
     static_configs:
       - targets: ['node.leucinetech.com']
@@ -103,282 +303,31 @@ scrape_configs:
           server_ip: '34.93.160.186'
           server_name: 'platform-qa-server'          
 
-  - job_name: 'cleen-biocon-server'
-    static_configs:
-      - targets: ['biocon-server:9100']
-        labels:
-          server_ip: '20.244.95.3'
-          server_name: 'cleen-biocon-server'   
 
-  - job_name: 'acme-production-server'
-    static_configs:
-      - targets: ['acme-server:9100']
-        labels:
-          server_ip: '40.80.92.34'
-          server_name: 'acme-production-server'
 
-  - job_name: 'pharmax-cleen-server'
-    static_configs:
-      - targets: ['pharmax-cleen-server:9100']
-        labels:
-          server_ip: '20.40.60.169'
-          server_name: 'pharmax-cleen-server'
 
-  - job_name: 'acmegenerics-prod-server'
-    static_configs:
-      - targets: ['acmegenerics-prod-server:9100']
-        labels:
-          server_ip: '20.244.43.10'
-          server_name: 'acmegenerics-prod-server'
 
-  - job_name: 'andover.platform-prod-server'
-    static_configs:
-      - targets: ['andover.platform-prod-server:9100']
-        labels:
-          server_ip: '20.26.237.139'
-          server_name: 'andover.platform-prod-server'
 
-  - job_name: 'aurovitas.cleen-prod-server'
-    static_configs:
-      - targets: ['aurovitas.cleen-prod-server:9100']
-        labels:
-          server_ip: '35.198.230.51'
-          server_name: 'aurovitas.cleen-prod-server'
 
-  - job_name: 'aizant.cleen-prod-server'
-    static_configs:
-      - targets: ['aizant.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.40.56.171'
-          server_name: 'aizant.cleen-prod-server'
 
-  - job_name: 'alembic.cleen-prod-server'
-    static_configs:
-      - targets: ['alembic.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.193.224.204'
-          server_name: 'alembic.cleen-prod-server'
 
-  - job_name: 'amneal.platform-prod-server'
-    static_configs:
-      - targets: ['amneal.platform-prod-server:9100']
-        labels:
-          server_ip: '4.240.94.210'
-          server_name: 'amneal.platform-prod-server'
 
-  - job_name: 'arcolab.stelis.somerset-platform-prod-server'
-    static_configs:
-      - targets: ['arcolab.stelis.somerset-platform-prod-server:9100']
-        labels:
-          server_ip: '20.244.9.127'
-          server_name: 'arcolab.stelis.somerset-platform-prod-server'
 
-  - job_name: 'cipla.cleen-prod-server'
-    static_configs:
-      - targets: ['cipla.cleen-prod-server:9100']
-        labels:
-          server_ip: '4.240.87.136'
-          server_name: 'cipla.cleen-prod-server'
 
-  - job_name: 'cipla.usa.cleen-prod-server'
-    static_configs:
-      - targets: ['cipla.usa.cleen-prod-server:9100']
-        labels:
-          server_ip: '13.87.246.226'
-          server_name: 'cipla.usa.cleen-prod-server'
 
-  - job_name: 'cipla.platform-prod-server'
-    static_configs:
-      - targets: ['cipla.platform-prod-server:9100']
-        labels:
-          server_ip: '98.70.27.70'
-          server_name: 'cipla.platform-prod-server'
 
-  - job_name: 'cronus.cleen-prod-server'
-    static_configs:
-      - targets: ['cronus.cleen-prod-server:9100']
-        labels:
-          server_ip: '40.81.243.57'
-          server_name: 'cronus.cleen-prod-server'
 
-  - job_name: 'mydrreddys.cleen-prod-server'
-    static_configs:   
-      - targets: ['mydrreddys.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.40.60.109'
-          server_name: 'mydrreddys.cleen-prod-server'
 
-  - job_name: 'encube.cleen-prod-server'
-    static_configs:
-      - targets: ['encube.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.244.25.217'
-          server_name: 'encube.cleen-prod-server'
 
-  - job_name: 'par.cleen-prod-server'
-    static_configs:
-      - targets: ['par.cleen-prod-server:9100']
-        labels:
-          server_ip: '4.240.84.31'
-          server_name: 'par.cleen-prod-server'
 
-  - job_name: 'eugia.cleen-prod-server'
-    static_configs:
-      - targets: ['eugia.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.244.42.224'
-          server_name: 'eugia.cleen-prod-server'
 
-  - job_name: 'granules.cleen-prod-server'
-    static_configs:
-      - targets: ['granules.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.245.222.129'
-          server_name: 'granules.cleen-prod-server'
 
-  - job_name: 'guardian.cleen-prod-server'
-    static_configs:
-      - targets: ['guardian.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.40.59.52'
-          server_name: 'guardian.cleen-prod-server'
 
-  - job_name: 'kusum.cleen-prod-server'
-    static_configs:
-      - targets: ['kusum.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.244.8.45'
-          server_name: 'kusum.cleen-prod-server'
 
-  - job_name: 'mlab.cleen-prod-server'
-    static_configs:
-      - targets: ['mlab.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.244.27.161'
-          server_name: 'mlab.cleen-prod-server'
 
-  - job_name: 'msn.cleen-prod-server'
-    static_configs:
-      - targets: ['msn.cleen-prod-server:9100']
-        labels:
-          server_ip: '52.172.231.143'
-          server_name: 'msn.cleen-prod-server'
 
-  - job_name: 'pii.cleen-prod-server'
-    static_configs:
-      - targets: ['pii.cleen-prod-server:9100']
-        labels:
-          server_ip: '40.118.252.13'
-          server_name: 'pii.cleen-prod-server'
 
-  - job_name: 'piramal.eforms-prod-server'
-    static_configs:
-      - targets: ['piramal.eforms-prod-server:9100']
-        labels:
-          server_ip: '20.244.44.237'
-          server_name: 'piramal.eforms-prod-server'
 
-  - job_name: 'piramal.cleen-prod-server'
-    static_configs:
-      - targets: ['piramal.cleen-prod-server:9100']
-        labels:
-          server_ip: '4.240.81.119'
-          server_name: 'piramal.cleen-prod-server'
 
-  - job_name: 'revlon-yuvi-prod-server'
-    static_configs:
-      - targets: ['revlon-yuvi-prod-server:9100']
-        labels:
-          server_ip: '35.229.72.81'
-          server_name: 'revlon-yuvi-prod-server'
-
-  - job_name: 'stelis.cleen-prod-server'
-    static_configs:
-      - targets: ['stelis.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.40.57.115'
-          server_name: 'stelis.cleen-prod-server'
-
-  - job_name: 'onesource.cleen-prod-server'
-    static_configs:
-      - targets: ['onesource.cleen-prod-server:9100']
-        labels:
-          server_ip: '98.70.88.64'
-          server_name: 'onesource.cleen-prod-server'
-
-  - job_name: 'strides-us.platform-prod-server'
-    static_configs:
-      - targets: ['strides-us.platform-prod-server:9100']
-        labels:
-          server_ip: '20.62.162.17'
-          server_name: 'strides-us.platform-prod-server'
-
-  - job_name: 'strides.platform-prod-server'
-    static_configs:
-      - targets: ['strides.platform-prod-server:9100']
-        labels:
-          server_ip: '20.244.15.94'
-          server_name: 'strides.platform-prod-server'
-
-  - job_name: 'tenshi.cleen-prod-server'
-    static_configs:
-      - targets: ['tenshi.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.244.0.34'
-          server_name: 'tenshi.cleen-prod-server'
-
-  - job_name: 'tenshi.platform-prod-server'
-    static_configs:
-      - targets: ['tenshi.platform-prod-server:9100']
-        labels:
-          server_ip: '98.70.15.31'
-          server_name: 'tenshi.platform-prod-server'
-
-  - job_name: 'teva.cleen-prod-server'
-    static_configs:
-      - targets: ['teva.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.244.9.184'
-          server_name: 'teva.cleen-prod-server'
-
-  - job_name: 'torrentpharma.cleen-prod-server'
-    static_configs:
-      - targets: ['torrentpharma.cleen-prod-server:9100']
-        labels:
-          server_ip: '40.81.244.238'
-          server_name: 'torrentpharma.cleen-prod-server'
-
-  - job_name: 'troikaa.cleen-prod-server'
-    static_configs:
-      - targets: ['troikaa.cleen-prod-server:9100']
-        labels:
-          server_ip: '40.81.241.106'
-          server_name: 'troikaa.cleen-prod-server'
-
-  - job_name: 'valent.platform-prod-server'
-    static_configs:
-      - targets: ['valent.platform-prod-server:9100']
-        labels:
-          server_ip: '75.101.198.155'
-          server_name: 'valent.platform-prod-server'
-
-  - job_name: 'report.valent.platform-prod-server'
-    static_configs:
-      - targets: ['report.valent.platform-prod-server:9100']
-        labels:
-          server_ip: '44.218.213.34'
-          server_name: 'report.valent.platform-prod-server'
-
-  - job_name: 'zydus.cleen-prod-server'
-    static_configs:
-      - targets: ['zydus.cleen-prod-server:9100']
-        labels:
-          server_ip: '4.186.63.1'
-          server_name: 'zydus.cleen-prod-server'
-
-  - job_name: 'zyduscv.cleen-prod-server'
-    static_configs:
-      - targets: ['zyduscv.cleen-prod-server:9100']
-        labels:
-          server_ip: '20.244.44.109'
-          server_name: 'zyduscv.cleen-prod-server'
+# rule_files:
+#   - "alert.rules.yml"
