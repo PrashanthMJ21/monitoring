@@ -810,36 +810,6 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus-production-cpu"
-    name: zydus_production
-    title: "zydus-production"
-    folder: "CPU-Usage"
-    group: "CPU"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          rate(node_cpu_seconds_total{job="zydus-production", mode="idle"}[1m])
-        ) * 100
-      )
-      and 
-      on(instance) up{job="zydus-production"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The CPU usage is above the threshold value."
-      server: "4.186.63.1"
-      threshold: "85"
-      title: "zydus-production CPU-Usage"
-      url: "zydus.cleen.leucine.tech"
-    labels:
-      env: "cleen"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
   - uid: "zyduscv-production-cpu"
     name: zyduscv_production
     title: "zyduscv-production"
@@ -926,6 +896,36 @@ alerts:
       url: "tenshi.platform.leucine.tech"
     labels:
       env: "platform"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "zydus-dwi-production-cpu"
+    name: zydus_dwi_production
+    title: "zydus-dwi-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="zydus-dwi-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and 
+      on(instance) up{job="zydus-dwi-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "4.186.63.1"
+      threshold: "85"
+      title: "zydus-dwi-production CPU-Usage"
+      url: "zydus.cleen.leucine.tech"
+    labels:
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
