@@ -96,6 +96,38 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+  - uid: "alkem-production-disk"
+    name: alkem_production
+    title: "alkem-production"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="alkem-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="alkem-production"})
+        ))
+      )
+      and 
+      on(instance) up{job="alkem-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "98.70.42.140"
+      threshold: "85"
+      title: "alkem-production Disk-Usage"
+      url: "alkem.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
   - uid: "aizant-production-disk"
     name: aizant_production
     title: "aizant-production"
@@ -833,38 +865,6 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus-production-disk"
-    name: zydus_production
-    title: "zydus-production"
-    folder: "Disk-Usage"
-    group: "Disk"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      (
-        100 * (1 - (
-          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="zydus-production"})
-          /
-          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="zydus-production"})
-        ))
-      )
-      and 
-      on(instance) up{job="zydus-production"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The Disk usage is above the threshold value."
-      server: "4.186.63.1"
-      threshold: "85"
-      title: "zydus-production Disk-Usage"
-      url: "zydus.cleen.leucine.tech"
-    labels:
-      env: "cleen"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
   - uid: "zyduscv-production-disk"
     name: zyduscv_production
     title: "zyduscv-production"
@@ -957,6 +957,38 @@ alerts:
       url: "tenshi.platform.leucine.tech"
     labels:
       env: "platform"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "zydus-dwi-production-disk"
+    name: zydus_dwi-production
+    title: "zydus-dwi-production"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="zydus-dwi-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="zydus-dwi-production"})
+        ))
+      )
+      and 
+      on(instance) up{job="zydus-dwi-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "4.186.63.1"
+      threshold: "85"
+      title: "zydus-dwi-production Disk-Usage"
+      url: "zydus.cleen.leucine.tech"
+    labels:
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
