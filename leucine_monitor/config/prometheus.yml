@@ -102,6 +102,20 @@ scrape_configs:
           server_ip: '35.198.230.51'
           server_name: 'aurovitas-production'
 
+  - job_name: 'acme-production'
+    static_configs:
+      - targets: ['acme-production:9100']
+        labels:
+          server_ip: '40.80.92.34'
+          server_name: 'acme-production'
+          
+  - job_name: 'alkem-production'
+    static_configs:
+      - targets: ['alkem-production:9100']
+        labels:
+          server_ip: '98.70.42.140'
+          server_name: 'alkem-production'
+          
   - job_name: 'aizant-production'
     static_configs:
       - targets: ['aizant-production:9100']
