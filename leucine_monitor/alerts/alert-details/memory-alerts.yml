@@ -1,6 +1,6 @@
 #cleen-production
 alerts:
-  - uid: "pharmax-production"
+  - uid: "pharmax-production-memory"
     name: pharmax_production
     title: "pharmax-production"
     folder: "Memory-Usage"
@@ -32,7 +32,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aurovitas-production"
+  - uid: "aurovitas-production-memory"
     name: aurovitas_production
     title: "aurovitas-production"
     folder: "Memory-Usage"
@@ -64,7 +64,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "acme-production"
+  - uid: "acme-production-memory"
     name: acme_production
     title: "acme-production"
     folder: "Memory-Usage"
@@ -96,7 +96,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "aizant-production"
+  - uid: "aizant-production-memory"
     name: aizant_production
     title: "aizant-production"
     folder: "Memory-Usage"
@@ -128,7 +128,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "alembic-production"
+  - uid: "alembic-production-memory"
     name: alembic_production
     title: "alembic-production"
     folder: "Memory-Usage"
@@ -160,7 +160,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla-production"
+  - uid: "cipla-production-memory"
     name: cipla_production
     title: "cipla-production"
     folder: "Memory-Usage"
@@ -192,7 +192,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "biocon-production"
+  - uid: "biocon-production-memory"
     name: biocon_production
     title: "biocon-production"
     folder: "Memory-Usage"
@@ -224,7 +224,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cipla-usa-production"
+  - uid: "cipla-usa-production-memory"
     name: cipla_usa_production
     title: "cipla-usa-production"
     folder: "Memory-Usage"
@@ -256,7 +256,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "cronus-production"
+  - uid: "cronus-production-memory"
     name: cronus_production
     title: "cronus-production"
     folder: "Memory-Usage"
@@ -288,7 +288,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mydrreddys-production"
+  - uid: "mydrreddys-production-memory"
     name: mydrreddys_production
     title: "mydrreddys-production"
     folder: "Memory-Usage"
@@ -320,7 +320,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "encube-production"
+  - uid: "encube-production-memory"
     name: encube_production
     title: "encube-production"
     folder: "Memory-Usage"
@@ -352,7 +352,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "par-production"
+  - uid: "par-production-memory"
     name: par_production
     title: "par-production"
     folder: "Memory-Usage"
@@ -384,7 +384,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "eugia-production"
+  - uid: "eugia-production-memory"
     name: eugia_production
     title: "eugia-production"
     folder: "Memory-Usage"
@@ -416,7 +416,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "granules-production"
+  - uid: "granules-production-memory"
     name: granules_production
     title: "granules-production"
     folder: "Memory-Usage"
@@ -448,7 +448,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "guardian-production"
+  - uid: "guardian-production-memory"
     name: guardian_production
     title: "guardian-production"
     folder: "Memory-Usage"
@@ -480,7 +480,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "kusum-production"
+  - uid: "kusum-production-memory"
     name: kusum_production
     title: "kusum-production"
     folder: "Memory-Usage"
@@ -512,7 +512,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "mlab-production"
+  - uid: "mlab-production-memory"
     name: mlab_production
     title: "mlab-production"
     folder: "Memory-Usage"
@@ -544,7 +544,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "msn-production"
+  - uid: "msn-production-memory"
     name: msn_production
     title: "msn-production"
     folder: "Memory-Usage"
@@ -576,7 +576,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "pii-production"
+  - uid: "pii-production-memory"
     name: pii_production
     title: "pii-production"
     folder: "Memory-Usage"
@@ -608,7 +608,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "piramal-production"
+  - uid: "piramal-production-memory"
     name: piramal_production
     title: "piramal-production"
     folder: "Memory-Usage"
@@ -640,7 +640,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "stelis-production"
+  - uid: "stelis-production-memory"
     name: stelis_production
     title: "stelis-production"
     folder: "Memory-Usage"
@@ -672,7 +672,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "onesource-production"
+  - uid: "onesource-production-memory"
     name: onesource_production
     title: "onesource-production"
     folder: "Memory-Usage"
@@ -704,7 +704,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi-production"
+  - uid: "tenshi-production-memory"
     name: tenshi_production
     title: "tenshi-production"
     folder: "Memory-Usage"
@@ -736,7 +736,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "teva-production"
+  - uid: "teva-production-memory"
     name: teva_production
     title: "teva-production"
     folder: "Memory-Usage"
@@ -768,7 +768,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "torrentpharma-production"
+  - uid: "torrentpharma-production-memory"
     name: torrentpharma_production
     title: "torrentpharma-production"
     folder: "Memory-Usage"
@@ -800,7 +800,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "troikaa-production"
+  - uid: "troikaa-production-memory"
     name: troikaa_production
     title: "troikaa-production"
     folder: "Memory-Usage"
@@ -832,7 +832,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus-production"
+  - uid: "zydus-production-memory"
     name: zydus_production
     title: "zydus-production"
     folder: "Memory-Usage"
@@ -864,7 +864,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zyduscv-production"
+  - uid: "zyduscv-production-memory"
     name: zyduscv_production
     title: "zyduscv-production"
     folder: "Memory-Usage"
@@ -897,7 +897,7 @@ alerts:
     exec_err_state: "Error"
 
 #platform-prods
-  - uid: "amneal-dwi-production"
+  - uid: "amneal-dwi-production-memory"
     name: amneal_dwi_production
     title: "amneal-dwi-production"
     folder: "Memory-Usage"
@@ -929,7 +929,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "tenshi-dwi-production"
+  - uid: "tenshi-dwi-production-memory"
     name: tenshi_dwi_production
     title: "tenshi-dwi-production"
     folder: "Memory-Usage"
