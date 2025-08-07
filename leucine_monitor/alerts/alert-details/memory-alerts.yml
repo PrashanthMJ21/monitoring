@@ -96,6 +96,38 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+  - uid: "alkem-production"
+    name: alkem_production
+    title: "alkem-production"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="alkem-production"}
+          /
+          node_memory_MemTotal_bytes{job="alkem-production"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="alkem-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "98.70.42.140"
+      threshold: "85"
+      title: "alkem-production Memory-Usage"
+      url: "alkem.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
   - uid: "aizant-production-memory"
     name: aizant_production
     title: "aizant-production"
@@ -832,38 +864,6 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "zydus-production-memory"
-    name: zydus_production
-    title: "zydus-production"
-    folder: "Memory-Usage"
-    group: "Memory"
-    condition: "C"
-    datasource_uid: "prometheus_uid_here"
-    expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="zydus-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="zydus-production"}
-        ) * 100
-      )
-      and 
-      on(instance) up{job="zydus-production"} == 1
-    threshold: 85
-    recovery_threshold: 84
-    annotations:
-      summary: "The Memory usage is above the threshold value."
-      server: "4.186.63.1"
-      threshold: "85"
-      title: "zydus-production Memory-Usage"
-      url: "zydus.cleen.leucine.tech"
-    labels:
-      env: "cleen"
-    contact_point: "Node-alerts"
-    pending: "1m"
-    no_data_state: "NoData"
-    exec_err_state: "Error"
-
   - uid: "zyduscv-production-memory"
     name: zyduscv_production
     title: "zyduscv-production"
@@ -956,6 +956,38 @@ alerts:
       url: "tenshi.platform.leucine.tech"
     labels:
       env: "platform"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "zydus-dwi-production-memory"
+    name: zydus_dwi_production
+    title: "zydus-dwi-production"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="zydus-dwi-production"} 
+          / 
+          node_memory_MemTotal_bytes{job="zydus-dwi-production"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="zydus-dwi-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "4.186.63.1"
+      threshold: "85"
+      title: "zydus-dwi-production Memory-Usage"
+      url: "zydus.cleen.leucine.tech"
+    labels:
+      env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
