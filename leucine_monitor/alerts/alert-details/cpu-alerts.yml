@@ -90,6 +90,36 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+  - uid: "alkem-production"
+    name: alkem_production
+    title: "alkem-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="alkem-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and 
+      on(instance) up{job="alkem-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "98.70.42.140"
+      threshold: "85"
+      title: "alkem-production CPU-Usage"
+      url: "alkem.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
   - uid: "aizant-production-cpu"
     name: aizant_production
     title: "aizant-production"
