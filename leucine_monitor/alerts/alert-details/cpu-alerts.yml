@@ -90,7 +90,7 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
-  - uid: "alkem-production"
+  - uid: "alkem-production-cpu"
     name: alkem_production
     title: "alkem-production"
     folder: "CPU-Usage"
