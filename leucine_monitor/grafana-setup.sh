@@ -19,7 +19,7 @@
 # ----------- SETTINGS -------------
 REPO_URL="https://github.com/PrashanthMJ21/monitoring.git"
 REPO_DIR="monitoring"
-GRAFANA_URL="https://grafana.leucinetech.com"
+GRAFANA_URL="https://monitoring.leucinetech.com"
 GRAFANA_USER="admin"
 GRAFANA_PASS="fhbv@4JUbkgmb"
 SERVICE_ACCOUNT_NAME="provisioning-sa"
