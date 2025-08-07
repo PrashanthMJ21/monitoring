@@ -672,30 +672,31 @@ alerts:
     no_data_state: "NoData"
     exec_err_state: "Error"
 
+alerts:
   - uid: "onesource-production-disk"
     name: onesource_production
     title: "onesource-production"
-    folder: "Memory-Usage"
-    group: "Memory"
+    folder: "Disk-Usage"
+    group: "Disk"
     condition: "C"
     datasource_uid: "prometheus_uid_here"
     expr: >
-      100 - (
-        avg by(instance) (
-          node_memory_MemAvailable_bytes{job="onesource-production"} 
-          / 
-          node_memory_MemTotal_bytes{job="onesource-production"}
-        ) * 100
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="onesource-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="onesource-production"})
+        ))
       )
       and 
       on(instance) up{job="onesource-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
-      summary: "The Memory usage is above the threshold value."
+      summary: "The Disk usage is above the threshold value."
       server: "98.70.88.64"
       threshold: "85"
-      title: "onesource-production Memory-Usage"
+      title: "onesource-production Disk-Usage"
       url: "onesource.cleen.leucine.tech"
     labels:
       env: "cleen"
@@ -703,6 +704,7 @@ alerts:
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+
 
   - uid: "tenshi-production-disk"
     name: tenshi_production
