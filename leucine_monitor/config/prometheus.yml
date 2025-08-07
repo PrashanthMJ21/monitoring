@@ -264,12 +264,6 @@ scrape_configs:
           server_ip: '40.81.241.106'
           server_name: 'troikaa-production'
 
-  - job_name: 'zydus-production'
-    static_configs:
-      - targets: ['zydus-production:9100']
-        labels:
-          server_ip: '4.186.63.1'
-          server_name: 'zydus-production'
 
   - job_name: 'zyduscv-production'
     static_configs:
@@ -293,6 +287,14 @@ scrape_configs:
         labels:
           server_ip: '98.70.15.31'
           server_name: 'tenshi-dwi-production'
+
+
+  - job_name: 'zydus-dwi-production'
+    static_configs:
+      - targets: ['zydus-dwi-production:9100']
+        labels:
+          server_ip: '4.186.63.1'
+          server_name: 'zydus-dwi-production'
 
 
 #non-prods
