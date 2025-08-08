@@ -19,7 +19,7 @@
 # ----------- SETTINGS -------------
 REPO_URL="https://github.com/PrashanthMJ21/monitoring.git"
 REPO_DIR="monitoring"
-GRAFANA_URL="prod-monitoring.leucinetech.com"
+GRAFANA_URL="https://prod-monitoring.leucinetech.com"
 GRAFANA_USER="admin"
 GRAFANA_PASS="fhbv@4JUbkgmb"
 SERVICE_ACCOUNT_NAME="provisioning-sa"
@@ -30,12 +30,50 @@ ENV_FILE="./alerts/.env"
 
 set -e
 
-echo "📦 Installing base packages..."
-sudo apt update -y
-sudo apt install -y git curl docker.io docker-compose inotify-tools
+echo "🔍 Checking if Docker, Compose v2, and containerd are installed..."
 
-sudo systemctl start docker
-sudo systemctl enable docker
+HAS_DOCKER=$(command -v docker >/dev/null 2>&1 && echo true || echo false)
+HAS_COMPOSE_V2=$(docker compose version >/dev/null 2>&1 && echo true || echo false)
+HAS_CONTAINERD=$(command -v containerd >/dev/null 2>&1 && echo true || echo false)
+HAS_COMPOSE_V1=$(command -v docker-compose >/dev/null 2>&1 && echo true || echo false)
+
+if [[ "$HAS_DOCKER" == "true" && "$HAS_COMPOSE_V2" == "true" && "$HAS_CONTAINERD" == "true" ]]; then
+  echo "✅ Docker, Docker Compose v2, and containerd are already installed. Skipping installation."
+else
+  echo "📦 Installing Docker and Compose v2 using official Docker repository..."
+
+  sudo apt remove -y docker docker-engine docker.io containerd runc || true
+
+  sudo apt update -y
+  sudo apt install -y ca-certificates curl gnupg lsb-release
+
+  sudo install -m 0755 -d /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+    sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+    https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+  sudo apt update -y
+  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+  sudo systemctl enable docker
+  sudo systemctl start docker
+
+  echo "✅ Docker version: $(docker --version)"
+  echo "✅ Docker Compose version: $(docker compose version)"
+fi
+
+if [[ "$HAS_COMPOSE_V1" == "true" ]]; then
+  echo "⚠️ Removing old docker-compose v1 binary..."
+  sudo rm -f /usr/local/bin/docker-compose
+fi
+
+echo "📦 Installing essential packages: git, curl, inotify-tools..."
+sudo apt install -y git curl inotify-tools
 
 echo "📦 Installing jq v1.7 manually..."
 sudo wget -q -O /usr/local/bin/jq https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-amd64
@@ -47,17 +85,15 @@ sudo wget -q -O /usr/local/bin/yq https://github.com/mikefarah/yq/releases/lates
 sudo chmod +x /usr/local/bin/yq
 echo "✅ yq version: $(yq --version)"
 
-# 📁 Clone repo if not present
-if [ ! -d "$REPO_DIR" ]; then
+if [ ! -d "$REPO_DIR/leucine_monitor" ] || [ ! -f "$REPO_DIR/leucine_monitor/docker-compose.yml" ]; then
+  echo "⚠️ Repo missing or incomplete. Cleaning up and re-cloning..."
+  sudo rm -rf "$REPO_DIR"
   git clone "$REPO_URL"
+else
+  echo "✅ Repo already exists and looks complete."
 fi
-cd "$REPO_DIR/leucine_monitor"
 
-# ✅ Verify docker-compose file exists
-if [ ! -f "docker-compose.yml" ]; then
-  echo "❌ docker-compose.yml not found in $(pwd)"
-  exit 1
-fi
+cd "$REPO_DIR/leucine_monitor"
 
 # 📁 Create ./data-volumes folder structure
 echo "📁 Preparing ./data-volumes folders..."
@@ -71,20 +107,38 @@ mkdir -p ./data-volumes/tempo
 
 # 🔧 Run init-perms container to fix ownership
 echo "🔧 Running init-perms container to fix volume ownership..."
-sudo docker-compose run --rm init-perms
+sudo docker compose run --rm init-perms
+
+# 🔐 Fix Grafana volume permissions before startup
+echo "🔐 Fixing Grafana DB volume permissions..."
+sudo chown -R 472:472 ./data-volumes/grafana
+sudo chmod -R u+rwX ./data-volumes/grafana
 
 # 📁 Ensure alerts/.env directory exists
 mkdir -p ./alerts
 
 # 🐳 Start services
 echo "🐳 Starting Docker containers..."
-sudo docker-compose up -d
+sudo docker compose up -d
 
-# ⏳ Wait for Grafana to become available
-echo "⏳ Waiting for Grafana to come online..."
-until curl -s -u $GRAFANA_USER:$GRAFANA_PASS "$GRAFANA_URL/api/health" | grep -q 'database'; do
+# ⏳ Wait for Grafana to become available (with timeout)
+echo "⏳ Waiting for Grafana to become online..."
+for i in {1..30}; do
+  if curl -s -u $GRAFANA_USER:$GRAFANA_PASS "$GRAFANA_URL/api/health" | grep -q 'database'; then
+    echo "✅ Grafana is online."
+    break
+  fi
   sleep 3
+  if [ "$i" -eq 30 ]; then
+    echo "❌ Timeout: Grafana did not come online."
+    exit 1
+  fi
 done
+# Change ownership to Grafana user inside container (472)
+sudo chown -R 472:472 ./data-volumes/grafana
+
+# Ensure writable permissions
+sudo chmod -R u+rwX ./data-volumes/grafana
 
 # 🆔 Create service account & token
 echo "🆔 Creating service account: $SERVICE_ACCOUNT_NAME"
@@ -94,7 +148,8 @@ SA_RESPONSE=$(curl -s -u $GRAFANA_USER:$GRAFANA_PASS -X POST "$GRAFANA_URL/api/s
 SA_ID=$(echo "$SA_RESPONSE" | jq -r '.id')
 
 if [ "$SA_ID" == "null" ] || [ -z "$SA_ID" ]; then
-  echo "❌ Failed to create service account."
+  echo "❌ Failed to create service account. Raw response:"
+  echo "$SA_RESPONSE"
   exit 1
 fi
 
@@ -113,13 +168,13 @@ API_KEY="Bearer $RAW_KEY"
 echo "✅ Token created and stored"
 
 # 🔎 Fetch Prometheus UID
-echo "🔎 Fetching datasource UID..."
+echo "🔎 Fetching Prometheus datasource UID..."
 PROMETHEUS_UID=$(curl -s -H "Authorization: $API_KEY" "$GRAFANA_URL/api/datasources" \
   | jq -r '.[] | select(.type=="prometheus") | .uid')
 
 echo "✅ Prometheus UID: $PROMETHEUS_UID"
 
-# �� Save credentials and UID
+# 💾 Save credentials and UID
 echo "GRAFANA_URL=\"$GRAFANA_URL\"" > "$ENV_FILE"
 echo "API_KEY=\"$API_KEY\"" >> "$ENV_FILE"
 echo "PROMETHEUS_UID=\"$PROMETHEUS_UID\"" >> "$ENV_FILE"
@@ -153,4 +208,3 @@ echo "👀 Starting watcher..."
 nohup ./watch-changes.sh > ./alerts/watcher.log 2>&1 &
 
 echo "✅ Bootstrap complete."
-
