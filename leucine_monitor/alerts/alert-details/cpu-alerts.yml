@@ -1,7 +1,7 @@
 #cleen-productions
 alerts:
   - uid: "pharmax-production-cpu"
-    name: pharmax_production_
+    name: pharmax_production
     title: "pharmax-production"
     folder: "CPU-Usage"
     group: "CPU"
