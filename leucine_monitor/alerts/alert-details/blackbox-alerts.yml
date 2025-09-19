@@ -683,7 +683,7 @@ alerts:
     type: "eq"
   annotations:
     title: "troikaa-production"
-    url: "httptroikaa.cleen.leucine.tech"
+    url: "https://troikaa.cleen.leucine.tech"
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
@@ -737,6 +737,28 @@ alerts:
   no_data_state: "OK"
   exec_err_state: "Error"
 
+- uid: "sciegen-production"
+  name: sciegen_production
+  title: "sciegen-production"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://sciegen.cleen.leucine.tech"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "sciegen-production"
+    url: "https://sciegen.cleen.leucine.tech"
+  labels:
+    env: "cleen"
+  contact_point: "Blackbox-alerts"
+  pending: "30s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
 #--------------------------------------------------------------------------platform-probes-----------------------------------------------------------------------------
 - uid: "amneal-dwi-production"
   name: amneal_dwi_production
@@ -968,7 +990,28 @@ alerts:
   no_data_state: "OK"
   exec_err_state: "Error"
 
-
+- uid: "piramal-eforms-dwi-production"
+  name: piramal_eforms_dwi_production
+  title: "piramal-eforms-dwi-production"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://api.piramal.eforms.leucine.tech/v1/auth/account/lookup?username=system"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "piramal-eforms-dwi-production"
+    url: "https://piramal.eforms.leucine.tech"
+  labels:
+    env: "platform"
+  contact_point: "Blackbox-alerts"
+  pending: "1m"
+  no_data_state: "OK"
+  exec_err_state: "Error"
 
 #--------------------------------------------------------------------------others-probes-----------------------------------------------------------------------------
 - uid: "revlon-yuvi-production"
@@ -994,48 +1037,6 @@ alerts:
   no_data_state: "OK"
   exec_err_state: "Error"
 
-- uid: "piramal-eforms-dwi-production"
-  name: piramal_eforms_dwi_production
-  title: "piramal-eforms-dwi-production"
-  folder: "Blackbox"
-  group: "Probes"
-  condition: "C"
-  datasource_uid: "prometheus_uid_here"
-  expr: >
-    probe_success{instance="http://api.piramal.eforms.leucine.tech/v1/auth/account/lookup?username=system"} == 0
-  threshold: 0
-  recovery_threshold:
-  evaluator:
-    type: "eq"
-  annotations:
-    title: "piramal-eforms-dwi-production"
-    url: "https://piramal.eforms.leucine.tech"
-  labels:
-    env: "platform"
-  contact_point: "Blackbox-alerts"
-  pending: "1m"
-  no_data_state: "OK"
-  exec_err_state: "Error"
 
-- uid: "sciegen-production"
-  name: sciegen_production
-  title: "sciegen-production"
-  folder: "Blackbox"
-  group: "Probes"
-  condition: "C"
-  datasource_uid: "prometheus_uid_here"
-  expr: >
-    probe_success{instance="https://sciegen.cleen.leucine.tech"} == 0
-  threshold: 0
-  recovery_threshold:
-  evaluator:
-    type: "eq"
-  annotations:
-    title: "sciegen-production"
-    url: "https://sciegen.cleen.leucine.tech"
-  labels:
-    env: "cleen"
-  contact_point: "Blackbox-alerts"
-  pending: "30s"
-  no_data_state: "OK"
-  exec_err_state: "Error"
+
+
