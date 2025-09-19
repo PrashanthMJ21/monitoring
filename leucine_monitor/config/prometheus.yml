@@ -22,6 +22,7 @@ scrape_configs:
           - https://aizant.cleen.leucine.tech
           - https://alembic.cleen.leucine.tech
           - https://aurovitas.cleen.leucine.tech
+          - https://alkem.cleen.leucine.tech         
           - https://biocon.cleen.leucine.tech
           - https://biocon.qa.cleen.leucinetech.com
           - https://cipla.cleen.leucine.tech
@@ -49,8 +50,8 @@ scrape_configs:
           - https://teva.cleen.leucine.tech
           - https://torrentpharma.cleen.leucine.tech
           - https://troikaa.cleen.leucine.tech
-          - https://uat.cleen.leucinetech.com
-          - https://zydus.cleen.leucine.tech
+          - https://sciegen.cleen.leucine.tech  
+            #          - https://uat.cleen.leucinetech.com
           - https://zyduscv.cleen.leucine.tech
         labels:
           team: cleen
@@ -58,6 +59,7 @@ scrape_configs:
       # dwi's / platform
       - targets:
           - https://api.amneal.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.acmegenerics.leucine.tech/version.json
           - https://api.andover.platform.leucine.tech/v1/auth/account/lookup?username=system
           - https://api.arcolab.platform.leucine.tech/v1/auth/account/lookup?username=system
           - https://api.cipla.platform.leucine.tech/v1/auth/account/lookup?username=system
@@ -67,18 +69,20 @@ scrape_configs:
           - https://api.strides.platform.leucine.tech/v1/auth/account/lookup?username=system
           - https://api.tenshi.platform.leucine.tech/v1/auth/account/lookup?username=system
           - https://api.valent.platform.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.piramal.eforms.leucine.tech/v1/auth/account/lookup?username=system
+          - https://api.ascent.platform.leucine.tech/version.json
+          - https://api.zydus.cleen.leucine.tech/version.json
         labels:
           team: platform
 
       # others
       - targets:
-          - https://acmegenerics.leucine.tech
-          - https://piramal.eforms.leucine.tech
           - https://revlon-yuvi.leucine.ai
           - https://api.qa.platform.leucinetech.com/v1/auth/account/lookup?username=system
+          - https://nginx.leucinetech.com  
         labels:
-          team: non-prod
-        
+          team: others
+
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -278,6 +282,12 @@ scrape_configs:
           server_ip: '40.81.241.106'
           server_name: 'troikaa-production'
 
+  - job_name: 'sciegen-production'
+    static_configs:
+      - targets: ['sciegen-production:9100']
+        labels:
+          server_ip: '35.245.234.63'
+          server_name: 'sciegen-production'
 
   - job_name: 'zyduscv-production'
     static_configs:
@@ -310,6 +320,19 @@ scrape_configs:
           server_ip: '4.186.63.1'
           server_name: 'zydus-dwi-production'
 
+  - job_name: 'stelis-dwi-production'
+    static_configs:
+      - targets: ['stelis-dwi-production:9100']
+        labels:
+          server_ip: '57.159.16.15'
+          server_name: 'stelis-dwi-production'          
+
+  - job_name: 'immacule-acme-dwi-production'
+    static_configs:
+      - targets: ['immacule-acme-dwi-production:9100']
+        labels:
+          server_ip: '20.244.43.10'
+          server_name: 'immacule-acme-dwi-production'
 
 #non-prods
   - job_name: 'platform-qa-server'
@@ -319,29 +342,22 @@ scrape_configs:
           server_ip: '34.93.160.186'
           server_name: 'platform-qa-server'          
 
+  - job_name: 'monitoring-server'
+    static_configs:
+      - targets: ['monitoring:9100']
+        labels:
+          server_ip: '34.93.84.0'
+          server_name: 'monitoring-server'
 
+  # Scrape cAdvisor for container metrics
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets:
+          - '40.80.92.34:8000'
+        labels:
+          instance: 'prod-server-cadvisor'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
