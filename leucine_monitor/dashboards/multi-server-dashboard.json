@@ -311,7 +311,7 @@
             "pluginVersion": "7.5.7",
             "targets": [
                 {
-                    "expr": "100 - (avg by(instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+                    "expr": "100 - (avg by(instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[1m])) * 100)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
