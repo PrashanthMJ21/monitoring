@@ -74,13 +74,13 @@ post_silence () {
           -H "$AUTH_HEADER" -H "Content-Type: application/json" -d "$payload")
   body=$(echo "$resp" | sed '$d'); code=$(echo "$resp" | tail -n1)
 
-  if [[ "$code" =~ ^20[01]$ ]]; then
+  if [[ "$code" =~ ^20[0-2]$ ]]; then
     id=$(echo "$body" | jq -r '.id? // .silenceID? // empty')
     [[ -n "$id" ]] && echo "✅ Created silence id: $id" || echo "✅ Silence created"
   else
     echo "❌ Failed ($code): $(echo "$body" | jq -r '.message? // .error? // .status? // . | tostring')"
   fi
-}
+
 
 for f in "${FOLDERS[@]}"; do
   post_silence "$f" "$START1_UTC" "$END1_UTC"
