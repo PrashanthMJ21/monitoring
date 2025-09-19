@@ -930,3 +930,33 @@ alerts:
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+  
+  - uid: "sciegen-production-cpu"
+    name: sciegen_production_
+    title: "sciegen-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="sciegen-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and
+      on(instance) up{job="sciegen-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "35.245.234.63"
+      threshold: "85"
+      title: "sciegen-production CPU-Usage"
+      url: "sciegen.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
