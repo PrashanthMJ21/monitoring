@@ -993,3 +993,36 @@ alerts:
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+
+    
+  - uid: "sciegen-production-disk"
+    name: sciegen_production
+    title: "sciegen-production"
+    folder: "Disk-Usage"
+    group: "Disk"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      (
+        100 * (1 - (
+          sum by(instance) (node_filesystem_free_bytes{device="/dev/root", job="sciegen-production"})
+          /
+          sum by(instance) (node_filesystem_size_bytes{device="/dev/root", job="sciegen-production"})
+        ))
+      )
+      and
+      on(instance) up{job="sciegen-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Disk usage is above the threshold value."
+      server: "35.245.234.63"
+      threshold: "85"
+      title: "sciegen-production Disk-Usage"
+      url: "sciegen.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"    
