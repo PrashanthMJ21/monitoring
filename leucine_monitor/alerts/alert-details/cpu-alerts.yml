@@ -22,7 +22,7 @@ alerts:
       server: "20.40.60.169"
       threshold: "85"
       title: "pharmax-production CPU-Usage"
-      url: "pharmax.cleen.leucine.tech"
+      url: "https://pharmax.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -52,7 +52,7 @@ alerts:
       server: "35.198.230.51"
       threshold: "85"
       title: "aurovitas-production CPU-Usage"
-      url: "aurovitas.cleen.leucine.tech"
+      url: "http://aurovitas.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -82,7 +82,7 @@ alerts:
       server: "40.80.92.34"
       threshold: "85"
       title: "acme-production CPU-Usage"
-      url: "generics.acme.cleen.leucine.tech"
+      url: "https://generics.acme.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -112,7 +112,7 @@ alerts:
       server: "98.70.42.140"
       threshold: "85"
       title: "alkem-production CPU-Usage"
-      url: "alkem.cleen.leucine.tech"
+      url: "https://alkem.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -142,7 +142,7 @@ alerts:
       server: "20.40.56.171"
       threshold: "85"
       title: "aizant-production CPU-Usage"
-      url: "aizant.cleen.leucine.tech"
+      url: "https://aizant.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -172,7 +172,7 @@ alerts:
       server: "20.193.224.204"
       threshold: "85"
       title: "alembic-production CPU-Usage"
-      url: "alembic.cleen.leucine.tech"
+      url: "https://alembic.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -202,7 +202,7 @@ alerts:
       server: "4.240.87.136"
       threshold: "85"
       title: "cipla-production CPU-Usage"
-      url: "cipla.cleen.leucine.tech"
+      url: "https://cipla.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -232,7 +232,7 @@ alerts:
       server: "20.244.95.3"
       threshold: "85"
       title: "biocon-production CPU-Usage"
-      url: "biocon.cleen.leucine.tech"
+      url: "https://biocon.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -262,7 +262,7 @@ alerts:
       server: "13.87.246.226"
       threshold: "85"
       title: "cipla-usa-production CPU-Usage"
-      url: "cipla.usa.cleen.leucine.tech"
+      url: "https://cipla.usa.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -292,7 +292,7 @@ alerts:
       server: "40.81.243.57"
       threshold: "85"
       title: "cronus-production CPU-Usage"
-      url: "cronus.cleen.leucine.tech"
+      url: "https://cronus.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -322,7 +322,7 @@ alerts:
       server: "20.40.60.109"
       threshold: "85"
       title: "mydrreddys-production CPU-usage"
-      url: "mydrreddys.cleen.leucinetech.com"
+      url: "https://mydrreddys.cleen.leucinetech.com"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -352,7 +352,7 @@ alerts:
       server: "20.244.25.217"
       threshold: "85"
       title: "encube-production CPU-Usage"
-      url: "encube.cleen.leucine.tech"
+      url: "https://encube.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -382,7 +382,7 @@ alerts:
       server: "4.240.84.31"
       threshold: "85"
       title: "par-production CPU-Usage"
-      url: "par.cleen.leucine.tech"
+      url: "https://par.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -412,7 +412,7 @@ alerts:
       server: "20.244.42.224"
       threshold: "85"
       title: "eugia-production CPU-Usage"
-      url: "eugia.cleen.leucine.tech"
+      url: "https://eugia.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -442,7 +442,7 @@ alerts:
       server: "20.245.222.129"
       threshold: "85"
       title: "granules-production CPU-Usage"
-      url: "granules.cleen.leucine.tech"
+      url: "https://granules.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -472,7 +472,7 @@ alerts:
       server: "20.40.59.52"
       threshold: "85"
       title: "guardian-production CPU-Usage"
-      url: "guardian.cleen.leucinetech.com"
+      url: "https://guardian.cleen.leucinetech.com"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -502,7 +502,7 @@ alerts:
       server: "20.244.8.45"
       threshold: "85"
       title: "kusum-production CPU-Usage"
-      url: "kusum.cleen.leucine.tech"
+      url: "https://kusum.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -532,7 +532,7 @@ alerts:
       server: "20.244.27.161"
       threshold: "85"
       title: "mlab-production CPU-Usage"
-      url: "mlab.cleen.leucine.tech"
+      url: "https://mlab.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -562,7 +562,7 @@ alerts:
       server: "52.172.231.143"
       threshold: "85"
       title: "msn-production CPU-Usage"
-      url: "msn.cleen.leucine.tech"
+      url: "https://msn.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -592,7 +592,7 @@ alerts:
       server: "40.118.252.13"
       threshold: "85"
       title: "pii-production CPU-Usage"
-      url: "pii.cleen.leucine.tech"
+      url: "https://pii.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -622,7 +622,7 @@ alerts:
       server: "4.240.81.119"
       threshold: "85"
       title: "piramal-production CPU-Usage"
-      url: "piramal.cleen.leucine.tech"
+      url: "https://piramal.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -652,7 +652,7 @@ alerts:
       server: "20.40.57.115"
       threshold: "85"
       title: "stelis-production CPU-Usage"
-      url: "stelis.cleen.leucine.tech"
+      url: "https://stelis.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -682,7 +682,7 @@ alerts:
       server: "98.70.88.64"
       threshold: "85"
       title: "onesource-production CPU-Usage"
-      url: "onesource.cleen.leucine.tech"
+      url: "https://onesource.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -712,7 +712,7 @@ alerts:
       server: "20.244.0.34"
       threshold: "85"
       title: "tenshi-production CPU-Usage"
-      url: "tenshi.cleen.leucine.tech"
+      url: "https://tenshi.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -742,7 +742,7 @@ alerts:
       server: "20.244.9.184"
       threshold: "85"
       title: "teva-production CPU-Usage"
-      url: "teva.cleen.leucine.tech"
+      url: "https://teva.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -772,7 +772,7 @@ alerts:
       server: "40.81.244.238"
       threshold: "85"
       title: "torrentpharma-production CPU-Usage"
-      url: "torrentpharma.cleen.leucine.tech"
+      url: "https://torrentpharma.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -802,7 +802,7 @@ alerts:
       server: "40.81.241.106"
       threshold: "85"
       title: "troikaa-production CPU-Usage"
-      url: "troikaa.cleen.leucine.tech"
+      url: "https://troikaa.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -832,13 +832,44 @@ alerts:
       server: "20.244.44.109"
       threshold: "85"
       title: "zyduscv-production CPU-Usage"
-      url: "zyduscv.cleen.leucine.tech"
+      url: "https://zyduscv.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+
+  - uid: "sciegen-production-cpu"
+    name: sciegen_production_
+    title: "sciegen-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="sciegen-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and
+      on(instance) up{job="sciegen-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "35.245.234.63"
+      threshold: "85"
+      title: "sciegen-production CPU-Usage"
+      url: "https://sciegen.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
 
 #platform-productions
   - uid: "amneal-dwi-production-cpu"
@@ -863,7 +894,7 @@ alerts:
       server: "4.240.94.210"
       threshold: "85"
       title: "amneal-dwi-production CPU-Usage"
-      url: "amneal.platform.leucine.tech"
+      url: "https://amneal.platform.leucine.tech"
     labels:
       env: "platform"
     contact_point: "Node-alerts"
@@ -893,7 +924,7 @@ alerts:
       server: "98.70.15.31"
       threshold: "85"
       title: "tenshi-dwi-production CPU-Usage"
-      url: "tenshi.platform.leucine.tech"
+      url: "https://tenshi.platform.leucine.tech"
     labels:
       env: "platform"
     contact_point: "Node-alerts"
@@ -923,17 +954,17 @@ alerts:
       server: "4.186.63.1"
       threshold: "85"
       title: "zydus-dwi-production CPU-Usage"
-      url: "zydus.cleen.leucine.tech"
+      url: "https://zydus.cleen.leucine.tech"
     labels:
-      env: "cleen"
+      env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
   
-  - uid: "sciegen-production-cpu"
-    name: sciegen_production_
-    title: "sciegen-production"
+  - uid: "stelis-dwi-production-cpu"
+    name: stelis_dwi_production
+    title: "stelis-dwi-production"
     folder: "CPU-Usage"
     group: "CPU"
     condition: "C"
@@ -941,21 +972,51 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          rate(node_cpu_seconds_total{job="sciegen-production", mode="idle"}[1m])
+          rate(node_cpu_seconds_total{job="stelis-dwi-production", mode="idle"}[1m])
         ) * 100
       )
       and
-      on(instance) up{job="sciegen-production"} == 1
+      on(instance) up{job="stelis-dwi-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The CPU usage is above the threshold value."
-      server: "35.245.234.63"
+      server: "57.159.16.15"
       threshold: "85"
-      title: "sciegen-production CPU-Usage"
-      url: "sciegen.cleen.leucine.tech"
+      title: "stelis-dwi-production CPU-Usage"
+      url: "https://stelis.cleen.leucine.tech"
     labels:
-      env: "cleen"
+      env: "platform"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "immacule-acme-dwi-production-cpu"
+    name: immacule_acme_dwi_production
+    title: "immacule-acme-dwi-production"
+    folder: "CPU-Usage"
+    group: "CPU"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          rate(node_cpu_seconds_total{job="immacule-acme-dwi-production", mode="idle"}[1m])
+        ) * 100
+      )
+      and
+      on(instance) up{job="immacule-acme-dwi-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The CPU usage is above the threshold value."
+      server: "20.244.43.10"
+      threshold: "85"
+      title: "immacule-acme-dwi-production CPU-Usage"
+      url: "https://acmegenerics.leucine.tech"
+    labels:
+      env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
