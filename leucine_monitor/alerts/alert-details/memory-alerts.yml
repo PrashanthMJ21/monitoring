@@ -24,7 +24,7 @@ alerts:
       server: "20.40.60.169"
       threshold: "85"
       title: "pharmax-production Memory-Usage"
-      url: "pharmax.cleen.leucine.tech"
+      url: "http://pharmax.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -56,7 +56,7 @@ alerts:
       server: "35.198.230.51"
       threshold: "85"
       title: "aurovitas-production Memory-Usage"
-      url: "aurovitas.cleen.leucine.tech"
+      url: "http://aurovitas.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -88,7 +88,7 @@ alerts:
       server: "40.80.92.34"
       threshold: "85"
       title: "acme-production Memory-Usage"
-      url: "generics.acme.cleen.leucine.tech"
+      url: "http://generics.acme.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -120,7 +120,7 @@ alerts:
       server: "98.70.42.140"
       threshold: "85"
       title: "alkem-production Memory-Usage"
-      url: "alkem.cleen.leucine.tech"
+      url: "http://alkem.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -152,7 +152,7 @@ alerts:
       server: "20.40.56.171"
       threshold: "85"
       title: "aizant-production Memory-Usage"
-      url: "aizant.cleen.leucine.tech"
+      url: "http://aizant.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -184,7 +184,7 @@ alerts:
       server: "20.193.224.204"
       threshold: "85"
       title: "alembic-production Memory-Usage"
-      url: "alembic.cleen.leucine.tech"
+      url: "http://alembic.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -216,7 +216,7 @@ alerts:
       server: "4.240.87.136"
       threshold: "85"
       title: "cipla-production Memory-Usage"
-      url: "cipla.cleen.leucine.tech"
+      url: "http://cipla.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -248,7 +248,7 @@ alerts:
       server: "20.244.95.3"
       threshold: "85"
       title: "biocon-production Memory-Usage"
-      url: "biocon.cleen.leucine.tech"
+      url: "http://biocon.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -280,7 +280,7 @@ alerts:
       server: "13.87.246.226"
       threshold: "85"
       title: "cipla-usa-production Memory-Usage"
-      url: "cipla.usa.cleen.leucine.tech"
+      url: "http://cipla.usa.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -312,7 +312,7 @@ alerts:
       server: "40.81.243.57"
       threshold: "85"
       title: "cronus-production Memory-Usage"
-      url: "cronus.cleen.leucine.tech"
+      url: "http://cronus.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -344,7 +344,7 @@ alerts:
       server: "20.40.60.109"
       threshold: "85"
       title: "mydrreddys-production Memory-Usage"
-      url: "mydrreddys.cleen.leucinetech.com"
+      url: "http://mydrreddys.cleen.leucinetech.com"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -376,7 +376,7 @@ alerts:
       server: "20.244.25.217"
       threshold: "85"
       title: "encube-production Memory-Usage"
-      url: "encube.cleen.leucine.tech"
+      url: "http://encube.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -408,7 +408,7 @@ alerts:
       server: "4.240.84.31"
       threshold: "85"
       title: "par-production Memory-Usage"
-      url: "par.cleen.leucine.tech"
+      url: "http://par.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -440,7 +440,7 @@ alerts:
       server: "20.244.42.224"
       threshold: "85"
       title: "eugia-production Memory-Usage"
-      url: "eugia.cleen.leucine.tech"
+      url: "http://eugia.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -472,7 +472,7 @@ alerts:
       server: "20.245.222.129"
       threshold: "85"
       title: "granules-production Memory-Usage"
-      url: "granules.cleen.leucine.tech"
+      url: "http://granules.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -504,7 +504,7 @@ alerts:
       server: "20.40.59.52"
       threshold: "85"
       title: "guardian-production Memory-Usage"
-      url: "guardian.cleen.leucinetech.com"
+      url: "http://guardian.cleen.leucinetech.com"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -536,7 +536,7 @@ alerts:
       server: "20.244.8.45"
       threshold: "85"
       title: "kusum-production Memory-Usage"
-      url: "kusum.cleen.leucine.tech"
+      url: "http://kusum.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -568,7 +568,7 @@ alerts:
       server: "20.244.27.161"
       threshold: "85"
       title: "mlab-production Memory-Usage"
-      url: "mlab.cleen.leucine.tech"
+      url: "http://mlab.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -600,7 +600,7 @@ alerts:
       server: "52.172.231.143"
       threshold: "85"
       title: "msn-production Memory-Usage"
-      url: "msn.cleen.leucine.tech"
+      url: "http://msn.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -632,7 +632,7 @@ alerts:
       server: "40.118.252.13"
       threshold: "85"
       title: "pii-production Memory-Usage"
-      url: "pii.cleen.leucine.tech"
+      url: "http://pii.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -664,7 +664,7 @@ alerts:
       server: "4.240.81.119"
       threshold: "85"
       title: "piramal-production Memory-Usage"
-      url: "piramal.cleen.leucine.tech"
+      url: "http://piramal.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -696,7 +696,7 @@ alerts:
       server: "20.40.57.115"
       threshold: "85"
       title: "stelis-production Memory-Usage"
-      url: "stelis.cleen.leucine.tech"
+      url: "http://stelis.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -728,7 +728,7 @@ alerts:
       server: "98.70.88.64"
       threshold: "85"
       title: "onesource-production Memory-Usage"
-      url: "onesource.cleen.leucine.tech"
+      url: "http://onesource.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -760,7 +760,7 @@ alerts:
       server: "20.244.0.34"
       threshold: "85"
       title: "tenshi-production Memory-Usage"
-      url: "tenshi.cleen.leucine.tech"
+      url: "http://tenshi.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -792,7 +792,7 @@ alerts:
       server: "20.244.9.184"
       threshold: "85"
       title: "teva-production Memory-Usage"
-      url: "teva.cleen.leucine.tech"
+      url: "http://teva.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -824,7 +824,7 @@ alerts:
       server: "40.81.244.238"
       threshold: "85"
       title: "torrentpharma-production Memory-Usage"
-      url: "torrentpharma.cleen.leucine.tech"
+      url: "http://torrentpharma.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -856,7 +856,7 @@ alerts:
       server: "40.81.241.106"
       threshold: "85"
       title: "troikaa-production Memory-Usage"
-      url: "troikaa.cleen.leucine.tech"
+      url: "http://troikaa.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
@@ -888,13 +888,46 @@ alerts:
       server: "20.244.44.109"
       threshold: "85"
       title: "zyduscv-production Memory-Usage"
-      url: "zyduscv.cleen.leucine.tech"
+      url: "http://zyduscv.cleen.leucine.tech"
     labels:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+
+  - uid: "sciegen-production-memory"
+    name: sciegen_production
+    title: "sciegen-production"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="sciegen-production"}
+          /
+          node_memory_MemTotal_bytes{job="sciegen-production"}
+        ) * 100
+      )
+      and
+      on(instance) up{job="sciegen-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "35.245.234.63"
+      threshold: "85"
+      title: "sciegen-production Memory-Usage"
+      url: "http://sciegen.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
 
 #platform-prods
   - uid: "amneal-dwi-production-memory"
@@ -921,7 +954,7 @@ alerts:
       server: "4.240.94.210"
       threshold: "85"
       title: "amneal-dwi-production Memory-Usage"
-      url: "amneal.platform.leucine.tech"
+      url: "http://amneal.platform.leucine.tech"
     labels:
       env: "platform"
     contact_point: "Node-alerts"
@@ -953,7 +986,7 @@ alerts:
       server: "98.70.15.31"
       threshold: "85"
       title: "tenshi-dwi-production Memory-Usage"
-      url: "tenshi.platform.leucine.tech"
+      url: "http://tenshi.platform.leucine.tech"
     labels:
       env: "platform"
     contact_point: "Node-alerts"
@@ -985,17 +1018,17 @@ alerts:
       server: "4.186.63.1"
       threshold: "85"
       title: "zydus-dwi-production Memory-Usage"
-      url: "zydus.cleen.leucine.tech"
+      url: "http://zydus.cleen.leucine.tech"
     labels:
-      env: "cleen"
+      env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
   
-  - uid: "sciegen-production-memory"
-    name: sciegen_production
-    title: "sciegen-production"
+  - uid: "stelis-dwi-production-memory"
+    name: stelis_dwi_production
+    title: "stelis-dwi-production"
     folder: "Memory-Usage"
     group: "Memory"
     condition: "C"
@@ -1003,23 +1036,55 @@ alerts:
     expr: >
       100 - (
         avg by(instance) (
-          node_memory_MemAvailable_bytes{job="sciegen-production"}
-          /
-          node_memory_MemTotal_bytes{job="sciegen-production"}
+          node_memory_MemAvailable_bytes{job="stelis-dwi-production"} 
+          / 
+          node_memory_MemTotal_bytes{job="stelis-dwi-production"}
         ) * 100
       )
-      and
-      on(instance) up{job="sciegen-production"} == 1
+      and 
+      on(instance) up{job="stelis-dwi-production"} == 1
     threshold: 85
     recovery_threshold: 84
     annotations:
       summary: "The Memory usage is above the threshold value."
-      server: "35.245.234.63"
+      server: "57.159.16.15"
       threshold: "85"
-      title: "sciegen-production Memory-Usage"
-      url: "sciegen.cleen.leucine.tech"
+      title: "stelis-dwi-production Memory-Usage"
+      url: "http://stelis.cleen.leucine.tech"
     labels:
-      env: "cleen"
+      env: "platform"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
+
+  - uid: "immacule-acme-dwi-production-memory"
+    name: immacule_acme_dwi_production
+    title: "immacule-acme-dwi-production"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="immacule-acme-dwi-production"} 
+          / 
+          node_memory_MemTotal_bytes{job="immacule-acme-dwi-production"}
+        ) * 100
+      )
+      and 
+      on(instance) up{job="immacule-acme-dwi-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "57.159.16.15"
+      threshold: "85"
+      title: "immacule-acme-dwi-production Memory-Usage"
+      url: "https://acmegenerics.leucine.tech"
+    labels:
+      env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
     no_data_state: "NoData"
