@@ -35,3 +35,9 @@ templates:
       {{ end }}
 
       {{ end }}
+
+  - name: title
+    template: |
+      {{ define "title" }}
+      {{ if eq .Status "firing" }}🚨 {{ .CommonAnnotations.title }} Alert{{ else }}✅ {{ .CommonAnnotations.title }} Resolved{{ end }}
+      {{ end }}
