@@ -992,3 +992,35 @@ alerts:
     pending: "1m"
     no_data_state: "NoData"
     exec_err_state: "Error"
+  
+  - uid: "sciegen-production-memory"
+    name: sciegen_production
+    title: "sciegen-production"
+    folder: "Memory-Usage"
+    group: "Memory"
+    condition: "C"
+    datasource_uid: "prometheus_uid_here"
+    expr: >
+      100 - (
+        avg by(instance) (
+          node_memory_MemAvailable_bytes{job="sciegen-production"}
+          /
+          node_memory_MemTotal_bytes{job="sciegen-production"}
+        ) * 100
+      )
+      and
+      on(instance) up{job="sciegen-production"} == 1
+    threshold: 85
+    recovery_threshold: 84
+    annotations:
+      summary: "The Memory usage is above the threshold value."
+      server: "35.245.234.63"
+      threshold: "85"
+      title: "sciegen-production Memory-Usage"
+      url: "sciegen.cleen.leucine.tech"
+    labels:
+      env: "cleen"
+    contact_point: "Node-alerts"
+    pending: "1m"
+    no_data_state: "NoData"
+    exec_err_state: "Error"
