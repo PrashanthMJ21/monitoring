@@ -5,7 +5,7 @@ contactPoints:
     isDefault: false
     disableResolveMessage: false
     settings:
-      url: "https://hooks.slack.com/services/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"
+      url: "https://hooks.slack.com/services/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"
       recipient: "#devops-alerts"
       title: '{{ template "title" . }}'
       text: '{{ template "alerts" . }}'
@@ -16,7 +16,7 @@ contactPoints:
     isDefault: false
     disableResolveMessage: false
     settings:
-      url: "https://hooks.slack.com/services/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"
+      url: "https://hooks.slack.com/services/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"
       recipient: "#devops-alerts"
       title: '{{ template "title" . }}'
       text: '{{ template "blackbox" . }}'
