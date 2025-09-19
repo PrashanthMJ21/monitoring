@@ -105,22 +105,18 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
     existing_uid=$(echo "$existing_alerts" | jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
 
     if [ -n "$existing_uid" ]; then
-      method="PUT"
-      url="$GRAFANA_URL/api/v1/provisioning/alert-rules/$existing_uid"
-    else
-      method="POST"
-      url="$GRAFANA_URL/api/v1/provisioning/alert-rules"
+      echo "⏩ Skipping already existing alert: $title ($uid)"
+      continue   # don't update, don't fail
     fi
 
-    # Push the alert
+    # Push only if new
     response=$(curl -s -w "%{http_code}" -o /dev/null \
-      -X "$method" "$url" \
+      -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
       -H "Authorization: $API_KEY" \
       -H "Content-Type: application/json" \
       -H "X-Disable-Provenance: true" \
       -d "$payload")
 
-    # Track failures
     if [[ "$response" != "200" && "$response" != "201" ]]; then
       mkdir -p ./alerts/failed_payloads
       echo "$payload" > "./alerts/failed_payloads/${uid:-$i}.json"
@@ -138,7 +134,6 @@ for folder in $(printf "%s\n" "${!failed_alerts_by_folder[@]}" | sort); do
   echo "✅ Remaining $folder alerts pushed successfully."
 done
 
-# Any folders without failures
 for YAML_FILE in "$ALERTS_DIR"/*.yml; do
   folders=$(yq e '.alerts[].folder' "$YAML_FILE" | sort -u)
   for folder in $folders; do
