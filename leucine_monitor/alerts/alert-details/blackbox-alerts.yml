@@ -42,7 +42,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -65,7 +65,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -88,7 +88,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -111,7 +111,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -134,7 +134,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -157,7 +157,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -180,7 +180,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -203,7 +203,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "0s"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -226,7 +226,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -249,7 +249,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -272,7 +272,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -295,7 +295,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -318,7 +318,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -341,7 +341,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -364,7 +364,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -387,7 +387,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -410,7 +410,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -433,7 +433,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -456,7 +456,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -479,7 +479,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -502,7 +502,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -525,7 +525,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -549,7 +549,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -572,7 +572,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -595,7 +595,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -618,7 +618,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -641,7 +641,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -664,7 +664,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -687,7 +687,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -710,7 +710,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -733,7 +733,7 @@ alerts:
   labels:
     env: "cleen"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -779,7 +779,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -802,7 +802,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -825,7 +825,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -848,7 +848,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -871,7 +871,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -894,7 +894,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -917,7 +917,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -940,7 +940,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -963,7 +963,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -986,7 +986,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -1009,7 +1009,7 @@ alerts:
   labels:
     env: "platform"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
@@ -1033,7 +1033,7 @@ alerts:
   labels:
     env: "yuvi"
   contact_point: "Blackbox-alerts"
-  pending: "1m"
+  pending: "30s"
   no_data_state: "OK"
   exec_err_state: "Error"
 
