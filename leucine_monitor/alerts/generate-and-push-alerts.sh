@@ -101,21 +101,32 @@ for YAML_FILE in "$ALERTS_DIR"/*.yml; do
       | (if $alert.uid != null then .uid = $alert.uid else del(.uid) end)
     ')
 
-    # Check if alert already exists
+    # ✅ Create or Update logic
     existing_uid=$(echo "$existing_alerts" | jq -r --arg title "$title" '.[] | select(.title == $title) | .uid')
 
-    if [ -n "$existing_uid" ]; then
-      echo "⏩ Skipping already existing alert: $title ($uid)"
-      continue   # don't update, don't fail
-    fi
+# Check if alert already exists
+existing_uid=$(echo "$existing_alerts" | jq -r --arg uid "$uid" '.[] | select(.uid == $uid) | .uid')
 
-    # Push only if new
-    response=$(curl -s -w "%{http_code}" -o /dev/null \
-      -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
-      -H "Authorization: $API_KEY" \
-      -H "Content-Type: application/json" \
-      -H "X-Disable-Provenance: true" \
-      -d "$payload")
+if [ -n "$existing_uid" ]; then
+  echo "🔄 Updating existing alert: $title ($existing_uid)"
+  # Force the UID in payload to match Grafana's existing UID
+  payload=$(echo "$payload" | jq --arg uid "$existing_uid" '.uid = $uid')
+  response=$(curl -s -w "%{http_code}" -o ./alerts/failed_payloads/${existing_uid}.response.json \
+    -X PUT "$GRAFANA_URL/api/v1/provisioning/alert-rules/$existing_uid" \
+    -H "Authorization: $API_KEY" \
+    -H "Content-Type: application/json" \
+    -H "X-Disable-Provenance: true" \
+    -d "$payload")
+else
+  echo "➕ Creating new alert: $title ($uid)"
+  response=$(curl -s -w "%{http_code}" -o ./alerts/failed_payloads/${uid:-$i}.response.json \
+    -X POST "$GRAFANA_URL/api/v1/provisioning/alert-rules" \
+    -H "Authorization: $API_KEY" \
+    -H "Content-Type: application/json" \
+    -H "X-Disable-Provenance: true" \
+    -d "$payload")
+fi
+
 
     if [[ "$response" != "200" && "$response" != "201" ]]; then
       mkdir -p ./alerts/failed_payloads
