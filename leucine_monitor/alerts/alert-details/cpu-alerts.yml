@@ -27,7 +27,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "aurovitas-production-cpu"
@@ -57,7 +57,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "acme-production-cpu"
@@ -87,7 +87,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "alkem-production-cpu"
@@ -117,7 +117,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "aizant-production-cpu"
@@ -147,7 +147,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "alembic-production-cpu"
@@ -177,7 +177,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "cipla-production-cpu"
@@ -207,7 +207,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "biocon-production-cpu"
@@ -237,7 +237,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "cipla-usa-production-cpu"
@@ -267,7 +267,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "cronus-production-cpu"
@@ -297,7 +297,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "mydrreddys-production-cpu"
@@ -327,7 +327,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "encube-production-cpu"
@@ -357,7 +357,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "par-production-cpu"
@@ -387,7 +387,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "eugia-production-cpu"
@@ -417,7 +417,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "granules-production-cpu"
@@ -447,7 +447,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "guardian-production-cpu"
@@ -477,7 +477,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "kusum-production-cpu"
@@ -507,7 +507,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "mlab-production-cpu"
@@ -537,7 +537,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "msn-production-cpu"
@@ -567,7 +567,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "pii-production-cpu"
@@ -597,7 +597,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "piramal-production-cpu"
@@ -627,7 +627,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "stelis-production-cpu"
@@ -657,7 +657,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "onesource-production-cpu"
@@ -687,7 +687,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "tenshi-production-cpu"
@@ -717,7 +717,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "teva-production-cpu"
@@ -747,7 +747,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "torrentpharma-production-cpu"
@@ -777,7 +777,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "troikaa-production-cpu"
@@ -807,7 +807,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "zyduscv-production-cpu"
@@ -837,7 +837,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "sciegen-production-cpu"
@@ -867,7 +867,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
 
@@ -899,7 +899,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "tenshi-dwi-production-cpu"
@@ -929,7 +929,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "zydus-dwi-production-cpu"
@@ -959,7 +959,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
   
   - uid: "stelis-dwi-production-cpu"
@@ -989,7 +989,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "immacule-acme-dwi-production-cpu"
@@ -1019,5 +1019,5 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
