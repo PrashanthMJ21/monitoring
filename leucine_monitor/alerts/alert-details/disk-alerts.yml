@@ -29,7 +29,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "aurovitas-production-disk"
@@ -61,7 +61,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "acme-production-disk"
@@ -93,7 +93,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "alkem-production-disk"
@@ -125,7 +125,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "aizant-production-disk"
@@ -157,7 +157,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "alembic-production-disk"
@@ -189,7 +189,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "cipla-production-disk"
@@ -221,7 +221,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "biocon-production-disk"
@@ -253,7 +253,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
     
   - uid: "cipla-usa-production-disk"
@@ -285,7 +285,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "cronus-production-disk"
@@ -317,7 +317,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "mydrreddys-production-disk"
@@ -349,7 +349,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "encube-production-disk"
@@ -381,7 +381,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "par-production-disk"
@@ -413,7 +413,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "eugia-production-disk"
@@ -445,7 +445,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "granules-production-disk"
@@ -477,7 +477,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "guardian-production-disk"
@@ -509,7 +509,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "kusum-production-disk"
@@ -541,7 +541,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "mlab-production-disk"
@@ -573,7 +573,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "msn-production-disk"
@@ -605,7 +605,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "pii-production-disk"
@@ -637,7 +637,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "piramal-production-disk"
@@ -669,7 +669,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "stelis-production-disk"
@@ -701,7 +701,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "onesource-production-disk"
@@ -733,7 +733,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
 
@@ -766,7 +766,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "teva-production-disk"
@@ -798,7 +798,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "torrentpharma-production-disk"
@@ -830,7 +830,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "troikaa-production-disk"
@@ -862,7 +862,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "zyduscv-production-disk"
@@ -894,7 +894,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "sciegen-production-disk"
@@ -926,7 +926,7 @@ alerts:
       env: "cleen"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
 
@@ -960,7 +960,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "tenshi-dwi-production-disk"
@@ -992,7 +992,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "zydus-dwi-production-disk"
@@ -1024,7 +1024,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "stelis-dwi-production-disk"
@@ -1056,7 +1056,7 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
 
   - uid: "immacule-acme-dwi-production-disk"
@@ -1088,5 +1088,5 @@ alerts:
       env: "platform"
     contact_point: "Node-alerts"
     pending: "1m"
-    no_data_state: "NoData"
+    no_data_state: "OK"
     exec_err_state: "Error"
