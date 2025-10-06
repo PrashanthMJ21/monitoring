@@ -1037,6 +1037,117 @@ alerts:
   no_data_state: "OK"
   exec_err_state: "Error"
 
+- uid: "amneal-yuvi-production"
+  name: amneal_yuvi_production
+  title: "amneal-yuvi-production"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://amneal.leucine.ai"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "amneal-yuvi-production"
+    url: "https://amneal.leucine.ai"
+  labels:
+    env: "yuvi"
+  contact_point: "Blackbox-alerts"
+  pending: "30s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
 
+- uid: "app-ocr-production"
+  name: app_ocr_production
+  title: "app-ocr-production"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://app.ocr.demo.leucinetech.com"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "app-ocr-production"
+    url: "https://app.ocr.demo.leucinetech.com"
+  labels:
+    env: "ocr"
+  contact_point: "Blackbox-alerts"
+  pending: "30s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
 
+- uid: "app-fdatracker-production"
+  name: app_fdatracker_production
+  title: "app-fdatracker-production"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://app.fdatracker.ai/"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "app-fdatracker-production"
+    url: "https://app.fdatracker.ai/"
+  labels:
+    env: "fdatracker"
+  contact_point: "Blackbox-alerts"
+  pending: "30s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
 
+- uid: "report-valent-dwi-osipi"
+  name: report_valent_dwi_osipi
+  title: "report-valent-dwi-osipi"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://report.valent.platform.leucine.tech/osipi/login"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "report-valent-dwi-osipi"
+    url: "https://report.valent.platform.leucine.tech/osipi/login"
+  labels:
+    env: "osipi"
+  contact_point: "Blackbox-alerts"
+  pending: "30s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
+
+- uid: "report-valent-dwi"
+  name: report_valent_dwi
+  title: "report-valent-dwi"
+  folder: "Blackbox"
+  group: "Probes"
+  condition: "C"
+  datasource_uid: "prometheus_uid_here"
+  expr: >
+    probe_success{instance="https://report.valent.platform.leucine.tech/index.jsp"} == 0
+  threshold: 0
+  recovery_threshold:
+  evaluator:
+    type: "eq"
+  annotations:
+    title: "report-valent-dwi"
+    url: "https://report.valent.platform.leucine.tech/index.jsp"
+  labels:
+    env: "valent"
+  contact_point: "Blackbox-alerts"
+  pending: "30s"
+  no_data_state: "OK"
+  exec_err_state: "Error"
